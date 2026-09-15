@@ -1,0 +1,21 @@
+/* C++ Syntax Highlighting for VEXcode V5 Docs */
+
+pre code.language-cpp, pre.highlight-cpp {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #24292e;
+}
+
+.token.comment { color: #6a737d; font-style: italic; }
+.token.keyword { color: #d73a49; font-weight: 600; }
+.token.type { color: #6f42c1; font-weight: 600; }
+.token.class-name { color: #6f42c1; }
+.token.function { color: #005cc5; }
+.token.string { color: #032f62; }
+.token.number { color: #005cc5; }
+.token.boolean { color: #d73a49; font-weight: 600; }
+.token.operator { color: #d73a49; }
+.token.punctuation { color: #586069; }
+.token.namespace { color: #e36209; }
+.token.constant { color: #005cc5; }

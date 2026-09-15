@@ -1,0 +1,11 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 70" width="260" height="70">
+  <g transform="translate(10, 8)">
+    <polygon points="36,2 68,16 68,38 36,54 4,38 4,16" fill="none" stroke="#222222" stroke-width="4" stroke-linejoin="round"/>
+    <polygon points="36,10 58,20 58,35 36,46 14,35 14,20" fill="#222222"/>
+    <path d="M22,23 L36,40 L50,23 L44,23 L36,33 L28,23 Z" fill="#E6B85C"/>
+    <circle cx="36" cy="18" r="3" fill="#E6B85C"/>
+  </g>
+  <text x="88" y="38" font-family="'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="26" letter-spacing="3" fill="#222222">VEXCODE</text>
+  <text x="90" y="54" font-family="'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="10.5" letter-spacing="4" fill="#383428">V5 C++ API</text>
+  <line x1="89" y1="43" x2="242" y2="43" stroke="#B89349" stroke-width="1.5" stroke-opacity="0.6"/>
+</svg>

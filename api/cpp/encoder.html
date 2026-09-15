@@ -1,0 +1,488 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encoder C++ API &mdash; VEXcode V5 C++ documentation</title>
+  <link rel="stylesheet" href="../../assets/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/pros_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/pros_modern.css" type="text/css" />
+</head>
+<body class="wy-body-for-nav" role="document">
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          <a href="../../index.html" class="icon icon-home"> VEXcode V5 C++
+            <img src="../../assets/img/logo.svg" class="logo" alt="Logo" />
+          </a>
+          <div class="version">
+            vexcode v5 c++ api
+          </div>
+          <div role="search">
+            <form id="rtd-search-form" class="wy-form" action="#" onsubmit="return false;">
+              <input type="text" name="q" id="search-query-input" class="search-input" placeholder="Search docs" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+          </div>
+        </div>
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">          <p class="caption"><span class="caption-text">Getting Started</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="../../index.html">Documentation Home</a></li>            <li class="toctree-l1"><a class="reference internal" href="index.html">API Overview</a></li>          </ul>          <p class="caption"><span class="caption-text">Actuators & Motors</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="motor.html">Motor (11W)</a></li>            <li class="toctree-l1"><a class="reference internal" href="motor55.html">Motor 5.5W</a></li>            <li class="toctree-l1"><a class="reference internal" href="motorgroup.html">Motor Group</a></li>            <li class="toctree-l1"><a class="reference internal" href="pneumatics.html">Pneumatics</a></li>          </ul>          <p class="caption"><span class="caption-text">Drivetrain</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="drivetrain.html">Drivetrain</a></li>            <li class="toctree-l1"><a class="reference internal" href="smartdrive.html">SmartDrive</a></li>          </ul>          <p class="caption"><span class="caption-text">Brain & Controller</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="brain.html">Brain</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_screen.html">Brain Screen</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_battery.html">Brain Battery</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_sdcard.html">Brain SD Card</a></li>            <li class="toctree-l1"><a class="reference internal" href="timer.html">Timer</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller.html">Controller</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_axis.html">Controller Axis</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_button.html">Controller Button</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_screen.html">Controller Screen</a></li>          </ul>          <p class="caption"><span class="caption-text">Smart Sensors</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="inertial.html">Inertial Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="optical.html">Optical Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="distance.html">Distance Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="rotation.html">Rotation Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="gps.html">GPS Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="aivision.html">AI Vision Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="vision.html">Vision Sensor</a></li>          </ul>          <p class="caption"><span class="caption-text">3-Wire (ADI) Sensors</span></p>
+          <ul class="current">            <li class="toctree-l1"><a class="reference internal" href="triport.html">TriPort (ADI)</a></li>            <li class="toctree-l1"><a class="reference internal" href="bumper.html">Bumper Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="limit.html">Limit Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="line.html">Line Tracker</a></li>            <li class="toctree-l1 current"><a class="reference internal current" href="#">Encoder</a>              <ul>                <li class="toctree-l2"><a class="reference internal" href="#constructor-s-">Constructor(s)</a></li>                <li class="toctree-l2"><a class="reference internal" href="#movement-functions">Movement Functions</a></li>                <li class="toctree-l2"><a class="reference internal" href="#telemetry-functions">Telemetry Functions</a></li>                <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a></li>              </ul>            </li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer.html">Potentiometer</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer_v2.html">Potentiometer V2</a></li>          </ul>          <p class="caption"><span class="caption-text">System & Utilities</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="competition.html">Competition</a></li>            <li class="toctree-l1"><a class="reference internal" href="thread.html">Thread & Task</a></li>            <li class="toctree-l1"><a class="reference internal" href="event.html">Event</a></li>          </ul>          <p class="caption"><span class="caption-text">Reference</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="color.html">Color</a></li>            <li class="toctree-l1"><a class="reference internal" href="enums.html">Enumerated Types & Units</a></li>          </ul>        </div>
+      </div>
+    </nav>
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">VEXcode V5 C++</a>
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content">
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">    <li><a href="../../index.html">Docs</a> &raquo;</li>    <li><a href="../../api/cpp/index.html">API Home</a> &raquo;</li>
+    <li>3-Wire (ADI) Sensors &raquo;</li>
+    <li>Encoder C++ API</li>    <li class="wy-breadcrumbs-aside">
+      <a href="https://api.vex.com/v5/home/cpp/index.html" class="fa fa-external-link" target="_blank" rel="noopener"> Official VEX API</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div itemprop="articleBody">
+              <div class="section" id="encoder-c-api">
+                <h1>Encoder C++ API<a class="headerlink" href="#encoder-c-api" title="Permalink to this headline"></a></h1>
+                <div class="admonition note">
+                  <p class="first admonition-title">Hardware Specification</p>
+                  <p class="last">
+                    <strong>Class:</strong> <code>vex::encoder</code> &nbsp;|&nbsp;
+                    <strong>Port:</strong> 3-Wire Ports (Pairs) &nbsp;|&nbsp;
+                    <strong>Competition Status:</strong> V5RC Legal Hardware &nbsp;|&nbsp;
+                    <strong>Header:</strong> <code>#include "vex.h"</code>
+                  </p>
+                </div>
+
+                <div class="contents local topic" id="contents">
+  <ul class="simple">
+    <li><a class="reference internal" href="#functions" id="toc-functions">Functions</a>
+      <ul>        <li><a class="reference internal" href="#constructor-s-" id="toc-constructor-s-">Constructor(s)</a>
+          <ul>            <li><a class="reference internal" href="#initializing-the-encoder-class" id="toc-initializing-the-encoder-class">Initializing the encoder Class</a></li>          </ul>
+        </li>        <li><a class="reference internal" href="#movement-functions" id="toc-movement-functions">Movement Functions</a>
+          <ul>            <li><a class="reference internal" href="#setrotation" id="toc-setrotation">setRotation()</a></li>            <li><a class="reference internal" href="#setposition" id="toc-setposition">setPosition()</a></li>          </ul>
+        </li>        <li><a class="reference internal" href="#telemetry-functions" id="toc-telemetry-functions">Telemetry Functions</a>
+          <ul>            <li><a class="reference internal" href="#rotation" id="toc-rotation">rotation()</a></li>            <li><a class="reference internal" href="#position" id="toc-position">position()</a></li>            <li><a class="reference internal" href="#velocity" id="toc-velocity">velocity()</a></li>          </ul>
+        </li>        <li><a class="reference internal" href="#functions" id="toc-functions">Functions</a>
+          <ul>            <li><a class="reference internal" href="#changed" id="toc-changed">changed()</a></li>          </ul>
+        </li>      </ul>
+    </li>
+  </ul>
+</div>
+
+                <div class="section" id="functions">
+                  <h2><a class="toc-backref" href="#toc-functions">Functions</a><a class="headerlink" href="#functions" title="Permalink to this headline"></a></h2>
+                  <div class="section" id="constructor-s-">
+  <h3><a class="toc-backref" href="#toc-constructor-s-">Constructor(s)</a><a class="headerlink" href="#constructor-s-" title="Permalink to this headline"></a></h3>  <div class="section" id="initializing-the-encoder-class">
+    <h4><a class="toc-backref" href="#toc-initializing-the-encoder-class">Initializing the encoder Class</a><a class="headerlink" href="#initializing-the-encoder-class" title="Permalink to this headline"></a></h4>
+    <p>An Encoder Sensor is created by using the following constructor:</p>
+<p>The <code>encoder</code> constructor creates an encoder object in the specified Three Wire Port:</p>
+<p>A <a class="reference external" href="http://web.archive.org/web/20250922013955/https://api.vex.com/v5/home/cpp/Brain/index.html">Brain</a> or <a class="reference external" href="triport.html">3-Wire Expander</a> must be created first before they can be used to create an object with the Encoder Class constructor.</p>
+<p>This <code>Encoder</code> object will be used in all subsequent examples throughout this API documentation when referring to encoder class methods.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-1-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-1-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-1-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="nc">vex</span><span class="o">::</span><span class="nc">encoder</span><span class="p">(</span> <span class="k">int32_t</span> <span class="n">port</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-1-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Create the Brain.</span>
+<span class="nc">brain</span> <span class="nc">Brain</span><span class="p">;</span>
+<span class="c1">// Construct an Encoder Sensor &quot;Encoder&quot; with the</span>
+<span class="c1">// encoder class.</span>
+<span class="nc">encoder</span> <span class="nc">Encoder</span> <span class="o">=</span> <span class="nc">encoder</span><span class="p">(</span><span class="nc">Brain</span><span class="o">.</span><span class="n">ThreeWirePort</span><span class="o">.</span><span class="n">A</span><span class="p">)</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td><code>port</code></td>
+<td>The 3-Wire Port â€œpairâ€ that the Encoder Sensor is connected to, whether itâ€™s a port on the <a class="reference external" href="http://web.archive.org/web/20250922013955/https://api.vex.com/v5/home/cpp/Brain/index.html">Brain</a>, or a <a class="reference external" href="triport.html">3-Wire Expander</a>.<br><strong>Note:</strong> An Encoder Sensor uses two adjacent 3-Wire ports. These pairs are a/b, c/d, e/f, and g/h. When entering the pair as an argument, use the first letter of the pair, ie: <code>Brain.ThreeWirePort.A</code> refers to the a/b pair.</td>
+</tr>
+  </tbody>
+</table>
+    
+  </div>
+  <hr class="docutils" /></div><div class="section" id="movement-functions">
+  <h3><a class="toc-backref" href="#toc-movement-functions">Movement Functions</a><a class="headerlink" href="#movement-functions" title="Permalink to this headline"></a></h3>  <div class="section" id="setrotation">
+    <h4><a class="toc-backref" href="#toc-setrotation">setRotation()</a><a class="headerlink" href="#setrotation" title="Permalink to this headline"></a></h4>
+    <p>The <code>setRotation(double value, rotationUnits units)</code> method sets the rotation of the Encoder Sensor.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-2-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-2-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-2-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">encoder</span><span class="o">::</span><span class="n">setRotation</span><span class="p">(</span> <span class="k">double</span> <span class="n">value</span><span class="p">,</span> <span class="nc">rotationUnits</span> <span class="n">units</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-2-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Set the Encoder Sensor&#39;s value of rotation to 180 degrees.</span>
+<span class="nc">Encoder</span><span class="o">.</span><span class="n">setRotation</span><span class="p">(</span><span class="mi">180</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>value</td>
+<td>The rotation value to set.</td>
+</tr>
+<tr class="row-odd"><td>units</td>
+<td>A valid <a class="reference external" href="enums.html#rotation-units">rotationUnit</a>.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="setposition">
+    <h4><a class="toc-backref" href="#toc-setposition">setPosition()</a><a class="headerlink" href="#setposition" title="Permalink to this headline"></a></h4>
+    <p>The <code>setPosition(double value, rotationUnits units)</code> method sets the position of the Encoder Sensor.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-3-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-3-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-3-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">encoder</span><span class="o">::</span><span class="n">setPosition</span><span class="p">(</span> <span class="k">double</span> <span class="n">value</span><span class="p">,</span> <span class="nc">rotationUnits</span> <span class="n">units</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-3-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Set the Encoder Sensor&#39;s value of position to 180 degrees.</span>
+<span class="nc">Encoder</span><span class="o">.</span><span class="n">setPosition</span><span class="p">(</span><span class="mi">180</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>value</td>
+<td>The rotation value to set.</td>
+</tr>
+<tr class="row-odd"><td>units</td>
+<td>A valid <a class="reference external" href="enums.html#rotation-units">rotationUnit</a>.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" /></div><div class="section" id="telemetry-functions">
+  <h3><a class="toc-backref" href="#toc-telemetry-functions">Telemetry Functions</a><a class="headerlink" href="#telemetry-functions" title="Permalink to this headline"></a></h3>  <div class="section" id="rotation">
+    <h4><a class="toc-backref" href="#toc-rotation">rotation()</a><a class="headerlink" href="#rotation" title="Permalink to this headline"></a></h4>
+    <p>The <code>rotation(rotationUnits units)</code> method returns the rotation value of the Encoder Sensor.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-4-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-4-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-4-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">double</span> <span class="nc">encoder</span><span class="o">::</span><span class="nc">rotation</span><span class="p">(</span> <span class="nc">rotationUnits</span> <span class="n">units</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-4-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Get the current encoder rotation.</span>
+<span class="k">double</span> <span class="n">value</span> <span class="o">=</span> <span class="nc">Encoder</span><span class="o">.</span><span class="nc">rotation</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>units</td>
+<td>A valid <a class="reference external" href="enums.html#rotation-units">rotationUnit</a>.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> A double that represents the current rotation of the Encoder.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="position">
+    <h4><a class="toc-backref" href="#toc-position">position()</a><a class="headerlink" href="#position" title="Permalink to this headline"></a></h4>
+    <p>The <code>position(rotationUnits units)</code> method returns the current position of the Encoder Sensor.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-5-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-5-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-5-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">encoder</span><span class="o">::</span><span class="n">position</span><span class="p">(</span> <span class="nc">rotationUnits</span> <span class="n">units</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-5-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Get the current Encoder Sensor&#39;s position.</span>
+<span class="k">double</span> <span class="n">value</span> <span class="o">=</span> <span class="nc">Encoder</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>units</td>
+<td>A valid <a class="reference external" href="enums.html#rotation-units">rotationUnit</a>.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> The value of the current position of the Encoder Sensor in the specified units.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="velocity">
+    <h4><a class="toc-backref" href="#toc-velocity">velocity()</a><a class="headerlink" href="#velocity" title="Permalink to this headline"></a></h4>
+    <p>The <code>velocity(units)</code> method returns the current velocity of the Encoder Sensor.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-6-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-6-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-6-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">double</span> <span class="nc">encoder</span><span class="o">::</span><span class="n">velocity</span><span class="p">(</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">rotationUnits</span> <span class="n">units</span> <span class="o">=</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">rotationUnits</span><span class="o">::</span><span class="n">deg</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-6-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Get the current Encoder Sensor&#39;s velocity in rpm.</span>
+<span class="k">double</span> <span class="n">value</span> <span class="o">=</span> <span class="nc">Encoder</span><span class="o">.</span><span class="n">velocity</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>units</td>
+<td>A valid <a class="reference external" href="enums.html#velocity-units">velocityUnit</a>.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> A double representing the value of the current velocity of the Encoder Sensor in the specified units.</p>
+  </div>
+  <hr class="docutils" /></div><div class="section" id="functions">
+  <h3><a class="toc-backref" href="#toc-functions">Functions</a><a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>  <div class="section" id="changed">
+    <h4><a class="toc-backref" href="#toc-changed">changed()</a><a class="headerlink" href="#changed" title="Permalink to this headline"></a></h4>
+    <p>The <code>changed(callback)</code> method registers a function to be called when the value of the Encoder Sensor changes.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-7-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-7-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-7-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">encoder</span><span class="o">::</span><span class="n">changed</span><span class="p">(</span> <span class="k">void</span> <span class="p">(</span><span class="o">*</span><span class="n">callback</span><span class="p">)</span><span class="p">(</span><span class="k">void</span><span class="p">)</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-7-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Define the encoderChanged function with a void return</span>
+<span class="c1">// type, showing it doesn&#39;t return a value.</span>
+<span class="k">void</span> <span class="n">encoderChanged</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">  // The Brain will print that the Encoder Sensor changed on</span>
+<span class="c1">  // the Brain&#39;s screen.</span>
+  <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;encoder changed&quot;</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">int</span> <span class="n">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">  // Initializing Robot Configuration. DO NOT REMOVE!</span>
+  <span class="n">vexcodeInit</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+
+<span class="c1">  // Drive the robot forward.</span>
+  <span class="nc">Drivetrain</span><span class="o">.</span><span class="n">drive</span><span class="p">(</span><span class="n">forward</span><span class="p">)</span><span class="p">;</span>
+
+<span class="c1">  // Run encoderChanged when the value of the</span>
+<span class="c1">  // Encoder Sensor changes.</span>
+  <span class="nc">Encoder</span><span class="o">.</span><span class="n">changed</span><span class="p">(</span><span class="n">encoderChanged</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>callback</td>
+<td>A function that will be called when the Encoder Sensorâ€™s axis value changes.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> An instance of the Event class.</p>
+  </div>
+  <hr class="docutils" /></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer>
+            <hr/>
+            <div role="contentinfo">
+              <p>&copy; Copyright 2024, VEX Robotics. V5RC Legal Components Reference.</p>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="../../assets/js/sphinx_tabs.js"></script>
+  <script src="../../assets/js/search_index.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/theme.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof initSearch === 'function' && typeof searchIndexData !== 'undefined') {
+        initSearch(searchIndexData);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,713 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Vision Sensor C++ API &mdash; VEXcode V5 C++ documentation</title>
+  <link rel="stylesheet" href="../../assets/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/pros_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/pros_modern.css" type="text/css" />
+</head>
+<body class="wy-body-for-nav" role="document">
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          <a href="../../index.html" class="icon icon-home"> VEXcode V5 C++
+            <img src="../../assets/img/logo.svg" class="logo" alt="Logo" />
+          </a>
+          <div class="version">
+            vexcode v5 c++ api
+          </div>
+          <div role="search">
+            <form id="rtd-search-form" class="wy-form" action="#" onsubmit="return false;">
+              <input type="text" name="q" id="search-query-input" class="search-input" placeholder="Search docs" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+          </div>
+        </div>
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">          <p class="caption"><span class="caption-text">Getting Started</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="../../index.html">Documentation Home</a></li>            <li class="toctree-l1"><a class="reference internal" href="index.html">API Overview</a></li>          </ul>          <p class="caption"><span class="caption-text">Actuators & Motors</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="motor.html">Motor (11W)</a></li>            <li class="toctree-l1"><a class="reference internal" href="motor55.html">Motor 5.5W</a></li>            <li class="toctree-l1"><a class="reference internal" href="motorgroup.html">Motor Group</a></li>            <li class="toctree-l1"><a class="reference internal" href="pneumatics.html">Pneumatics</a></li>          </ul>          <p class="caption"><span class="caption-text">Drivetrain</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="drivetrain.html">Drivetrain</a></li>            <li class="toctree-l1"><a class="reference internal" href="smartdrive.html">SmartDrive</a></li>          </ul>          <p class="caption"><span class="caption-text">Brain & Controller</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="brain.html">Brain</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_screen.html">Brain Screen</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_battery.html">Brain Battery</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_sdcard.html">Brain SD Card</a></li>            <li class="toctree-l1"><a class="reference internal" href="timer.html">Timer</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller.html">Controller</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_axis.html">Controller Axis</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_button.html">Controller Button</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_screen.html">Controller Screen</a></li>          </ul>          <p class="caption"><span class="caption-text">Smart Sensors</span></p>
+          <ul class="current">            <li class="toctree-l1"><a class="reference internal" href="inertial.html">Inertial Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="optical.html">Optical Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="distance.html">Distance Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="rotation.html">Rotation Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="gps.html">GPS Sensor</a></li>            <li class="toctree-l1 current"><a class="reference internal current" href="#">AI Vision Sensor</a>              <ul>                <li class="toctree-l2"><a class="reference internal" href="#constructor-s-">Constructor(s)</a></li>                <li class="toctree-l2"><a class="reference internal" href="#telemetry-functions">Telemetry Functions</a></li>                <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a></li>              </ul>            </li>            <li class="toctree-l1"><a class="reference internal" href="vision.html">Vision Sensor</a></li>          </ul>          <p class="caption"><span class="caption-text">3-Wire (ADI) Sensors</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="triport.html">TriPort (ADI)</a></li>            <li class="toctree-l1"><a class="reference internal" href="bumper.html">Bumper Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="limit.html">Limit Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="line.html">Line Tracker</a></li>            <li class="toctree-l1"><a class="reference internal" href="encoder.html">Encoder</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer.html">Potentiometer</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer_v2.html">Potentiometer V2</a></li>          </ul>          <p class="caption"><span class="caption-text">System & Utilities</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="competition.html">Competition</a></li>            <li class="toctree-l1"><a class="reference internal" href="thread.html">Thread & Task</a></li>            <li class="toctree-l1"><a class="reference internal" href="event.html">Event</a></li>          </ul>          <p class="caption"><span class="caption-text">Reference</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="color.html">Color</a></li>            <li class="toctree-l1"><a class="reference internal" href="enums.html">Enumerated Types & Units</a></li>          </ul>        </div>
+      </div>
+    </nav>
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">VEXcode V5 C++</a>
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content">
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">    <li><a href="../../index.html">Docs</a> &raquo;</li>    <li><a href="../../api/cpp/index.html">API Home</a> &raquo;</li>
+    <li>Smart Sensors &raquo;</li>
+    <li>AI Vision Sensor C++ API</li>    <li class="wy-breadcrumbs-aside">
+      <a href="https://api.vex.com/v5/home/cpp/index.html" class="fa fa-external-link" target="_blank" rel="noopener"> Official VEX API</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div itemprop="articleBody">
+              <div class="section" id="ai-vision-sensor-c-api">
+                <h1>AI Vision Sensor C++ API<a class="headerlink" href="#ai-vision-sensor-c-api" title="Permalink to this headline"></a></h1>
+                <div class="admonition note">
+                  <p class="first admonition-title">Hardware Specification</p>
+                  <p class="last">
+                    <strong>Class:</strong> <code>vex::aivision</code> &nbsp;|&nbsp;
+                    <strong>Port:</strong> Smart Port 1-21 &nbsp;|&nbsp;
+                    <strong>Competition Status:</strong> V5RC Legal Hardware &nbsp;|&nbsp;
+                    <strong>Header:</strong> <code>#include "vex.h"</code>
+                  </p>
+                </div>
+
+                <div class="contents local topic" id="contents">
+  <ul class="simple">
+    <li><a class="reference internal" href="#functions" id="toc-functions">Functions</a>
+      <ul>        <li><a class="reference internal" href="#constructor-s-" id="toc-constructor-s-">Constructor(s)</a>
+          <ul>            <li><a class="reference internal" href="#constructors" id="toc-constructors">Constructors</a></li>          </ul>
+        </li>        <li><a class="reference internal" href="#telemetry-functions" id="toc-telemetry-functions">Telemetry Functions</a>
+          <ul>            <li><a class="reference internal" href="#installed" id="toc-installed">installed</a></li>          </ul>
+        </li>        <li><a class="reference internal" href="#functions" id="toc-functions">Functions</a>
+          <ul>            <li><a class="reference internal" href="#introduction" id="toc-introduction">Introduction</a></li>            <li><a class="reference internal" href="#takesnapshot" id="toc-takesnapshot">takeSnapshot</a></li>            <li><a class="reference internal" href="#color-signatures" id="toc-color-signatures">Color Signatures</a></li>            <li><a class="reference internal" href="#color-codes" id="toc-color-codes">Color Codes</a></li>            <li><a class="reference internal" href="#objectcount" id="toc-objectcount">objectCount</a></li>            <li><a class="reference internal" href="#largestobject" id="toc-largestobject">largestObject</a></li>            <li><a class="reference internal" href="#objects" id="toc-objects">objects</a></li>            <li><a class="reference internal" href="#color-signature" id="toc-color-signature">Color Signature</a></li>            <li><a class="reference internal" href="#color-code" id="toc-color-code">Color Code</a></li>          </ul>
+        </li>      </ul>
+    </li>
+  </ul>
+</div>
+
+                <div class="section" id="functions">
+                  <h2><a class="toc-backref" href="#toc-functions">Functions</a><a class="headerlink" href="#functions" title="Permalink to this headline"></a></h2>
+                  <div class="section" id="constructor-s-">
+  <h3><a class="toc-backref" href="#toc-constructor-s-">Constructor(s)</a><a class="headerlink" href="#constructor-s-" title="Permalink to this headline"></a></h3>  <div class="section" id="constructors">
+    <h4><a class="toc-backref" href="#toc-constructors">Constructors</a><a class="headerlink" href="#constructors" title="Permalink to this headline"></a></h4>
+    <p>Constructors are used to manually create <code>aivision</code>, <code>colordesc</code>, and <code>codedesc</code> objects, which are necessary for configuring the AI Vision Sensor outside of VEXcode. If fewer arguments are provided, default arguments or function overloading should be used in the constructor definition.</p>
+<p><code>aivision</code> creates an AI Vision Sensor.</p>
+<p><strong>Default Usage:</strong><br>
+<code>aivision( int32_t index, uint8_t bright, Args &amp;â€¦ sigs )</code></p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-1-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-1-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-1-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="nc">aivision</span><span class="p">(</span> <span class="k">int32_t</span> <span class="n">index</span><span class="p">,</span> <span class="k">uint8_t</span> <span class="n">bright</span><span class="p">,</span> <span class="k">auto</span> <span class="n">Argsampsigs</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-1-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Example coming soon</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td><code>port</code></td>
+<td>Which Smart Port the AI Vision Sensor is connected to, from 1 to 12.</td>
+</tr>
+<tr class="row-odd"><td><code>sigs</code></td>
+<td>Optional. The name of one or more signatures: </p><ul><li><a class="reference internal" href="#color-signature">Color Signature</a></li><li><a class="reference internal" href="#color-code">Color Code</a></li><li><code>aivision::ALL_TAGS</code> â€“ All AprilTags</li><li><code>aivision::ALL_AIOBJS</code> â€“ All AI Classifications</li></ul><p></td>
+</tr>
+  </tbody>
+</table>
+    
+  </div>
+  <hr class="docutils" /></div><div class="section" id="telemetry-functions">
+  <h3><a class="toc-backref" href="#toc-telemetry-functions">Telemetry Functions</a><a class="headerlink" href="#telemetry-functions" title="Permalink to this headline"></a></h3>  <div class="section" id="installed">
+    <h4><a class="toc-backref" href="#toc-installed">installed</a><a class="headerlink" href="#installed" title="Permalink to this headline"></a></h4>
+    <p><code>installed</code> returns an integer indicating whether the AI Vision Sensor is currently connected to the V5 Brain.</p>
+<p><code>1</code> â€“ The AI Vision Sensor is connected to the V5 Brain.</p>
+<p><code>0</code> â€“ The AI Vision Sensor is not connected to the V5 Brain.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-2-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-2-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-2-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">aivision</span><span class="o">::</span><span class="n">installed</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-2-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">int</span> <span class="n">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">  // Initializing Robot Configuration. DO NOT REMOVE!</span>
+  <span class="n">vexcodeInit</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="c1">  // Display a message if the AI Vision Sensor is detected</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">AIVision1</span><span class="o">.</span><span class="n">installed</span><span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="p">{</span>
+    <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Installed!&quot;</span><span class="p">)</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td></td>
+<td>This method has no parameters.</td>
+</tr>
+  </tbody>
+</table>
+    
+  </div>
+  <hr class="docutils" /></div><div class="section" id="functions">
+  <h3><a class="toc-backref" href="#toc-functions">Functions</a><a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>  <div class="section" id="introduction">
+    <h4><a class="toc-backref" href="#toc-introduction">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h4>
+    <p>The AI Vision Sensor enable robots to detect and track visual information in their environment. By identifying objects, colors, and patterns, the AI Vision Sensor allows robots to analyze their surroundings and respond to what they see.</p>
+<p>For the examples below, the configured AI Vision Sensor will be named <code>AIVision1</code>, and the configured Color Signature objects, such as <code>redBox</code>, will be used in all subsequent examples throughout this API documentation when referring to <code>aivision</code> class methods.</p>
+<p>Below is a list of all methods:</p>
+<p><strong>Getters</strong></p>
+<p><a class="reference internal" href="#takesnapshot"><code>takeSnapshot</code></a> â€“ Captures data for a specific Color Signature or Color Code.</p>
+<p><a class="reference internal" href="#objectcount"><code>objectCount</code></a> â€“ Returns the number of detected objects as an integer.</p>
+<p><a class="reference internal" href="#largestobject"><code>largestObject</code></a> â€“ Immediately select the largest object from the snapshot.</p>
+<p><a class="reference internal" href="#installed"><code>installed</code></a> â€“ Whether the AI Vision Sensor is connected to the V5 Brain.</p>
+<p><strong>Properties</strong> â€“ Object data returned from <a class="reference internal" href="#takesnapshot"><code>takeSnapshot</code></a>.</p>
+<p><a class="reference internal" href="#exists"><code>.exists</code></a> â€“ Whether the object exists in the current detection as a Boolean.</p>
+<p><a class="reference internal" href="#width"><code>.width</code></a> â€“ Width of the detected object in pixels.</p>
+<p><a class="reference internal" href="#height"><code>.height</code></a> â€“ Height of the detected object in pixels.</p>
+<p><a class="reference internal" href="#centerx"><code>.centerX</code></a> â€“ X position of the objectâ€™s center in pixels.</p>
+<p><a class="reference internal" href="#centery"><code>.centerY</code></a> â€“ Y position of the objectâ€™s center in pixels.</p>
+<p><a class="reference internal" href="#angle"><code>.angle</code></a> â€“ Orientation of the Color Code in degrees.</p>
+<p><a class="reference internal" href="#originx"><code>.originX</code></a> â€“ X position of the objectâ€™s top-left corner in pixels.</p>
+<p><a class="reference internal" href="#originy"><code>.originY</code></a> â€“ Y position of the objectâ€™s top-left corner in pixels.</p>
+<p><a class="reference internal" href="#id"><code>.id</code></a> â€“ Classification or tag ID of the object.</p>
+<p><a class="reference internal" href="#score"><code>.score</code></a> â€“ Confidence score for AI Classifications (1â€“100).</p>
+<p><strong>Constructors â€“ Manually initialize and configure the sensors.</strong></p>
+<p><a class="reference internal" href="#ai-vision-sensor-1"><span class="xref myst"><code>aivision</code></span></a> â€“ Creates an AI Vision Sensor.</p>
+<p><a class="reference internal" href="#color-signature"><code>aivision::colordesc</code></a> â€“ Creates a Color Signature.</p>
+<p><a class="reference internal" href="#color-code"><code>aivision::codedesc</code></a> â€“ Creates a Color Code.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-3-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-3-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-3-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">aivision</span><span class="o">::</span><span class="n">Introduction</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-3-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+  <hr class="docutils" />  <div class="section" id="takesnapshot">
+    <h4><a class="toc-backref" href="#toc-takesnapshot">takeSnapshot</a><a class="headerlink" href="#takesnapshot" title="Permalink to this headline"></a></h4>
+    <p><code>takeSnapshot</code> captures an image from the AI Vision Sensor, processes it based on the signature, and updates the <code>objects</code> array. This method can also limit the amount of objects captured in the snapshot.</p>
+<p><a class="reference internal" href="#color-signatures">Color Signatures</a> and <a class="reference internal" href="#color-codes">Color Codes</a> must be configured first in the Vision Utility before they can be used with this method.</p>
+<p>The <code>objects</code> array stores objects ordered from largest to smallest by width, starting at index 0. Each objectâ€™s <a class="reference internal" href="#properties">properties</a> can be accessed using its index. <code>objects</code> is an empty array if no matching objects are detected.</p>
+<p><strong>Default Usage:</strong><br>
+<code>AIVision1.takeSnapshot(signature)</code></p>
+<p><strong>Overloads:</strong><br>
+<code>AIVision1.takeSnapshot(signature, count)</code></p>
+<p>The AI Vision Sensor can detect different objects under certain AI Classifications. Depending on the AI Classification model selected when configuring the AI Vision Sensor in the Devices window, different objects can be detected. The currently available models are:</p>
+<p><strong>Classroom Elements</strong></p>
+<p>| ID Number | AI Classification |
+| 0 | <code>blueBall</code>    |
+| 1 | <code>greenBall</code>   |
+| 2 | <code>redBall</code>     |
+| 3 | <code>blueRing</code>    |
+| 4 | <code>greenRing</code>   |
+| 5 | <code>redRing</code>     |
+| 6 | <code>blueCube</code>    |
+| 7 | <code>greenCube</code>   |
+| 8 | <code>redCube</code>     |</p>
+<p><strong>V5RC High Stakes</strong></p>
+<p>|:â€”â€”â€”â€”â€”â€”:|â€“|
+| ID Number | AI Classification |
+| 0 | <code>mobileGoal</code>    |
+| 1 | <code>redRing</code>   |
+| 2 | <code>blueRing</code>     |</p>
+<p><strong>V5RC Push Back</strong></p>
+<p>|:â€”â€”â€”â€”â€”â€”:|â€“|
+| ID Number | AI Classification |
+| 0 | <code>blueBlock</code>    |
+| 1 | <code>redBlock</code>   |</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-4-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-4-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-4-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">aivision</span><span class="o">::</span><span class="n">takeSnapshot</span><span class="p">(</span> <span class="k">auto</span> <span class="n">signature</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-4-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Example coming soon</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td><code>signature</code></td>
+<td>What signature to get data of. </p><ul><li>Color Signatures or Color Codes â€“ The name of the AI Vision Sensor, two underscores, and then the Color Signatureâ€™s or Color Codeâ€™s name.For example: <code>AIVision1__redBox</code>.</li><li><code>aivision::ALL_AIOBJS</code> â€“ Cubes, rings, and balls.</li><li><code>aivision::ALL_TAGS</code> â€“ All AprilTags.<p></p></li></ul></td>
+</tr>
+<tr class="row-odd"><td><code>count</code></td>
+<td>Optional. Sets the maximum number of objects that can be returned from 1 to 24 (default: 8).</td>
+</tr>
+  </tbody>
+</table>
+    
+  </div>
+  <hr class="docutils" />  <div class="section" id="color-signatures">
+    <h4><a class="toc-backref" href="#toc-color-signatures">Color Signatures</a><a class="headerlink" href="#color-signatures" title="Permalink to this headline"></a></h4>
+    <p>A Color Signature is a unique color that the AI Vision Sensor can recognize. These signatures allow the AI Vision Sensor to detect and track objects based on their color. Once a Color Signature is configured, the sensor can identify objects with that specific color in its field of view. Color signatures are used with <a class="reference internal" href="#takesnapshot"><code>takeSnapshot</code></a> to process and detect colored objects in real-time.</p>
+<p>In order to use a configured Color Signature in a project, its name must be the name of the sensor, two underscores, and then the Color Signatureâ€™s name. For example: <code>AIVision1__redBox</code>.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-5-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-5-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-5-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">aivision</span><span class="o">::</span><span class="nc">Color</span> <span class="n">Signatures</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-5-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Example coming soon</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+  <hr class="docutils" />  <div class="section" id="color-codes">
+    <h4><a class="toc-backref" href="#toc-color-codes">Color Codes</a><a class="headerlink" href="#color-codes" title="Permalink to this headline"></a></h4>
+    <p>A Color Code is a structured pattern made up of color signatures arranged in a specific order. These codes allow the Vision Sensor to recognize predefined patterns of colors. Color codes are useful for identifying complex objects or creating unique markers for autonomous navigation.</p>
+<p>To use a configured Color Code in a project, its name must be passed as a string in the format: the Vision Sensorâ€™s name, followed by two underscores, and then the Color Codeâ€™s name. For example: <code>AIVision1__redBlue</code>.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-6-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-6-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-6-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">aivision</span><span class="o">::</span><span class="nc">Color</span> <span class="n">Codes</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-6-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Example coming soon</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+  <hr class="docutils" />  <div class="section" id="objectcount">
+    <h4><a class="toc-backref" href="#toc-objectcount">objectCount</a><a class="headerlink" href="#objectcount" title="Permalink to this headline"></a></h4>
+    <p><code>objectCount</code> returns the number of items inside the <code>objects</code> array as an integer.</p>
+<p><strong>Default Usage:</strong><br>
+<code>AIVision1.objectCount</code></p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-7-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-7-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-7-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">aivision</span><span class="o">::</span><span class="n">objectCount</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-7-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Example coming soon</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td></td>
+<td>This method has no parameters.</td>
+</tr>
+  </tbody>
+</table>
+    
+  </div>
+  <hr class="docutils" />  <div class="section" id="largestobject">
+    <h4><a class="toc-backref" href="#toc-largestobject">largestObject</a><a class="headerlink" href="#largestobject" title="Permalink to this headline"></a></h4>
+    <p><code>largestObject</code> retrieves the largest detected object from the <code>objects</code> array.</p>
+<p>This method can be used to always get the largest object from <code>objects</code> without specifying an index.</p>
+<p><strong>Default Usage:</strong><br>
+<code>AIVision1.largestObject</code></p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-8-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-8-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-8-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">aivision</span><span class="o">::</span><span class="n">largestObject</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-8-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Example coming soon</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td></td>
+<td>This method has no parameters.</td>
+</tr>
+  </tbody>
+</table>
+    
+  </div>
+  <hr class="docutils" />  <div class="section" id="objects">
+    <h4><a class="toc-backref" href="#toc-objects">objects</a><a class="headerlink" href="#objects" title="Permalink to this headline"></a></h4>
+    <p><code>objects</code> returns an array of detected object properties. Use the array to access specific <a class="reference internal" href="#properties">property</a> values of individual objects.</p>
+<p><strong>Default Usage:</strong><br>
+<code>AIVision1.objects</code></p>
+<p>There are ten properties that are included with each object stored in the <code>objects</code> array after <code>takeSnapshot</code> is used.</p>
+<p>Some property values are based off of the detected objectâ€™s position in the Vision Sensorâ€™s view at the time that <code>takeSnapshot</code> was used. The AI Vision Sensor has a resolution of 320 by 240 pixels.</p>
+<p><code>.exists</code> returns an integer indicating if the index exists in the <code>objects</code> array or not.</p>
+<p><code>1</code>: The index exists.</p>
+<p><code>0</code>: The index does not exist.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-9-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-9-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-9-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">aivision</span><span class="o">::</span><span class="n">objects</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-9-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Example coming soon</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+  <hr class="docutils" />  <div class="section" id="color-signature">
+    <h4><a class="toc-backref" href="#toc-color-signature">Color Signature</a><a class="headerlink" href="#color-signature" title="Permalink to this headline"></a></h4>
+    <p><code>colordesc</code> creates a Color Signature. Up to seven different Color Signatures can be stored on an AI Vision Sensor at once.</p>
+<p><strong>Default Usage:</strong><br>
+<code>colordesc(index, uMin, uMax, uMean, vMin, vMax, vMean, rgb, type)</code></p>
+<p>In order to obtain the values to create a Color Signature, go to the <a class="reference external" href="http://web.archive.org/web/20251111131603/https://vision.vexcode.cloud/">Vision Utility</a>. Once a Color Signature is configured, copy the parameter values from the Configuration window.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-10-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-10-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-10-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">aivision</span><span class="o">::</span><span class="n">colordesc</span><span class="p">(</span> <span class="k">int32_t</span> <span class="n">index</span><span class="p">,</span> <span class="k">auto</span> <span class="n">uMin</span><span class="p">,</span> <span class="k">auto</span> <span class="n">uMax</span><span class="p">,</span> <span class="k">auto</span> <span class="n">uMean</span><span class="p">,</span> <span class="k">auto</span> <span class="n">vMin</span><span class="p">,</span> <span class="k">auto</span> <span class="n">vMax</span><span class="p">,</span> <span class="k">auto</span> <span class="n">vMean</span><span class="p">,</span> <span class="k">auto</span> <span class="n">rgb</span><span class="p">,</span> <span class="k">auto</span> <span class="n">type</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-10-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Example coming soon</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td><code>index</code></td>
+<td>The <code>colordesc</code> objectâ€™s index, from 1 - 7. <strong>Note:</strong> Creating two <code>colordesc</code> objects with the same index number will cause the second created object to override the first.</td>
+</tr>
+<tr class="row-odd"><td><code>uMin</code></td>
+<td>The value from <code>uMin</code> in the Vision Utility.</td>
+</tr>
+<tr class="row-even"><td><code>uMax</code></td>
+<td>The value from <code>uMax</code> in the Vision Utility.</td>
+</tr>
+<tr class="row-odd"><td><code>uMean</code></td>
+<td>The value from <code>uMean</code> in the Vision Utility.</td>
+</tr>
+<tr class="row-even"><td><code>vMin</code></td>
+<td>The value from <code>vMin</code> in the Vision Utility.</td>
+</tr>
+<tr class="row-odd"><td><code>vMax</code></td>
+<td>The value from <code>vMax</code> in the Vision Utility.</td>
+</tr>
+<tr class="row-even"><td><code>vMean</code></td>
+<td>The value from <code>vMean</code> in the Vision Utility.</td>
+</tr>
+<tr class="row-odd"><td><code>rgb</code></td>
+<td>The value from <code>rgb</code> in the Vision Utility.</td>
+</tr>
+<tr class="row-even"><td><code>type</code></td>
+<td>The value from <code>type</code> in the Vision Utility.</td>
+</tr>
+  </tbody>
+</table>
+    
+  </div>
+  <hr class="docutils" />  <div class="section" id="color-code">
+    <h4><a class="toc-backref" href="#toc-color-code">Color Code</a><a class="headerlink" href="#color-code" title="Permalink to this headline"></a></h4>
+    <p><code>codedesc</code> creates a Color Code. It requires at least two already defined Color Signatures in order to be used. Up to eight different Color Codes can be stored on an AI Vision Sensor at once.</p>
+<p><strong>Default Usage:</strong><br>
+<code>codedesc(sig1, sig2)</code></p>
+<p><strong>Overloads:</strong></p>
+<p><code>codedesc(sig1, sig2, sig3)</code></p>
+<p><code>codedesc(sig1, sig2, sig3, sig4)</code></p>
+<p><code>codedesc(sig1, sig2, sig3, sig4, sig5)</code></p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-11-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-11-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-11-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">aivision</span><span class="o">::</span><span class="n">codedesc</span><span class="p">(</span> <span class="k">auto</span> <span class="n">sig1</span><span class="p">,</span> <span class="k">auto</span> <span class="n">sig2</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-11-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Example coming soon</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td><code>sig1</code></td>
+<td>A previously created <code>signature</code> object, or the <code>int32_t</code> index of a previously created signature object.</td>
+</tr>
+<tr class="row-odd"><td><code>sig2</code></td>
+<td>A previously created <code>signature</code> object, or the <code>int32_t</code> index of a previously created signature object.</td>
+</tr>
+<tr class="row-even"><td><code>sig3</code></td>
+<td>A previously created <code>signature</code> object, or the <code>int32_t</code> index of a previously created signature object.</td>
+</tr>
+<tr class="row-odd"><td><code>sig4</code></td>
+<td>A previously created <code>signature</code> object, or the <code>int32_t</code> index of a previously created signature object.</td>
+</tr>
+<tr class="row-even"><td><code>sig5</code></td>
+<td>A previously created <code>signature</code> object, or the <code>int32_t</code> index of a previously created signature object.</td>
+</tr>
+  </tbody>
+</table>
+    
+  </div>
+  <hr class="docutils" /></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer>
+            <hr/>
+            <div role="contentinfo">
+              <p>&copy; Copyright 2024, VEX Robotics. V5RC Legal Components Reference.</p>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="../../assets/js/sphinx_tabs.js"></script>
+  <script src="../../assets/js/search_index.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/theme.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof initSearch === 'function' && typeof searchIndexData !== 'undefined') {
+        initSearch(searchIndexData);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brain C++ API &mdash; VEXcode V5 C++ documentation</title>
+  <link rel="stylesheet" href="../../assets/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/pros_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/pros_modern.css" type="text/css" />
+</head>
+<body class="wy-body-for-nav" role="document">
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          <a href="../../index.html" class="icon icon-home"> VEXcode V5 C++
+            <img src="../../assets/img/logo.svg" class="logo" alt="Logo" />
+          </a>
+          <div class="version">
+            vexcode v5 c++ api
+          </div>
+          <div role="search">
+            <form id="rtd-search-form" class="wy-form" action="#" onsubmit="return false;">
+              <input type="text" name="q" id="search-query-input" class="search-input" placeholder="Search docs" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+          </div>
+        </div>
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">          <p class="caption"><span class="caption-text">Getting Started</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="../../index.html">Documentation Home</a></li>            <li class="toctree-l1"><a class="reference internal" href="index.html">API Overview</a></li>          </ul>          <p class="caption"><span class="caption-text">Actuators & Motors</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="motor.html">Motor (11W)</a></li>            <li class="toctree-l1"><a class="reference internal" href="motor55.html">Motor 5.5W</a></li>            <li class="toctree-l1"><a class="reference internal" href="motorgroup.html">Motor Group</a></li>            <li class="toctree-l1"><a class="reference internal" href="pneumatics.html">Pneumatics</a></li>          </ul>          <p class="caption"><span class="caption-text">Drivetrain</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="drivetrain.html">Drivetrain</a></li>            <li class="toctree-l1"><a class="reference internal" href="smartdrive.html">SmartDrive</a></li>          </ul>          <p class="caption"><span class="caption-text">Brain & Controller</span></p>
+          <ul class="current">            <li class="toctree-l1 current"><a class="reference internal current" href="#">Brain</a>              <ul>                <li class="toctree-l2"><a class="reference internal" href="#constructor-s-">Constructor(s)</a></li>              </ul>            </li>            <li class="toctree-l1"><a class="reference internal" href="brain_screen.html">Brain Screen</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_battery.html">Brain Battery</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_sdcard.html">Brain SD Card</a></li>            <li class="toctree-l1"><a class="reference internal" href="timer.html">Timer</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller.html">Controller</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_axis.html">Controller Axis</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_button.html">Controller Button</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_screen.html">Controller Screen</a></li>          </ul>          <p class="caption"><span class="caption-text">Smart Sensors</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="inertial.html">Inertial Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="optical.html">Optical Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="distance.html">Distance Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="rotation.html">Rotation Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="gps.html">GPS Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="aivision.html">AI Vision Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="vision.html">Vision Sensor</a></li>          </ul>          <p class="caption"><span class="caption-text">3-Wire (ADI) Sensors</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="triport.html">TriPort (ADI)</a></li>            <li class="toctree-l1"><a class="reference internal" href="bumper.html">Bumper Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="limit.html">Limit Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="line.html">Line Tracker</a></li>            <li class="toctree-l1"><a class="reference internal" href="encoder.html">Encoder</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer.html">Potentiometer</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer_v2.html">Potentiometer V2</a></li>          </ul>          <p class="caption"><span class="caption-text">System & Utilities</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="competition.html">Competition</a></li>            <li class="toctree-l1"><a class="reference internal" href="thread.html">Thread & Task</a></li>            <li class="toctree-l1"><a class="reference internal" href="event.html">Event</a></li>          </ul>          <p class="caption"><span class="caption-text">Reference</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="color.html">Color</a></li>            <li class="toctree-l1"><a class="reference internal" href="enums.html">Enumerated Types & Units</a></li>          </ul>        </div>
+      </div>
+    </nav>
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">VEXcode V5 C++</a>
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content">
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">    <li><a href="../../index.html">Docs</a> &raquo;</li>    <li><a href="../../api/cpp/index.html">API Home</a> &raquo;</li>
+    <li>Brain & Controller &raquo;</li>
+    <li>Brain C++ API</li>    <li class="wy-breadcrumbs-aside">
+      <a href="https://api.vex.com/v5/home/cpp/index.html" class="fa fa-external-link" target="_blank" rel="noopener"> Official VEX API</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div itemprop="articleBody">
+              <div class="section" id="brain-c-api">
+                <h1>Brain C++ API<a class="headerlink" href="#brain-c-api" title="Permalink to this headline"></a></h1>
+                <div class="admonition note">
+                  <p class="first admonition-title">Hardware Specification</p>
+                  <p class="last">
+                    <strong>Class:</strong> <code>vex::brain</code> &nbsp;|&nbsp;
+                    <strong>Port:</strong> V5 Brain &nbsp;|&nbsp;
+                    <strong>Competition Status:</strong> V5RC Legal Hardware &nbsp;|&nbsp;
+                    <strong>Header:</strong> <code>#include "vex.h"</code>
+                  </p>
+                </div>
+
+                <div class="contents local topic" id="contents">
+  <ul class="simple">
+    <li><a class="reference internal" href="#functions" id="toc-functions">Functions</a>
+      <ul>        <li><a class="reference internal" href="#constructor-s-" id="toc-constructor-s-">Constructor(s)</a>
+          <ul>            <li><a class="reference internal" href="#initializing-the-brain-class" id="toc-initializing-the-brain-class">Initializing the brain Class</a></li>          </ul>
+        </li>      </ul>
+    </li>
+  </ul>
+</div>
+
+                <div class="section" id="functions">
+                  <h2><a class="toc-backref" href="#toc-functions">Functions</a><a class="headerlink" href="#functions" title="Permalink to this headline"></a></h2>
+                  <div class="section" id="constructor-s-">
+  <h3><a class="toc-backref" href="#toc-constructor-s-">Constructor(s)</a><a class="headerlink" href="#constructor-s-" title="Permalink to this headline"></a></h3>  <div class="section" id="initializing-the-brain-class">
+    <h4><a class="toc-backref" href="#toc-initializing-the-brain-class">Initializing the brain Class</a><a class="headerlink" href="#initializing-the-brain-class" title="Permalink to this headline"></a></h4>
+    <p>The Brain is created by using the following constructor:</p>
+<p><code>brain</code></p>
+<p>This constructor uses no parameters.</p>
+<p>This <code>Brain</code> object will be used in all subsequent examples throughout this API documentation when referring to brain class methods and attributes.</p>
+<p>The brain class comes with six pre-defined attributes:</p>
+<p><a class="reference external" href="brain_battery.html"><code class="docutils literal notranslate"><span class="pre">Battery</span></code></a> - Provides information about the V5 Brainâ€™s battery, including capacity, temperature, voltage, and current.</p>
+<p><a class="reference external" href="timer.html"><code class="docutils literal notranslate"><span class="pre">Timer</span></code></a> - Provides functionality to measure elapsed time and assign functions to time-based events on the V5 Brain.</p>
+<p><a class="reference external" href="brain_screen.html"><code class="docutils literal notranslate"><span class="pre">Screen</span></code></a> - Enables you to display text, draw shapes, and assign touch-responsive functions on the V5 Brainâ€™s Screen.</p>
+<p><a class="reference external" href="brain_sdcard.html"><code class="docutils literal notranslate"><span class="pre">SDcard</span></code></a> - Provides access to files stored on the V5 Brainâ€™s SD card.</p>
+<p><code>ThreeWirePort</code> - Provides access to 3-Wire Sensors connected to the V5 Brainâ€™s 3-Wire Ports. Each port is identified by a letter (a through h) and can be accessed using the format <code>brain.ThreeWirePort.X</code>, where <code>X</code> is the port letter. For example, <code>brain.ThreeWirePort.A</code> refers to the Sensor connected to port A.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-1-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-1-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-1-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="nc">vex</span><span class="o">::</span><span class="nc">brain</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-1-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Create a new object &quot;Brain&quot; with the brain class.</span>
+<span class="nc">brain</span> <span class="nc">Brain</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+  <hr class="docutils" /></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer>
+            <hr/>
+            <div role="contentinfo">
+              <p>&copy; Copyright 2024, VEX Robotics. V5RC Legal Components Reference.</p>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="../../assets/js/sphinx_tabs.js"></script>
+  <script src="../../assets/js/search_index.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/theme.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof initSearch === 'function' && typeof searchIndexData !== 'undefined') {
+        initSearch(searchIndexData);
+      }
+    });
+  </script>
+</body>
+</html>

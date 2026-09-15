@@ -1,0 +1,1098 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inertial Sensor C++ API &mdash; VEXcode V5 C++ documentation</title>
+  <link rel="stylesheet" href="../../assets/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/pros_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/pros_modern.css" type="text/css" />
+</head>
+<body class="wy-body-for-nav" role="document">
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          <a href="../../index.html" class="icon icon-home"> VEXcode V5 C++
+            <img src="../../assets/img/logo.svg" class="logo" alt="Logo" />
+          </a>
+          <div class="version">
+            vexcode v5 c++ api
+          </div>
+          <div role="search">
+            <form id="rtd-search-form" class="wy-form" action="#" onsubmit="return false;">
+              <input type="text" name="q" id="search-query-input" class="search-input" placeholder="Search docs" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+          </div>
+        </div>
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">          <p class="caption"><span class="caption-text">Getting Started</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="../../index.html">Documentation Home</a></li>            <li class="toctree-l1"><a class="reference internal" href="index.html">API Overview</a></li>          </ul>          <p class="caption"><span class="caption-text">Actuators & Motors</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="motor.html">Motor (11W)</a></li>            <li class="toctree-l1"><a class="reference internal" href="motor55.html">Motor 5.5W</a></li>            <li class="toctree-l1"><a class="reference internal" href="motorgroup.html">Motor Group</a></li>            <li class="toctree-l1"><a class="reference internal" href="pneumatics.html">Pneumatics</a></li>          </ul>          <p class="caption"><span class="caption-text">Drivetrain</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="drivetrain.html">Drivetrain</a></li>            <li class="toctree-l1"><a class="reference internal" href="smartdrive.html">SmartDrive</a></li>          </ul>          <p class="caption"><span class="caption-text">Brain & Controller</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="brain.html">Brain</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_screen.html">Brain Screen</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_battery.html">Brain Battery</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_sdcard.html">Brain SD Card</a></li>            <li class="toctree-l1"><a class="reference internal" href="timer.html">Timer</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller.html">Controller</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_axis.html">Controller Axis</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_button.html">Controller Button</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_screen.html">Controller Screen</a></li>          </ul>          <p class="caption"><span class="caption-text">Smart Sensors</span></p>
+          <ul class="current">            <li class="toctree-l1 current"><a class="reference internal current" href="#">Inertial Sensor</a>              <ul>                <li class="toctree-l2"><a class="reference internal" href="#constructor-s-">Constructor(s)</a></li>                <li class="toctree-l2"><a class="reference internal" href="#movement-functions">Movement Functions</a></li>                <li class="toctree-l2"><a class="reference internal" href="#telemetry-functions">Telemetry Functions</a></li>                <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a></li>              </ul>            </li>            <li class="toctree-l1"><a class="reference internal" href="optical.html">Optical Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="distance.html">Distance Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="rotation.html">Rotation Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="gps.html">GPS Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="aivision.html">AI Vision Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="vision.html">Vision Sensor</a></li>          </ul>          <p class="caption"><span class="caption-text">3-Wire (ADI) Sensors</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="triport.html">TriPort (ADI)</a></li>            <li class="toctree-l1"><a class="reference internal" href="bumper.html">Bumper Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="limit.html">Limit Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="line.html">Line Tracker</a></li>            <li class="toctree-l1"><a class="reference internal" href="encoder.html">Encoder</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer.html">Potentiometer</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer_v2.html">Potentiometer V2</a></li>          </ul>          <p class="caption"><span class="caption-text">System & Utilities</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="competition.html">Competition</a></li>            <li class="toctree-l1"><a class="reference internal" href="thread.html">Thread & Task</a></li>            <li class="toctree-l1"><a class="reference internal" href="event.html">Event</a></li>          </ul>          <p class="caption"><span class="caption-text">Reference</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="color.html">Color</a></li>            <li class="toctree-l1"><a class="reference internal" href="enums.html">Enumerated Types & Units</a></li>          </ul>        </div>
+      </div>
+    </nav>
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">VEXcode V5 C++</a>
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content">
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">    <li><a href="../../index.html">Docs</a> &raquo;</li>    <li><a href="../../api/cpp/index.html">API Home</a> &raquo;</li>
+    <li>Smart Sensors &raquo;</li>
+    <li>Inertial Sensor C++ API</li>    <li class="wy-breadcrumbs-aside">
+      <a href="https://api.vex.com/v5/home/cpp/index.html" class="fa fa-external-link" target="_blank" rel="noopener"> Official VEX API</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div itemprop="articleBody">
+              <div class="section" id="inertial-sensor-c-api">
+                <h1>Inertial Sensor C++ API<a class="headerlink" href="#inertial-sensor-c-api" title="Permalink to this headline"></a></h1>
+                <div class="admonition note">
+                  <p class="first admonition-title">Hardware Specification</p>
+                  <p class="last">
+                    <strong>Class:</strong> <code>vex::inertial</code> &nbsp;|&nbsp;
+                    <strong>Port:</strong> Smart Port 1-21 &nbsp;|&nbsp;
+                    <strong>Competition Status:</strong> V5RC Legal Hardware &nbsp;|&nbsp;
+                    <strong>Header:</strong> <code>#include "vex.h"</code>
+                  </p>
+                </div>
+
+                <div class="contents local topic" id="contents">
+  <ul class="simple">
+    <li><a class="reference internal" href="#functions" id="toc-functions">Functions</a>
+      <ul>        <li><a class="reference internal" href="#constructor-s-" id="toc-constructor-s-">Constructor(s)</a>
+          <ul>            <li><a class="reference internal" href="#initializing-the-inertial-class" id="toc-initializing-the-inertial-class">Initializing the inertial Class</a></li>          </ul>
+        </li>        <li><a class="reference internal" href="#movement-functions" id="toc-movement-functions">Movement Functions</a>
+          <ul>            <li><a class="reference internal" href="#setheading" id="toc-setheading">setHeading()</a></li>            <li><a class="reference internal" href="#setrotation" id="toc-setrotation">setRotation()</a></li>            <li><a class="reference internal" href="#setturntype" id="toc-setturntype">setTurnType()</a></li>          </ul>
+        </li>        <li><a class="reference internal" href="#telemetry-functions" id="toc-telemetry-functions">Telemetry Functions</a>
+          <ul>            <li><a class="reference internal" href="#iscalibrating" id="toc-iscalibrating">isCalibrating()</a></li>            <li><a class="reference internal" href="#heading" id="toc-heading">heading()</a></li>            <li><a class="reference internal" href="#rotation" id="toc-rotation">rotation()</a></li>            <li><a class="reference internal" href="#angle" id="toc-angle">angle()</a></li>            <li><a class="reference internal" href="#roll" id="toc-roll">roll()</a></li>            <li><a class="reference internal" href="#pitch" id="toc-pitch">pitch()</a></li>            <li><a class="reference internal" href="#yaw" id="toc-yaw">yaw()</a></li>            <li><a class="reference internal" href="#gyrorate" id="toc-gyrorate">gyroRate()</a></li>            <li><a class="reference internal" href="#acceleration" id="toc-acceleration">acceleration()</a></li>            <li><a class="reference internal" href="#installed" id="toc-installed">installed()</a></li>          </ul>
+        </li>        <li><a class="reference internal" href="#functions" id="toc-functions">Functions</a>
+          <ul>            <li><a class="reference internal" href="#resetheading" id="toc-resetheading">resetHeading()</a></li>            <li><a class="reference internal" href="#resetrotation" id="toc-resetrotation">resetRotation()</a></li>            <li><a class="reference internal" href="#orientation" id="toc-orientation">orientation()</a></li>            <li><a class="reference internal" href="#changed" id="toc-changed">changed()</a></li>            <li><a class="reference internal" href="#collision" id="toc-collision">collision()</a></li>            <li><a class="reference internal" href="#getturntype" id="toc-getturntype">getTurnType()</a></li>            <li><a class="reference internal" href="#timestamp" id="toc-timestamp">timestamp()</a></li>          </ul>
+        </li>      </ul>
+    </li>
+  </ul>
+</div>
+
+                <div class="section" id="functions">
+                  <h2><a class="toc-backref" href="#toc-functions">Functions</a><a class="headerlink" href="#functions" title="Permalink to this headline"></a></h2>
+                  <div class="section" id="constructor-s-">
+  <h3><a class="toc-backref" href="#toc-constructor-s-">Constructor(s)</a><a class="headerlink" href="#constructor-s-" title="Permalink to this headline"></a></h3>  <div class="section" id="initializing-the-inertial-class">
+    <h4><a class="toc-backref" href="#toc-initializing-the-inertial-class">Initializing the inertial Class</a><a class="headerlink" href="#initializing-the-inertial-class" title="Permalink to this headline"></a></h4>
+    <p>An Inertial Sensor is created by using the following constructor:</p>
+<p><code>inertial(port)</code></p>
+<p>This <code>Inertial</code> object will be used in all subsequent examples throughout this API documentation when referring to inertial class methods.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-1-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-1-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-1-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="nc">inertial</span><span class="p">(</span> <span class="k">int32_t</span> <span class="n">port</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-1-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Construct a Inertial Sensor &quot;Inertial&quot; with the</span>
+<span class="c1">// inertial class.</span>
+<span class="nc">inertial</span> <span class="nc">Inertial</span> <span class="o">=</span> <span class="nc">inertial</span><span class="p">(</span><span class="n">PORT1</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td><code>port</code></td>
+<td>A valid <a class="reference external" href="enums.html#ports"><code>Smart Port</code></a> that the Inertial Sensor is connected to.</td>
+</tr>
+  </tbody>
+</table>
+    
+  </div>
+  <hr class="docutils" /></div><div class="section" id="movement-functions">
+  <h3><a class="toc-backref" href="#toc-movement-functions">Movement Functions</a><a class="headerlink" href="#movement-functions" title="Permalink to this headline"></a></h3>  <div class="section" id="setheading">
+    <h4><a class="toc-backref" href="#toc-setheading">setHeading()</a><a class="headerlink" href="#setheading" title="Permalink to this headline"></a></h4>
+    <p>The <code>setHeading(value, units)</code> method sets the heading of the Inertial Sensor to a specified value.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-2-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-2-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-2-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">inertial</span><span class="o">::</span><span class="n">setHeading</span><span class="p">(</span> <span class="k">auto</span> <span class="n">value</span><span class="p">,</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">rotationUnits</span> <span class="n">units</span> <span class="o">=</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">rotationUnits</span><span class="o">::</span><span class="n">deg</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-2-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Set the Inertial Sensor&#39;s heading to 180 degrees.</span>
+<span class="nc">Inertial</span><span class="o">.</span><span class="n">setHeading</span><span class="p">(</span><span class="mi">180</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td><code>value</code></td>
+<td>The heading value to set.</td>
+</tr>
+<tr class="row-odd"><td><code>units</code></td>
+<td>A valid <a class="reference external" href="enums.html#rotation-units"><code>rotationUnit</code></a>.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="setrotation">
+    <h4><a class="toc-backref" href="#toc-setrotation">setRotation()</a><a class="headerlink" href="#setrotation" title="Permalink to this headline"></a></h4>
+    <p>The <code>setRotation(value, units)</code> method sets the rotation of the Inertial Sensor to a specified value.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-3-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-3-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-3-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">inertial</span><span class="o">::</span><span class="n">setRotation</span><span class="p">(</span> <span class="k">auto</span> <span class="n">value</span><span class="p">,</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">rotationUnits</span> <span class="n">units</span> <span class="o">=</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">rotationUnits</span><span class="o">::</span><span class="n">deg</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-3-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Set the Inertial Sensor&#39;s rotation to 180 degrees.</span>
+<span class="nc">Inertial</span><span class="o">.</span><span class="n">setRotation</span><span class="p">(</span><span class="mi">180</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td><code>value</code></td>
+<td>The rotation value to set.</td>
+</tr>
+<tr class="row-odd"><td><code>units</code></td>
+<td>A valid <a class="reference external" href="enums.html#rotation-units"><code>rotationUnit</code></a>.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="setturntype">
+    <h4><a class="toc-backref" href="#toc-setturntype">setTurnType()</a><a class="headerlink" href="#setturntype" title="Permalink to this headline"></a></h4>
+    <p>The <code>setTurnType(turntype)</code> method sets the direction that returns positive values for the heading.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-4-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-4-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-4-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">inertial</span><span class="o">::</span><span class="n">setTurnType</span><span class="p">(</span> <span class="k">auto</span> <span class="n">turntype</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-4-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Set the turn type to left.</span>
+<span class="nc">Inertial</span><span class="o">.</span><span class="n">setTurnType</span><span class="p">(</span><span class="n">left</span><span class="p">)</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td><code>turntype</code></td>
+<td>A valid <a class="reference external" href="enums.html#turn-types"><code>turnType</code></a>.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" /></div><div class="section" id="telemetry-functions">
+  <h3><a class="toc-backref" href="#toc-telemetry-functions">Telemetry Functions</a><a class="headerlink" href="#telemetry-functions" title="Permalink to this headline"></a></h3>  <div class="section" id="iscalibrating">
+    <h4><a class="toc-backref" href="#toc-iscalibrating">isCalibrating()</a><a class="headerlink" href="#iscalibrating" title="Permalink to this headline"></a></h4>
+    <p>The <code>isCalibrating()</code> method checks if the Inertial Sensor is currently calibrating.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-5-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-5-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-5-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">inertial</span><span class="o">::</span><span class="n">isCalibrating</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-5-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Start calibration.</span>
+<span class="nc">Inertial</span><span class="o">.</span><span class="n">calibrate</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="c1">// Print that the Inertial Sensor is calibrating while</span>
+<span class="c1">// waiting for it to finish calibrating.</span>
+<span class="k">while</span><span class="p">(</span><span class="nc">Inertial</span><span class="o">.</span><span class="n">isCalibrating</span><span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="p">{</span>
+    <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Inertial Calibrating&quot;</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">wait</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <p><strong>Returns:</strong> <code>true</code> if the Inertial Sensor is calibrating. <code>false</code> if it is not.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="heading">
+    <h4><a class="toc-backref" href="#toc-heading">heading()</a><a class="headerlink" href="#heading" title="Permalink to this headline"></a></h4>
+    <p>The <code>heading(units)</code> method returns the current heading of the Inertial Sensor.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-6-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-6-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-6-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">double</span> <span class="nc">inertial</span><span class="o">::</span><span class="n">heading</span><span class="p">(</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">rotationUnits</span> <span class="n">units</span> <span class="o">=</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">rotationUnits</span><span class="o">::</span><span class="n">deg</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-6-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Get the current heading for the Inertial Sensor.</span>
+<span class="k">double</span> <span class="n">value</span> <span class="o">=</span> <span class="nc">Inertial</span><span class="o">.</span><span class="n">heading</span><span class="p">(</span><span class="p">)</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td><code>units</code></td>
+<td>A valid <a class="reference external" href="enums.html#rotation-units"><code>rotationUnit</code></a>. The default is <code>degrees</code>.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> A double representing the current heading of the Inertial Sensor in the specified units.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="rotation">
+    <h4><a class="toc-backref" href="#toc-rotation">rotation()</a><a class="headerlink" href="#rotation" title="Permalink to this headline"></a></h4>
+    <p>The <code>rotation(units)</code> method returns the current rotation of the Inertial Sensor.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-7-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-7-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-7-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">double</span> <span class="nc">inertial</span><span class="o">::</span><span class="nc">rotation</span><span class="p">(</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">rotationUnits</span> <span class="n">units</span> <span class="o">=</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">rotationUnits</span><span class="o">::</span><span class="n">deg</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-7-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Get the current rotation for the Inertial Sensor.</span>
+<span class="k">double</span> <span class="n">value</span> <span class="o">=</span> <span class="nc">Inertial</span><span class="o">.</span><span class="nc">rotation</span><span class="p">(</span><span class="p">)</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td><code>units</code></td>
+<td>A valid <a class="reference external" href="enums.html#rotation-units"><code>rotationUnit</code></a>. The default is <code>degrees</code>.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> A double representing the current rotation of the Inertial Sensor in the specified units.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="angle">
+    <h4><a class="toc-backref" href="#toc-angle">angle()</a><a class="headerlink" href="#angle" title="Permalink to this headline"></a></h4>
+    <p>The <code>angle(units)</code> method returns the current angle of the Inertial Sensor.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-8-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-8-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-8-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">double</span> <span class="nc">inertial</span><span class="o">::</span><span class="n">angle</span><span class="p">(</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">rotationUnits</span> <span class="n">units</span> <span class="o">=</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">rotationUnits</span><span class="o">::</span><span class="n">deg</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-8-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Get the current angle for the Inertial Sensor.</span>
+<span class="k">double</span> <span class="n">value</span> <span class="o">=</span> <span class="nc">Inertial</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="p">)</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td><code>units</code></td>
+<td>A valid <a class="reference external" href="enums.html#rotation-units"><code>rotationUnit</code></a>. The default is <code>degrees</code>.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> A double representing the current angle of the Inertial Sensor in the specified units.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="roll">
+    <h4><a class="toc-backref" href="#toc-roll">roll()</a><a class="headerlink" href="#roll" title="Permalink to this headline"></a></h4>
+    <p>The <code>roll(units)</code> method returns the roll angle of the Inertial Sensor.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-9-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-9-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-9-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">double</span> <span class="nc">inertial</span><span class="o">::</span><span class="n">roll</span><span class="p">(</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">rotationUnits</span> <span class="n">units</span> <span class="o">=</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">rotationUnits</span><span class="o">::</span><span class="n">deg</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-9-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td><code>units</code></td>
+<td>A valid <a class="reference external" href="enums.html#rotation-units"><code>rotationUnit</code></a>. The default is <code>degrees</code>.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> A double representing the roll value of the Inertial Sensor.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="pitch">
+    <h4><a class="toc-backref" href="#toc-pitch">pitch()</a><a class="headerlink" href="#pitch" title="Permalink to this headline"></a></h4>
+    <p>The <code>pitch(units)</code> method returns the roll angle of the Inertial Sensor.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-10-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-10-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-10-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">double</span> <span class="nc">inertial</span><span class="o">::</span><span class="n">pitch</span><span class="p">(</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">rotationUnits</span> <span class="n">units</span> <span class="o">=</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">rotationUnits</span><span class="o">::</span><span class="n">deg</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-10-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td><code>units</code></td>
+<td>A valid <a class="reference external" href="enums.html#rotation-units"><code>rotationUnit</code></a>. The default is <code>degrees</code>.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> A double representing the pitch value of the Inertial Sensor.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="yaw">
+    <h4><a class="toc-backref" href="#toc-yaw">yaw()</a><a class="headerlink" href="#yaw" title="Permalink to this headline"></a></h4>
+    <p>The <code>yaw(units)</code> method returns the yaw angle of the Inertial Sensor.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-11-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-11-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-11-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">double</span> <span class="nc">inertial</span><span class="o">::</span><span class="n">yaw</span><span class="p">(</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">rotationUnits</span> <span class="n">units</span> <span class="o">=</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">rotationUnits</span><span class="o">::</span><span class="n">deg</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-11-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td><code>units</code></td>
+<td>A valid <a class="reference external" href="enums.html#rotation-units"><code>rotationUnit</code></a>. The default is <code>degrees</code>.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> A double representing the yaw value of the Inertial Sensor.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="gyrorate">
+    <h4><a class="toc-backref" href="#toc-gyrorate">gyroRate()</a><a class="headerlink" href="#gyrorate" title="Permalink to this headline"></a></h4>
+    <p>The <code>gyroRate(axis, units)</code> method returns the gyro rate for one axis of the Inertial Sensor.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-12-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-12-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-12-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">double</span> <span class="nc">inertial</span><span class="o">::</span><span class="n">gyroRate</span><span class="p">(</span> <span class="k">auto</span> <span class="nc">axis</span><span class="p">,</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">rotationUnits</span> <span class="n">units</span> <span class="o">=</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">rotationUnits</span><span class="o">::</span><span class="n">deg</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-12-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Get the gyro rate for the Z axis of the Inertial Sensor.</span>
+<span class="k">double</span> <span class="n">zrate</span> <span class="o">=</span> <span class="nc">Inertial</span><span class="o">.</span><span class="n">gyroRate</span><span class="p">(</span><span class="n">zaxis</span><span class="p">)</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td><code>axis</code></td>
+<td>A valid <a class="reference external" href="enums.html#axis-types"><code>axisType</code></a>.</td>
+</tr>
+<tr class="row-odd"><td><code>units</code></td>
+<td>A valid <a class="reference external" href="enums.html#velocity-units"><code>velocityUnit</code></a>.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> A double representing the value for the gyro rate of the axis in the units specified.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="acceleration">
+    <h4><a class="toc-backref" href="#toc-acceleration">acceleration()</a><a class="headerlink" href="#acceleration" title="Permalink to this headline"></a></h4>
+    <p>The <code>acceleration(axis)</code> method returns the acceleration of a specific axis of the Inertial Sensor.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-13-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-13-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-13-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">double</span> <span class="nc">inertial</span><span class="o">::</span><span class="n">acceleration</span><span class="p">(</span> <span class="k">auto</span> <span class="nc">axis</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-13-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Get the acceleration for the Z axis of the</span>
+<span class="c1">// Inertial Sensor.</span>
+<span class="k">double</span> <span class="n">accel</span> <span class="o">=</span> <span class="nc">Inertial</span><span class="o">.</span><span class="n">acceleration</span><span class="p">(</span><span class="n">zaxis</span><span class="p">)</span>
+
+<span class="c1">// Print the value of the current acceleration of the z-axis</span>
+<span class="c1">// of the Inertial Sensor to the Brain&#39;s screen.</span>
+<span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">accel</span><span class="p">)</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td><code>axis</code></td>
+<td>A valid <a class="reference external" href="enums.html#axis-types"><code>axisType</code></a>.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> A double representing the value for the acceleration of the axis in units of gravity.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="installed">
+    <h4><a class="toc-backref" href="#toc-installed">installed()</a><a class="headerlink" href="#installed" title="Permalink to this headline"></a></h4>
+    <p>The <code>installed()</code> method returns if the Inertial Sensor is installed.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-14-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-14-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-14-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">inertial</span><span class="o">::</span><span class="n">installed</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-14-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <p><strong>Returns:</strong> <code>true</code> if the Inertial Sensor is installed. <code>false</code> if it is not.</p>
+  </div>
+  <hr class="docutils" /></div><div class="section" id="functions">
+  <h3><a class="toc-backref" href="#toc-functions">Functions</a><a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>  <div class="section" id="resetheading">
+    <h4><a class="toc-backref" href="#toc-resetheading">resetHeading()</a><a class="headerlink" href="#resetheading" title="Permalink to this headline"></a></h4>
+    <p>The <code>resetHeading()</code> method resets the heading of the Inertial Sensor to 0.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-15-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-15-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-15-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">inertial</span><span class="o">::</span><span class="n">resetHeading</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-15-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="resetrotation">
+    <h4><a class="toc-backref" href="#toc-resetrotation">resetRotation()</a><a class="headerlink" href="#resetrotation" title="Permalink to this headline"></a></h4>
+    <p>The <code>resetRotation()</code> method resets the rotation of the Inertial Sensor to 0.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-16-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-16-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-16-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">inertial</span><span class="o">::</span><span class="n">resetRotation</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-16-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="orientation">
+    <h4><a class="toc-backref" href="#toc-orientation">orientation()</a><a class="headerlink" href="#orientation" title="Permalink to this headline"></a></h4>
+    <p>The <code>orientation(axis, units)</code> method returns the orientation for one axis of the Inertial Sensor.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-17-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-17-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-17-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">double</span> <span class="nc">inertial</span><span class="o">::</span><span class="n">orientation</span><span class="p">(</span> <span class="k">auto</span> <span class="nc">axis</span><span class="p">,</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">rotationUnits</span> <span class="n">units</span> <span class="o">=</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">rotationUnits</span><span class="o">::</span><span class="n">deg</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-17-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Get the orientation value for the X axis of the</span>
+<span class="c1">// Inertial Sensor.</span>
+<span class="k">double</span> <span class="n">orient</span> <span class="o">=</span> <span class="nc">Inertial</span><span class="o">.</span><span class="n">orientation</span><span class="p">(</span><span class="n">xaxis</span><span class="p">)</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td><code>axis</code></td>
+<td>A valid <a class="reference external" href="enums.html#axis-types"><code>axisType</code></a>.</td>
+</tr>
+<tr class="row-odd"><td><code>units</code></td>
+<td>A valid <a class="reference external" href="enums.html#rotation-units"><code>rotationUnit</code></a>.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> A double representing the value for the axis orientation in the units specified.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="changed">
+    <h4><a class="toc-backref" href="#toc-changed">changed()</a><a class="headerlink" href="#changed" title="Permalink to this headline"></a></h4>
+    <p>The <code>changed(callback)</code> method registers a callback function for when the Inertial Sensor heading changes.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-18-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-18-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-18-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">inertial</span><span class="o">::</span><span class="n">changed</span><span class="p">(</span> <span class="k">void</span> <span class="p">(</span><span class="o">*</span><span class="n">callback</span><span class="p">)</span><span class="p">(</span><span class="k">void</span><span class="p">)</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-18-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Define the inertialChanged function with a void return</span>
+<span class="c1">// type, showing it doesn&#39;t return a value.</span>
+<span class="k">void</span> <span class="n">inertialChanged</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">  // The brain will print that the Inertial Sensor changed</span>
+<span class="c1">  // on the Brain&#39;s screen.</span>
+  <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;accelerometer changed&quot;</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">int</span> <span class="n">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">  // Initializing Robot Configuration. DO NOT REMOVE!</span>
+  <span class="n">vexcodeInit</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+
+<span class="c1">  // Turn the robot right.</span>
+  <span class="nc">Drivetrain</span><span class="o">.</span><span class="n">turn</span><span class="p">(</span><span class="n">right</span><span class="p">)</span><span class="p">;</span>
+
+<span class="c1">  // Run inertialChanged when the value of the</span>
+<span class="c1">  // Inertial Sensor changes.</span>
+  <span class="nc">Inertial</span><span class="o">.</span><span class="n">changed</span><span class="p">(</span><span class="n">inertialChanged</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td><code>callback</code></td>
+<td>The callback function to be called when the Inertial Sensor heading changes.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> An instance of the Event class.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="collision">
+    <h4><a class="toc-backref" href="#toc-collision">collision()</a><a class="headerlink" href="#collision" title="Permalink to this headline"></a></h4>
+    <p>The <code>collision(axis, x, y, z)</code> method registers a callback function for when the Inertial Sensor detects a collision.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-19-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-19-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-19-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">inertial</span><span class="o">::</span><span class="n">collision</span><span class="p">(</span> <span class="k">auto</span> <span class="nc">axis</span><span class="p">,</span> <span class="k">auto</span> <span class="n">x</span><span class="p">,</span> <span class="k">auto</span> <span class="n">y</span><span class="p">,</span> <span class="k">auto</span> <span class="n">z</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-19-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td><code>axis</code></td>
+<td>A valid <a class="reference external" href="http://web.archive.org/web/20251109043115/https://api.vex.com/exp/home/cpp/enums.html#axis-types"><code>axisType</code></a>.</td>
+</tr>
+<tr class="row-odd"><td><code>x</code></td>
+<td>A double for the acceleration values for the x axis.</td>
+</tr>
+<tr class="row-even"><td><code>y</code></td>
+<td>A double for the acceleration values for the y axis.</td>
+</tr>
+<tr class="row-odd"><td><code>z</code></td>
+<td>A double for the acceleration values for the z axis.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> An instance of the Event class.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="getturntype">
+    <h4><a class="toc-backref" href="#toc-getturntype">getTurnType()</a><a class="headerlink" href="#getturntype" title="Permalink to this headline"></a></h4>
+    <p>The <code>getTurnType()</code> method returns the direction that returns positive values for heading.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-20-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-20-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-20-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">inertial</span><span class="o">::</span><span class="n">getTurnType</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-20-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <p><strong>Returns:</strong> A turnType object representing the turn type of the Inertial Sensor.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="timestamp">
+    <h4><a class="toc-backref" href="#toc-timestamp">timestamp()</a><a class="headerlink" href="#timestamp" title="Permalink to this headline"></a></h4>
+    <p>The <code>timestamp()</code> method requests the timestamp of the last received status packet from the Inertial Sensor.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-21-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-21-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-21-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">int32_t</span> <span class="nc">inertial</span><span class="o">::</span><span class="n">timestamp</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-21-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <p><strong>Returns:</strong> Timestamp of the last status packet as an unsigned 32-bit integer in milliseconds.</p>
+  </div>
+  <hr class="docutils" /></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer>
+            <hr/>
+            <div role="contentinfo">
+              <p>&copy; Copyright 2024, VEX Robotics. V5RC Legal Components Reference.</p>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="../../assets/js/sphinx_tabs.js"></script>
+  <script src="../../assets/js/search_index.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/theme.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof initSearch === 'function' && typeof searchIndexData !== 'undefined') {
+        initSearch(searchIndexData);
+      }
+    });
+  </script>
+</body>
+</html>

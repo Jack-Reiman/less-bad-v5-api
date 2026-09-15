@@ -1,0 +1,843 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enumerated Types &amp; Units Reference &mdash; VEXcode V5 C++ documentation</title>
+  <link rel="stylesheet" href="../../assets/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/pros_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/pros_modern.css" type="text/css" />
+</head>
+<body class="wy-body-for-nav" role="document">
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          <a href="../../index.html" class="icon icon-home"> VEXcode V5 C++
+            <img src="../../assets/img/logo.svg" class="logo" alt="Logo" />
+          </a>
+          <div class="version">
+            vexcode v5 c++ api
+          </div>
+          <div role="search">
+            <form id="rtd-search-form" class="wy-form" action="#" onsubmit="return false;">
+              <input type="text" name="q" id="search-query-input" class="search-input" placeholder="Search docs" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+          </div>
+        </div>
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">          <p class="caption"><span class="caption-text">Getting Started</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="../../index.html">Documentation Home</a></li>            <li class="toctree-l1"><a class="reference internal" href="index.html">API Overview</a></li>          </ul>          <p class="caption"><span class="caption-text">Actuators & Motors</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="motor.html">Motor (11W)</a></li>            <li class="toctree-l1"><a class="reference internal" href="motor55.html">Motor 5.5W</a></li>            <li class="toctree-l1"><a class="reference internal" href="motorgroup.html">Motor Group</a></li>            <li class="toctree-l1"><a class="reference internal" href="pneumatics.html">Pneumatics</a></li>          </ul>          <p class="caption"><span class="caption-text">Drivetrain</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="drivetrain.html">Drivetrain</a></li>            <li class="toctree-l1"><a class="reference internal" href="smartdrive.html">SmartDrive</a></li>          </ul>          <p class="caption"><span class="caption-text">Brain & Controller</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="brain.html">Brain</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_screen.html">Brain Screen</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_battery.html">Brain Battery</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_sdcard.html">Brain SD Card</a></li>            <li class="toctree-l1"><a class="reference internal" href="timer.html">Timer</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller.html">Controller</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_axis.html">Controller Axis</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_button.html">Controller Button</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_screen.html">Controller Screen</a></li>          </ul>          <p class="caption"><span class="caption-text">Smart Sensors</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="inertial.html">Inertial Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="optical.html">Optical Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="distance.html">Distance Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="rotation.html">Rotation Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="gps.html">GPS Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="aivision.html">AI Vision Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="vision.html">Vision Sensor</a></li>          </ul>          <p class="caption"><span class="caption-text">3-Wire (ADI) Sensors</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="triport.html">TriPort (ADI)</a></li>            <li class="toctree-l1"><a class="reference internal" href="bumper.html">Bumper Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="limit.html">Limit Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="line.html">Line Tracker</a></li>            <li class="toctree-l1"><a class="reference internal" href="encoder.html">Encoder</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer.html">Potentiometer</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer_v2.html">Potentiometer V2</a></li>          </ul>          <p class="caption"><span class="caption-text">System & Utilities</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="competition.html">Competition</a></li>            <li class="toctree-l1"><a class="reference internal" href="thread.html">Thread & Task</a></li>            <li class="toctree-l1"><a class="reference internal" href="event.html">Event</a></li>          </ul>          <p class="caption"><span class="caption-text">Reference</span></p>
+          <ul class="current">            <li class="toctree-l1"><a class="reference internal" href="color.html">Color</a></li>            <li class="toctree-l1 current"><a class="reference internal current" href="#">Enumerated Types & Units</a>            </li>          </ul>        </div>
+      </div>
+    </nav>
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">VEXcode V5 C++</a>
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content">
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">    <li><a href="../../index.html">Docs</a> &raquo;</li>    <li><a href="../../api/cpp/index.html">API Home</a> &raquo;</li>
+    <li>Reference &raquo;</li>
+    <li>Enumerated Types & Units C++ API</li>    <li class="wy-breadcrumbs-aside">
+      <a href="https://api.vex.com/v5/home/cpp/index.html" class="fa fa-external-link" target="_blank" rel="noopener"> Official VEX API</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div itemprop="articleBody">
+              <div class="section" id="enumerated-types-and-units">
+                <h1>Enumerated Types &amp; Units C++ Reference<a class="headerlink" href="#enumerated-types-and-units" title="Permalink to this headline"></a></h1>
+                <div class="admonition note">
+                  <p class="first admonition-title">Namespace Information</p>
+                  <p class="last">All enumerated types in VEXcode C++ are defined in the <code>vex::</code> namespace. When using <code>using namespace vex;</code> in your program, the unqualified enum values (such as <code>coast</code>, <code>forward</code>, <code>rpm</code>, <code>degrees</code>, <code>msec</code>) can be used directly without prefix.</p>
+                </div>
+                
+                <div class="contents local topic" id="contents">
+                  <ul class="simple">
+                    <li><a class="reference internal" href="#enumerations-list">Enumerations on this page</a>
+                      <ul>
+                        <li><a href='#analog-units'>Analog Units</a></li>
+                        <li><a href='#axis-types'>Axis Types</a></li>
+                        <li><a href='#brake-types'>Brake Types</a></li>
+                        <li><a href='#color-types'>Color Types</a></li>
+                        <li><a href='#controller-types'>Controller Types</a></li>
+                        <li><a href='#direction-types'>Direction Types</a></li>
+                        <li><a href='#distance-units'>Distance Units</a></li>
+                        <li><a href='#font-types'>Font Types</a></li>
+                        <li><a href='#gear-setting'>Gear Setting</a></li>
+                        <li><a href='#led-state-types'>LED State Types</a></li>
+                        <li><a href='#object-types'>Object Types</a></li>
+                        <li><a href='#object-size-types'>Object Size Types</a></li>
+                        <li><a href='#orientation-types'>Orientation Types</a></li>
+                        <li><a href='#percent-units'>Percent Units</a></li>
+                        <li><a href='#ports'>Ports</a></li>
+                        <li><a href='#rotation-units'>Rotation Units</a></li>
+                        <li><a href='#temperature-units'>Temperature Units</a></li>
+                        <li><a href='#time-units'>Time Units</a></li>
+                        <li><a href='#torque-units'>Torque Units</a></li>
+                        <li><a href='#turn-types'>Turn Types</a></li>
+                        <li><a href='#velocity-units'>Velocity Units</a></li>
+                        <li><a href='#voltage-units'>Voltage Units</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="section" id="enumerations-list">
+                  <div class="section" id="analog-units">
+  <h3><a class="toc-backref" href="#toc-analog-units">Analog Units</a><a class="headerlink" href="#analog-units" title="Permalink to this headline"></a></h3>
+  <p>Namespace: <code>vex::</code></p>
+  <table border="1" class="docutils">
+  <colgroup>
+    <col width="30%" />
+    <col width="70%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Constant / Value</th><th class="head">Description</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>Range 8-bit</td>
+<td><code>range8bit</code></td>
+<td>Encodes the value as an 8-bit integer from 0 to 255.</td>
+</tr>
+<tr class="row-odd"><td>Range 10-bit</td>
+<td><code>range10bit</code></td>
+<td>Encodes the value as a 10-bit integer from 0 to 1023.</td>
+</tr>
+<tr class="row-even"><td>Range 12-bit</td>
+<td><code>range12bit</code></td>
+<td>Encodes the value as a 12-bit integer from 0 to 4095.</td>
+</tr>
+<tr class="row-odd"><td>Millivolts</td>
+<td><code>mV</code></td>
+<td>Measures the value of the analog input in millivolts.</td>
+</tr>
+  </tbody>
+</table>
+</div>
+<hr class="docutils" />
+<div class="section" id="axis-types">
+  <h3><a class="toc-backref" href="#toc-axis-types">Axis Types</a><a class="headerlink" href="#axis-types" title="Permalink to this headline"></a></h3>
+  <p>Namespace: <code>vex::</code></p>
+  <table border="1" class="docutils">
+  <colgroup>
+    <col width="30%" />
+    <col width="70%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Constant / Value</th><th class="head">Description</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>X-Axis</td>
+<td><code>xaxis</code></td>
+<td>Sets the command to generate values based on the X-Axis.</td>
+</tr>
+<tr class="row-odd"><td>Y-Axis</td>
+<td><code>yaxis</code></td>
+<td>Sets the command to generate values based on the Y-Axis.</td>
+</tr>
+<tr class="row-even"><td>Z-Axis</td>
+<td><code>zaxis</code></td>
+<td>Sets the command to generate values based on the Z-Axis.</td>
+</tr>
+  </tbody>
+</table>
+</div>
+<hr class="docutils" />
+<div class="section" id="brake-types">
+  <h3><a class="toc-backref" href="#toc-brake-types">Brake Types</a><a class="headerlink" href="#brake-types" title="Permalink to this headline"></a></h3>
+  <p>Namespace: <code>vex::</code></p>
+  <table border="1" class="docutils">
+  <colgroup>
+    <col width="30%" />
+    <col width="70%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Constant / Value</th><th class="head">Description</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>Coast</td>
+<td><code>coast</code></td>
+<td>The <code>coast</code> mode allows the motor to gradually come to a stop.</td>
+</tr>
+<tr class="row-odd"><td>Brake</td>
+<td><code>brake</code></td>
+<td>The <code>brake</code> mode stops the motor immediately.</td>
+</tr>
+<tr class="row-even"><td>Hold</td>
+<td><code>hold</code></td>
+<td>The <code>hold</code> mode stops the robot immediately and holds the motor in the stopped position.</td>
+</tr>
+  </tbody>
+</table>
+</div>
+<hr class="docutils" />
+<div class="section" id="color-types">
+  <h3><a class="toc-backref" href="#toc-color-types">Color Types</a><a class="headerlink" href="#color-types" title="Permalink to this headline"></a></h3>
+  <p>Namespace: <code>vex::</code></p>
+  <table border="1" class="docutils">
+  <colgroup>
+    <col width="30%" />
+    <col width="70%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Constant / Value</th><th class="head">Description</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>Black</td>
+<td><code>black</code></td>
+<td>The predefined color constant for black as the RGB value: (0, 0, 0).</td>
+</tr>
+<tr class="row-odd"><td>White</td>
+<td><code>white</code></td>
+<td>The predefined color constant for white as the RGB value: (255, 255, 255).</td>
+</tr>
+<tr class="row-even"><td>Red</td>
+<td><code>red</code></td>
+<td>The predefined color constant for red as the RGB value: (255, 0, 0).</td>
+</tr>
+<tr class="row-odd"><td>Green</td>
+<td><code>green</code></td>
+<td>The predefined color constant for green as the RGB value: (0, 255, 0).</td>
+</tr>
+<tr class="row-even"><td>Blue</td>
+<td><code>blue</code></td>
+<td>The predefined color constant for blue as the RGB value: (0, 0, 255).</td>
+</tr>
+<tr class="row-odd"><td>Yellow</td>
+<td><code>yellow</code></td>
+<td>The predefined color constant for yellow as the RGB value: (255, 255, 0).</td>
+</tr>
+<tr class="row-even"><td>Orange</td>
+<td><code>orange</code></td>
+<td>The predefined color constant for orange as the RGB value: (255, 165, 0).</td>
+</tr>
+<tr class="row-odd"><td>Purple</td>
+<td><code>purple</code></td>
+<td>The predefined color constant for purple as the RGB value: (255, 0, 255).</td>
+</tr>
+<tr class="row-even"><td>Cyan</td>
+<td><code>cyan</code></td>
+<td>The predefined color constant for cyan as the RGB value: (0, 255, 255).</td>
+</tr>
+<tr class="row-odd"><td>Transparent</td>
+<td><code>transparent</code></td>
+<td>The predefined color constant for transparent.</td>
+</tr>
+  </tbody>
+</table>
+</div>
+<hr class="docutils" />
+<div class="section" id="controller-types">
+  <h3><a class="toc-backref" href="#toc-controller-types">Controller Types</a><a class="headerlink" href="#controller-types" title="Permalink to this headline"></a></h3>
+  <p>Namespace: <code>vex::</code></p>
+  <table border="1" class="docutils">
+  <colgroup>
+    <col width="30%" />
+    <col width="70%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Constant / Value</th><th class="head">Description</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>Primary</td>
+<td><code>primary</code></td>
+<td>Sets a V5 controller as the primary controller when initializing a controller.</td>
+</tr>
+<tr class="row-odd"><td>Partner</td>
+<td><code>partner</code></td>
+<td>Sets a V5 controller as the partner controller when initializing a controller.</td>
+</tr>
+  </tbody>
+</table>
+</div>
+<hr class="docutils" />
+<div class="section" id="direction-types">
+  <h3><a class="toc-backref" href="#toc-direction-types">Direction Types</a><a class="headerlink" href="#direction-types" title="Permalink to this headline"></a></h3>
+  <p>Namespace: <code>vex::</code></p>
+  <table border="1" class="docutils">
+  <colgroup>
+    <col width="30%" />
+    <col width="70%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Constant / Value</th><th class="head">Description</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>Forward</td>
+<td><code>forward</code> or <code>fwd</code></td>
+<td>Sets the direction for a motor or drivetrain to move to forward.</td>
+</tr>
+<tr class="row-odd"><td>Reverse</td>
+<td><code>reverse</code></td>
+<td>Sets the direction for a motor or drivetrain to move to reverse.</td>
+</tr>
+  </tbody>
+</table>
+</div>
+<hr class="docutils" />
+<div class="section" id="distance-units">
+  <h3><a class="toc-backref" href="#toc-distance-units">Distance Units</a><a class="headerlink" href="#distance-units" title="Permalink to this headline"></a></h3>
+  <p>Namespace: <code>vex::</code></p>
+  <table border="1" class="docutils">
+  <colgroup>
+    <col width="30%" />
+    <col width="70%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Constant / Value</th><th class="head">Description</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>Inches</td>
+<td><code>inches</code></td>
+<td>Measures the value of the distance in inches.</td>
+</tr>
+<tr class="row-odd"><td>Millimeters</td>
+<td><code>mm</code></td>
+<td>Measures the value of the distance in millimeters.</td>
+</tr>
+<tr class="row-even"><td>Centimeters</td>
+<td><code>distanceUnits::cm</code></td>
+<td>Measures the value of the distance in centimeters.</td>
+</tr>
+  </tbody>
+</table>
+</div>
+<hr class="docutils" />
+<div class="section" id="font-types">
+  <h3><a class="toc-backref" href="#toc-font-types">Font Types</a><a class="headerlink" href="#font-types" title="Permalink to this headline"></a></h3>
+  <p>Namespace: <code>vex::</code></p>
+  <table border="1" class="docutils">
+  <colgroup>
+    <col width="30%" />
+    <col width="70%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Constant / Value</th><th class="head">Description</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>Mono 12</td>
+<td><code>mono12</code> or <code>monoXS</code></td>
+<td>The predefined monotype font of size 12.</td>
+</tr>
+<tr class="row-odd"><td>Mono 15</td>
+<td><code>mono15</code> or <code>monoS</code></td>
+<td>The predefined monotype font of size 15.</td>
+</tr>
+<tr class="row-even"><td>Mono 20</td>
+<td><code>mono20</code> or <code>monoM</code></td>
+<td>The predefined monotype font of size 20.</td>
+</tr>
+<tr class="row-odd"><td>Mono 30</td>
+<td><code>mono30</code> or <code>monoL</code></td>
+<td>The predefined monotype font of size 30.</td>
+</tr>
+<tr class="row-even"><td>Mono 40</td>
+<td><code>mono40</code> or <code>monoXL</code></td>
+<td>The predefined monotype font of size 40.</td>
+</tr>
+<tr class="row-odd"><td>Mono 60</td>
+<td><code>mono60</code> or <code>monXXL</code></td>
+<td>The predefined monotype font of size 60.</td>
+</tr>
+<tr class="row-even"><td>Prop 20</td>
+<td><code>prop20</code> or <code>propM</code></td>
+<td>The predefined proportional font of size 20.</td>
+</tr>
+<tr class="row-odd"><td>Prop 30</td>
+<td><code>prop30</code> or <code>propL</code></td>
+<td>The predefined proportional font of size 30.</td>
+</tr>
+<tr class="row-even"><td>Prop 40</td>
+<td><code>prop40</code> or <code>propXL</code></td>
+<td>The predefined proportional font of size 40.</td>
+</tr>
+<tr class="row-odd"><td>Prop 60</td>
+<td><code>prop60</code> or <code>propXXL</code></td>
+<td>The predefined proportional font of size 60.</td>
+</tr>
+<tr class="row-even"><td>CJK 16</td>
+<td><code>fontType::cjk16</code></td>
+<td>The predefined Chinese/Japanese/Korean font of size 16.</td>
+</tr>
+  </tbody>
+</table>
+</div>
+<hr class="docutils" />
+<div class="section" id="gear-setting">
+  <h3><a class="toc-backref" href="#toc-gear-setting">Gear Setting</a><a class="headerlink" href="#gear-setting" title="Permalink to this headline"></a></h3>
+  <p>Namespace: <code>vex::</code></p>
+  <table border="1" class="docutils">
+  <colgroup>
+    <col width="30%" />
+    <col width="70%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Constant / Value</th><th class="head">Description</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>Ratio 36:1</td>
+<td><code>ratio36_1</code></td>
+<td>The constant to represent a 36:1 gear ratio. A red gearbox for a V5 SmartMotor.</td>
+</tr>
+<tr class="row-odd"><td>Ratio 18:1</td>
+<td><code>ratio18_1</code></td>
+<td>The constant to represent a 18:1 gear ratio. A green gearbox for a V5 SmartMotor.</td>
+</tr>
+<tr class="row-even"><td>Ratio 6:1</td>
+<td><code>ratio6_1</code></td>
+<td>The constant to represent a 6:1 gear ratio. A blue gearbox for a V5 SmartMotor.</td>
+</tr>
+  </tbody>
+</table>
+</div>
+<hr class="docutils" />
+<div class="section" id="led-state-types">
+  <h3><a class="toc-backref" href="#toc-led-state-types">LED State Types</a><a class="headerlink" href="#led-state-types" title="Permalink to this headline"></a></h3>
+  <p>Namespace: <code>vex::</code></p>
+  <table border="1" class="docutils">
+  <colgroup>
+    <col width="30%" />
+    <col width="70%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Constant / Value</th><th class="head">Description</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>On</td>
+<td><code>ledState::on</code></td>
+<td>Sets the command to turn on the optical sensorΓÇÖs LED.</td>
+</tr>
+<tr class="row-odd"><td>Off</td>
+<td><code>ledState::off</code></td>
+<td>Sets the command to turn off the optical sensorΓÇÖs LED.</td>
+</tr>
+  </tbody>
+</table>
+</div>
+<hr class="docutils" />
+<div class="section" id="object-types">
+  <h3><a class="toc-backref" href="#toc-object-types">Object Types</a><a class="headerlink" href="#object-types" title="Permalink to this headline"></a></h3>
+  <p>Namespace: <code>vex::</code></p>
+  <table border="1" class="docutils">
+  <colgroup>
+    <col width="30%" />
+    <col width="70%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Constant / Value</th><th class="head">Description</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>Color Object</td>
+<td><code>objectType::colorObject</code></td>
+<td>A <a class="reference external" href="http://web.archive.org/web/20251206034012/https://api.vex.com/v5/home/cpp/AiVision/Colordesc.html">colordesc</a> object.</td>
+</tr>
+<tr class="row-odd"><td>Code Object</td>
+<td><code>objectType::codeObject</code></td>
+<td>A <a class="reference external" href="http://web.archive.org/web/20251206034012/https://api.vex.com/v5/home/cpp/AiVision/Codedesc.html">codedesc</a> object.</td>
+</tr>
+<tr class="row-even"><td>Model Object</td>
+<td><code>objectType::modelObject</code></td>
+<td>An AI Model object, also known as an AI Classification. Use the <a class="reference external" href="http://web.archive.org/web/20251206034012/https://api.vex.com/v5/home/cpp/AiVision/index.html#modeldetection"><code>modelDetection</code></a> method to enable AI Classification detection.</td>
+</tr>
+<tr class="row-odd"><td>Tag Object</td>
+<td><code>objectType::tagObject</code></td>
+<td>A <a class="reference external" href="http://web.archive.org/web/20251206034012/https://api.vex.com/v5/home/cpp/AiVision/Tagdesc.html">tagdesc</a>.</td>
+</tr>
+<tr class="row-even"><td>All Object</td>
+<td><code>objectType::allObject</code></td>
+<td>The AI Vision Sensor will look for all objects.</td>
+</tr>
+  </tbody>
+</table>
+</div>
+<hr class="docutils" />
+<div class="section" id="object-size-types">
+  <h3><a class="toc-backref" href="#toc-object-size-types">Object Size Types</a><a class="headerlink" href="#object-size-types" title="Permalink to this headline"></a></h3>
+  <p>Namespace: <code>vex::</code></p>
+  <table border="1" class="docutils">
+  <colgroup>
+    <col width="30%" />
+    <col width="70%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Constant / Value</th><th class="head">Description</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>Small</td>
+<td><code>sizeType::small</code></td>
+<td>Represents a small object size detected by the distance sensor.</td>
+</tr>
+<tr class="row-odd"><td>Medium</td>
+<td><code>sizeType::medium</code></td>
+<td>Represents a medium object size detected by the distance sensor.</td>
+</tr>
+<tr class="row-even"><td>Large</td>
+<td><code>sizeType::large</code></td>
+<td>Represents a large object size detected by the distance sensor.</td>
+</tr>
+<tr class="row-odd"><td>None</td>
+<td><code>sizeType::none</code></td>
+<td>Represents when no object is detected by the distance sensor.</td>
+</tr>
+  </tbody>
+</table>
+</div>
+<hr class="docutils" />
+<div class="section" id="orientation-types">
+  <h3><a class="toc-backref" href="#toc-orientation-types">Orientation Types</a><a class="headerlink" href="#orientation-types" title="Permalink to this headline"></a></h3>
+  <p>Namespace: <code>vex::</code></p>
+  <table border="1" class="docutils">
+  <colgroup>
+    <col width="30%" />
+    <col width="70%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Constant / Value</th><th class="head">Description</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>Roll</td>
+<td><code>roll</code></td>
+<td>Sets the command to generate values based on the roll.</td>
+</tr>
+<tr class="row-odd"><td>Pitch</td>
+<td><code>pitch</code></td>
+<td>Sets the command to generate values based on the pitch.</td>
+</tr>
+<tr class="row-even"><td>Yaw</td>
+<td><code>yaw</code></td>
+<td>Sets the command to generate values based on the yaw.</td>
+</tr>
+  </tbody>
+</table>
+</div>
+<hr class="docutils" />
+<div class="section" id="percent-units">
+  <h3><a class="toc-backref" href="#toc-percent-units">Percent Units</a><a class="headerlink" href="#percent-units" title="Permalink to this headline"></a></h3>
+  <p>Namespace: <code>vex::</code></p>
+  <table border="1" class="docutils">
+  <colgroup>
+    <col width="30%" />
+    <col width="70%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Constant / Value</th><th class="head">Description</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>Percent</td>
+<td><code>percent</code> or <code>pct</code></td>
+<td>A percentage unit representing a value from 0% - 100%.</td>
+</tr>
+  </tbody>
+</table>
+</div>
+<hr class="docutils" />
+<div class="section" id="ports">
+  <h3><a class="toc-backref" href="#toc-ports">Ports</a><a class="headerlink" href="#ports" title="Permalink to this headline"></a></h3>
+  <p>Namespace: <code>vex::</code></p>
+  <table border="1" class="docutils">
+  <colgroup>
+    <col width="30%" />
+    <col width="70%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Constant / Value</th><th class="head">Description</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>Port 1</td>
+<td><code>PORT1</code></td>
+<td>Sets the port that device is connected to on the V5 Brain to port 1.</td>
+</tr>
+<tr class="row-odd"><td>Port 2</td>
+<td><code>PORT2</code></td>
+<td>Sets the port that device is connected to on the V5 Brain to port 2.</td>
+</tr>
+<tr class="row-even"><td>Port 3</td>
+<td><code>PORT3</code></td>
+<td>Sets the port that device is connected to on the V5 Brain to port 3.</td>
+</tr>
+<tr class="row-odd"><td>Port 4</td>
+<td><code>PORT4</code></td>
+<td>Sets the port that device is connected to on the V5 Brain to port 4.</td>
+</tr>
+<tr class="row-even"><td>Port 5</td>
+<td><code>PORT5</code></td>
+<td>Sets the port that device is connected to on the V5 Brain to port 5.</td>
+</tr>
+<tr class="row-odd"><td>Port 6</td>
+<td><code>PORT6</code></td>
+<td>Sets the port that device is connected to on the V5 Brain to port 6.</td>
+</tr>
+<tr class="row-even"><td>Port 7</td>
+<td><code>PORT7</code></td>
+<td>Sets the port that device is connected to on the V5 Brain to port 7.</td>
+</tr>
+<tr class="row-odd"><td>Port 8</td>
+<td><code>PORT8</code></td>
+<td>Sets the port that device is connected to on the V5 Brain to port 8.</td>
+</tr>
+<tr class="row-even"><td>Port 9</td>
+<td><code>PORT9</code></td>
+<td>Sets the port that device is connected to on the V5 Brain to port 9.</td>
+</tr>
+<tr class="row-odd"><td>Port 10</td>
+<td><code>PORT10</code></td>
+<td>Sets the port that device is connected to on the V5 Brain to port 10.</td>
+</tr>
+<tr class="row-even"><td>Port 11</td>
+<td><code>PORT11</code></td>
+<td>Sets the port that device is connected to on the V5 Brain to port 11.</td>
+</tr>
+<tr class="row-odd"><td>Port 12</td>
+<td><code>PORT12</code></td>
+<td>Sets the port that device is connected to on the V5 Brain to port 12.</td>
+</tr>
+<tr class="row-even"><td>Port 13</td>
+<td><code>PORT13</code></td>
+<td>Sets the port that device is connected to on the V5 Brain to port 13.</td>
+</tr>
+<tr class="row-odd"><td>Port 14</td>
+<td><code>PORT14</code></td>
+<td>Sets the port that device is connected to on the V5 Brain to port 14.</td>
+</tr>
+<tr class="row-even"><td>Port 15</td>
+<td><code>PORT15</code></td>
+<td>Sets the port that device is connected to on the V5 Brain to port 15.</td>
+</tr>
+<tr class="row-odd"><td>Port 16</td>
+<td><code>PORT16</code></td>
+<td>Sets the port that device is connected to on the V5 Brain to port 16.</td>
+</tr>
+<tr class="row-even"><td>Port 17</td>
+<td><code>PORT17</code></td>
+<td>Sets the port that device is connected to on the V5 Brain to port 17.</td>
+</tr>
+<tr class="row-odd"><td>Port 18</td>
+<td><code>PORT18</code></td>
+<td>Sets the port that device is connected to on the V5 Brain to port 18.</td>
+</tr>
+<tr class="row-even"><td>Port 19</td>
+<td><code>PORT19</code></td>
+<td>Sets the port that device is connected to on the V5 Brain to port 19.</td>
+</tr>
+<tr class="row-odd"><td>Port 20</td>
+<td><code>PORT20</code></td>
+<td>Sets the port that device is connected to on the V5 Brain to port 20.</td>
+</tr>
+<tr class="row-even"><td>Port 21</td>
+<td><code>PORT21</code></td>
+<td>Sets the port that device is connected to on the V5 Brain to port 21.</td>
+</tr>
+  </tbody>
+</table>
+</div>
+<hr class="docutils" />
+<div class="section" id="rotation-units">
+  <h3><a class="toc-backref" href="#toc-rotation-units">Rotation Units</a><a class="headerlink" href="#rotation-units" title="Permalink to this headline"></a></h3>
+  <p>Namespace: <code>vex::</code></p>
+  <table border="1" class="docutils">
+  <colgroup>
+    <col width="30%" />
+    <col width="70%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Constant / Value</th><th class="head">Description</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>Degrees</td>
+<td><code>degrees</code> or <code>deg</code></td>
+<td>Expresses the rotation value as a degree.</td>
+</tr>
+<tr class="row-odd"><td>Turns</td>
+<td><code>turns</code> or <code>rev</code></td>
+<td>Expresses the rotation value in revolutions.</td>
+</tr>
+  </tbody>
+</table>
+</div>
+<hr class="docutils" />
+<div class="section" id="temperature-units">
+  <h3><a class="toc-backref" href="#toc-temperature-units">Temperature Units</a><a class="headerlink" href="#temperature-units" title="Permalink to this headline"></a></h3>
+  <p>Namespace: <code>vex::</code></p>
+  <table border="1" class="docutils">
+  <colgroup>
+    <col width="30%" />
+    <col width="70%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Constant / Value</th><th class="head">Description</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>Celsius</td>
+<td><code>celsius</code></td>
+<td>Expresses the temperature value in degrees Celsius.</td>
+</tr>
+<tr class="row-odd"><td>Fahrenheit</td>
+<td><code>fahrenheit</code></td>
+<td>Expresses the temperature value in degrees Fahrenheit.</td>
+</tr>
+  </tbody>
+</table>
+</div>
+<hr class="docutils" />
+<div class="section" id="time-units">
+  <h3><a class="toc-backref" href="#toc-time-units">Time Units</a><a class="headerlink" href="#time-units" title="Permalink to this headline"></a></h3>
+  <p>Namespace: <code>vex::</code></p>
+  <table border="1" class="docutils">
+  <colgroup>
+    <col width="30%" />
+    <col width="70%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Constant / Value</th><th class="head">Description</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>Seconds</td>
+<td><code>seconds</code> or <code>sec</code></td>
+<td>Counts the time value in seconds.</td>
+</tr>
+<tr class="row-odd"><td>Milliseconds</td>
+<td><code>msec</code></td>
+<td>Counts the time value in milliseconds.</td>
+</tr>
+  </tbody>
+</table>
+</div>
+<hr class="docutils" />
+<div class="section" id="torque-units">
+  <h3><a class="toc-backref" href="#toc-torque-units">Torque Units</a><a class="headerlink" href="#torque-units" title="Permalink to this headline"></a></h3>
+  <p>Namespace: <code>vex::</code></p>
+  <table border="1" class="docutils">
+  <colgroup>
+    <col width="30%" />
+    <col width="70%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Constant / Value</th><th class="head">Description</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>Newton Meters</td>
+<td><code>Nm</code></td>
+<td>Expresses the torque value in newton meters.</td>
+</tr>
+<tr class="row-odd"><td>Inch Pounds</td>
+<td><code>InLb</code></td>
+<td>Expresses the torque value in inch pounds.</td>
+</tr>
+  </tbody>
+</table>
+</div>
+<hr class="docutils" />
+<div class="section" id="turn-types">
+  <h3><a class="toc-backref" href="#toc-turn-types">Turn Types</a><a class="headerlink" href="#turn-types" title="Permalink to this headline"></a></h3>
+  <p>Namespace: <code>vex::</code></p>
+  <table border="1" class="docutils">
+  <colgroup>
+    <col width="30%" />
+    <col width="70%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Constant / Value</th><th class="head">Description</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>Left</td>
+<td><code>left</code></td>
+<td>Sets the command to turn to the left.</td>
+</tr>
+<tr class="row-odd"><td>Right</td>
+<td><code>right</code></td>
+<td>Sets the command to turn to the right.</td>
+</tr>
+  </tbody>
+</table>
+</div>
+<hr class="docutils" />
+<div class="section" id="velocity-units">
+  <h3><a class="toc-backref" href="#toc-velocity-units">Velocity Units</a><a class="headerlink" href="#velocity-units" title="Permalink to this headline"></a></h3>
+  <p>Namespace: <code>vex::</code></p>
+  <table border="1" class="docutils">
+  <colgroup>
+    <col width="30%" />
+    <col width="70%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Constant / Value</th><th class="head">Description</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>Rotations per Minute</td>
+<td><code>rpm</code></td>
+<td>Expresses the velocity value in rotations per minute.</td>
+</tr>
+<tr class="row-odd"><td>Degrees per Second</td>
+<td><code>dps</code></td>
+<td>Expresses the velocity value in degrees per second.</td>
+</tr>
+  </tbody>
+</table>
+</div>
+<hr class="docutils" />
+<div class="section" id="voltage-units">
+  <h3><a class="toc-backref" href="#toc-voltage-units">Voltage Units</a><a class="headerlink" href="#voltage-units" title="Permalink to this headline"></a></h3>
+  <p>Namespace: <code>vex::</code></p>
+  <table border="1" class="docutils">
+  <colgroup>
+    <col width="30%" />
+    <col width="70%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Constant / Value</th><th class="head">Description</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>Volt</td>
+<td><code>volt</code></td>
+<td>Expresses the voltage in volts.</td>
+</tr>
+<tr class="row-odd"><td>Millivolt</td>
+<td><code>voltageUnits::mV</code></td>
+<td>Expresses the voltage in millivolts.</td>
+</tr>
+  </tbody>
+</table>
+</div>
+<hr class="docutils" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer>
+            <hr/>
+            <div role="contentinfo">
+              <p>&copy; Copyright 2024, VEX Robotics. V5RC Legal Components Reference.</p>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="../../assets/js/sphinx_tabs.js"></script>
+  <script src="../../assets/js/search_index.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/theme.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof initSearch === 'function' && typeof searchIndexData !== 'undefined') {
+        initSearch(searchIndexData);
+      }
+    });
+  </script>
+</body>
+</html>

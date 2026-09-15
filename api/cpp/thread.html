@@ -1,0 +1,465 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thread & Task C++ API &mdash; VEXcode V5 C++ documentation</title>
+  <link rel="stylesheet" href="../../assets/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/pros_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/pros_modern.css" type="text/css" />
+</head>
+<body class="wy-body-for-nav" role="document">
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          <a href="../../index.html" class="icon icon-home"> VEXcode V5 C++
+            <img src="../../assets/img/logo.svg" class="logo" alt="Logo" />
+          </a>
+          <div class="version">
+            vexcode v5 c++ api
+          </div>
+          <div role="search">
+            <form id="rtd-search-form" class="wy-form" action="#" onsubmit="return false;">
+              <input type="text" name="q" id="search-query-input" class="search-input" placeholder="Search docs" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+          </div>
+        </div>
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">          <p class="caption"><span class="caption-text">Getting Started</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="../../index.html">Documentation Home</a></li>            <li class="toctree-l1"><a class="reference internal" href="index.html">API Overview</a></li>          </ul>          <p class="caption"><span class="caption-text">Actuators & Motors</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="motor.html">Motor (11W)</a></li>            <li class="toctree-l1"><a class="reference internal" href="motor55.html">Motor 5.5W</a></li>            <li class="toctree-l1"><a class="reference internal" href="motorgroup.html">Motor Group</a></li>            <li class="toctree-l1"><a class="reference internal" href="pneumatics.html">Pneumatics</a></li>          </ul>          <p class="caption"><span class="caption-text">Drivetrain</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="drivetrain.html">Drivetrain</a></li>            <li class="toctree-l1"><a class="reference internal" href="smartdrive.html">SmartDrive</a></li>          </ul>          <p class="caption"><span class="caption-text">Brain & Controller</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="brain.html">Brain</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_screen.html">Brain Screen</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_battery.html">Brain Battery</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_sdcard.html">Brain SD Card</a></li>            <li class="toctree-l1"><a class="reference internal" href="timer.html">Timer</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller.html">Controller</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_axis.html">Controller Axis</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_button.html">Controller Button</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_screen.html">Controller Screen</a></li>          </ul>          <p class="caption"><span class="caption-text">Smart Sensors</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="inertial.html">Inertial Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="optical.html">Optical Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="distance.html">Distance Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="rotation.html">Rotation Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="gps.html">GPS Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="aivision.html">AI Vision Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="vision.html">Vision Sensor</a></li>          </ul>          <p class="caption"><span class="caption-text">3-Wire (ADI) Sensors</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="triport.html">TriPort (ADI)</a></li>            <li class="toctree-l1"><a class="reference internal" href="bumper.html">Bumper Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="limit.html">Limit Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="line.html">Line Tracker</a></li>            <li class="toctree-l1"><a class="reference internal" href="encoder.html">Encoder</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer.html">Potentiometer</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer_v2.html">Potentiometer V2</a></li>          </ul>          <p class="caption"><span class="caption-text">System & Utilities</span></p>
+          <ul class="current">            <li class="toctree-l1"><a class="reference internal" href="competition.html">Competition</a></li>            <li class="toctree-l1 current"><a class="reference internal current" href="#">Thread & Task</a>              <ul>                <li class="toctree-l2"><a class="reference internal" href="#constructor-s-">Constructor(s)</a></li>                <li class="toctree-l2"><a class="reference internal" href="#movement-functions">Movement Functions</a></li>                <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a></li>              </ul>            </li>            <li class="toctree-l1"><a class="reference internal" href="event.html">Event</a></li>          </ul>          <p class="caption"><span class="caption-text">Reference</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="color.html">Color</a></li>            <li class="toctree-l1"><a class="reference internal" href="enums.html">Enumerated Types & Units</a></li>          </ul>        </div>
+      </div>
+    </nav>
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">VEXcode V5 C++</a>
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content">
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">    <li><a href="../../index.html">Docs</a> &raquo;</li>    <li><a href="../../api/cpp/index.html">API Home</a> &raquo;</li>
+    <li>System & Utilities &raquo;</li>
+    <li>Thread & Task C++ API</li>    <li class="wy-breadcrumbs-aside">
+      <a href="https://api.vex.com/v5/home/cpp/index.html" class="fa fa-external-link" target="_blank" rel="noopener"> Official VEX API</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div itemprop="articleBody">
+              <div class="section" id="thread-task-c-api">
+                <h1>Thread & Task C++ API<a class="headerlink" href="#thread-task-c-api" title="Permalink to this headline"></a></h1>
+                <div class="admonition note">
+                  <p class="first admonition-title">Hardware Specification</p>
+                  <p class="last">
+                    <strong>Class:</strong> <code>vex::thread</code> &nbsp;|&nbsp;
+                    <strong>Port:</strong> RTOS Multithreading &nbsp;|&nbsp;
+                    <strong>Competition Status:</strong> V5RC Legal Hardware &nbsp;|&nbsp;
+                    <strong>Header:</strong> <code>#include "vex.h"</code>
+                  </p>
+                </div>
+
+                <div class="contents local topic" id="contents">
+  <ul class="simple">
+    <li><a class="reference internal" href="#functions" id="toc-functions">Functions</a>
+      <ul>        <li><a class="reference internal" href="#constructor-s-" id="toc-constructor-s-">Constructor(s)</a>
+          <ul>            <li><a class="reference internal" href="#initializing-the-thread-class" id="toc-initializing-the-thread-class">Initializing the thread Class</a></li>          </ul>
+        </li>        <li><a class="reference internal" href="#movement-functions" id="toc-movement-functions">Movement Functions</a>
+          <ul>            <li><a class="reference internal" href="#setpriority" id="toc-setpriority">setPriority()</a></li>          </ul>
+        </li>        <li><a class="reference internal" href="#functions" id="toc-functions">Functions</a>
+          <ul>            <li><a class="reference internal" href="#join" id="toc-join">join()</a></li>            <li><a class="reference internal" href="#detach" id="toc-detach">detach()</a></li>            <li><a class="reference internal" href="#joinable" id="toc-joinable">joinable()</a></li>            <li><a class="reference internal" href="#interrupt" id="toc-interrupt">interrupt()</a></li>            <li><a class="reference internal" href="#interruptall" id="toc-interruptall">interruptAll()</a></li>            <li><a class="reference internal" href="#priority" id="toc-priority">priority()</a></li>            <li><a class="reference internal" href="#hardware-concurrency" id="toc-hardware-concurrency">hardware_concurrency()</a></li>          </ul>
+        </li>      </ul>
+    </li>
+  </ul>
+</div>
+
+                <div class="section" id="functions">
+                  <h2><a class="toc-backref" href="#toc-functions">Functions</a><a class="headerlink" href="#functions" title="Permalink to this headline"></a></h2>
+                  <div class="section" id="constructor-s-">
+  <h3><a class="toc-backref" href="#toc-constructor-s-">Constructor(s)</a><a class="headerlink" href="#constructor-s-" title="Permalink to this headline"></a></h3>  <div class="section" id="initializing-the-thread-class">
+    <h4><a class="toc-backref" href="#toc-initializing-the-thread-class">Initializing the thread Class</a><a class="headerlink" href="#initializing-the-thread-class" title="Permalink to this headline"></a></h4>
+    <p>A Thread is created by using the following constructor:</p>
+<p>The <code>thread</code> constructor creates a thread object with a callback function to be executed when the Thread is invoked.</p>
+<p>This <code>Thread</code> object will be used in all subsequent examples throughout this API documentation when referring to thread class methods.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-1-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-1-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-1-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="nc">vex</span><span class="o">::</span><span class="nc">thread</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-1-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Define the function &quot;threadPrint&quot;.</span>
+<span class="k">void</span> <span class="n">threadPrint</span><span class="p">(</span><span class="p">)</span><span class="p">{</span>
+  <span class="nc">brain</span><span class="o">.</span><span class="nc">screen</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Printing!&quot;</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">int</span> <span class="n">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">  // Initializing Robot Configuration. DO NOT REMOVE!</span>
+  <span class="n">vexcodeInit</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+
+<span class="c1">  // Construct a thread &quot;Thread&quot; with the</span>
+<span class="c1">  // thread class.</span>
+  <span class="nc">thread</span> <span class="nc">Thread</span> <span class="o">=</span> <span class="nc">thread</span><span class="p">(</span><span class="n">threadPrint</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td><code>callback</code></td>
+<td>A previously defined function that will be executed as the entry point when the thread is invoked.</td>
+</tr>
+  </tbody>
+</table>
+    
+  </div>
+  <hr class="docutils" /></div><div class="section" id="movement-functions">
+  <h3><a class="toc-backref" href="#toc-movement-functions">Movement Functions</a><a class="headerlink" href="#movement-functions" title="Permalink to this headline"></a></h3>  <div class="section" id="setpriority">
+    <h4><a class="toc-backref" href="#toc-setpriority">setPriority()</a><a class="headerlink" href="#setpriority" title="Permalink to this headline"></a></h4>
+    <p>The <code>setPriority(priority)</code> method sets the priority of the thread as an integer.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-2-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-2-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-2-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">thread</span><span class="o">::</span><span class="n">setPriority</span><span class="p">(</span> <span class="k">auto</span> <span class="n">priority</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-2-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>priority</td>
+<td>An integer representing the priority of the thread.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" /></div><div class="section" id="functions">
+  <h3><a class="toc-backref" href="#toc-functions">Functions</a><a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>  <div class="section" id="join">
+    <h4><a class="toc-backref" href="#toc-join">join()</a><a class="headerlink" href="#join" title="Permalink to this headline"></a></h4>
+    <p>The <code>join()</code> method waits for the other thread to finish its execution.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-3-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-3-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-3-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">thread</span><span class="o">::</span><span class="n">join</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-3-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="detach">
+    <h4><a class="toc-backref" href="#toc-detach">detach()</a><a class="headerlink" href="#detach" title="Permalink to this headline"></a></h4>
+    <p>The <code>detach()</code> method permits the thread to execute from the thread handle.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-4-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-4-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-4-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">thread</span><span class="o">::</span><span class="n">detach</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-4-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="joinable">
+    <h4><a class="toc-backref" href="#toc-joinable">joinable()</a><a class="headerlink" href="#joinable" title="Permalink to this headline"></a></h4>
+    <p>The <code>joinable()</code> method returns if a thread is joinable.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-5-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-5-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-5-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">bool</span> <span class="nc">thread</span><span class="o">::</span><span class="n">joinable</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-5-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <p><strong>Returns:</strong> A boolean representing if a thread is joinable.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="interrupt">
+    <h4><a class="toc-backref" href="#toc-interrupt">interrupt()</a><a class="headerlink" href="#interrupt" title="Permalink to this headline"></a></h4>
+    <p>The <code>interrupt()</code> method stops the thread.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-6-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-6-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-6-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">thread</span><span class="o">::</span><span class="n">interrupt</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-6-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="interruptall">
+    <h4><a class="toc-backref" href="#toc-interruptall">interruptAll()</a><a class="headerlink" href="#interruptall" title="Permalink to this headline"></a></h4>
+    <p>The <code>interruptAll()</code> method stops all threads except main.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-7-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-7-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-7-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">thread</span><span class="o">::</span><span class="n">interruptAll</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-7-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="priority">
+    <h4><a class="toc-backref" href="#toc-priority">priority()</a><a class="headerlink" href="#priority" title="Permalink to this headline"></a></h4>
+    <p>The <code>priority()</code> method returns the priority of the thread as an integer.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-8-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-8-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-8-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">int32_t</span> <span class="nc">thread</span><span class="o">::</span><span class="n">priority</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-8-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <p><strong>Returns:</strong> An integer representing the priority of the thread.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="hardware-concurrency">
+    <h4><a class="toc-backref" href="#toc-hardware-concurrency">hardware_concurrency()</a><a class="headerlink" href="#hardware-concurrency" title="Permalink to this headline"></a></h4>
+    <p>The <code>hardware_concurrency()</code> method returns the number of concurrent threads supported by the hardware.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-9-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-9-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-9-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">int32_t</span> <span class="nc">thread</span><span class="o">::</span><span class="n">hardware_concurrency</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-9-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <p><strong>Returns:</strong> An integer representing the number of concurrent threads supported by the hardware.</p>
+  </div>
+  <hr class="docutils" /></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer>
+            <hr/>
+            <div role="contentinfo">
+              <p>&copy; Copyright 2024, VEX Robotics. V5RC Legal Components Reference.</p>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="../../assets/js/sphinx_tabs.js"></script>
+  <script src="../../assets/js/search_index.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/theme.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof initSearch === 'function' && typeof searchIndexData !== 'undefined') {
+        initSearch(searchIndexData);
+      }
+    });
+  </script>
+</body>
+</html>

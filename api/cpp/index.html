@@ -1,0 +1,359 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Directory &mdash; VEXcode V5 C++ documentation</title>
+  <link rel="stylesheet" href="../../assets/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/pros_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/pros_modern.css" type="text/css" />
+</head>
+<body class="wy-body-for-nav" role="document">
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          <a href="../../index.html" class="icon icon-home"> VEXcode V5 C++
+            <img src="../../assets/img/logo.svg" class="logo" alt="Logo" />
+          </a>
+          <div class="version">
+            vexcode v5 c++ api
+          </div>
+          <div role="search">
+            <form id="rtd-search-form" class="wy-form" action="#" onsubmit="return false;">
+              <input type="text" name="q" id="search-query-input" class="search-input" placeholder="Search docs" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+          </div>
+        </div>
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">          <p class="caption"><span class="caption-text">Getting Started</span></p>
+          <ul class="current">            <li class="toctree-l1"><a class="reference internal" href="../../index.html">Documentation Home</a></li>            <li class="toctree-l1 current"><a class="reference internal current" href="#">API Overview</a>            </li>          </ul>          <p class="caption"><span class="caption-text">Actuators & Motors</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="motor.html">Motor (11W)</a></li>            <li class="toctree-l1"><a class="reference internal" href="motor55.html">Motor 5.5W</a></li>            <li class="toctree-l1"><a class="reference internal" href="motorgroup.html">Motor Group</a></li>            <li class="toctree-l1"><a class="reference internal" href="pneumatics.html">Pneumatics</a></li>          </ul>          <p class="caption"><span class="caption-text">Drivetrain</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="drivetrain.html">Drivetrain</a></li>            <li class="toctree-l1"><a class="reference internal" href="smartdrive.html">SmartDrive</a></li>          </ul>          <p class="caption"><span class="caption-text">Brain & Controller</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="brain.html">Brain</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_screen.html">Brain Screen</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_battery.html">Brain Battery</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_sdcard.html">Brain SD Card</a></li>            <li class="toctree-l1"><a class="reference internal" href="timer.html">Timer</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller.html">Controller</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_axis.html">Controller Axis</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_button.html">Controller Button</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_screen.html">Controller Screen</a></li>          </ul>          <p class="caption"><span class="caption-text">Smart Sensors</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="inertial.html">Inertial Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="optical.html">Optical Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="distance.html">Distance Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="rotation.html">Rotation Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="gps.html">GPS Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="aivision.html">AI Vision Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="vision.html">Vision Sensor</a></li>          </ul>          <p class="caption"><span class="caption-text">3-Wire (ADI) Sensors</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="triport.html">TriPort (ADI)</a></li>            <li class="toctree-l1"><a class="reference internal" href="bumper.html">Bumper Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="limit.html">Limit Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="line.html">Line Tracker</a></li>            <li class="toctree-l1"><a class="reference internal" href="encoder.html">Encoder</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer.html">Potentiometer</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer_v2.html">Potentiometer V2</a></li>          </ul>          <p class="caption"><span class="caption-text">System & Utilities</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="competition.html">Competition</a></li>            <li class="toctree-l1"><a class="reference internal" href="thread.html">Thread & Task</a></li>            <li class="toctree-l1"><a class="reference internal" href="event.html">Event</a></li>          </ul>          <p class="caption"><span class="caption-text">Reference</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="color.html">Color</a></li>            <li class="toctree-l1"><a class="reference internal" href="enums.html">Enumerated Types & Units</a></li>          </ul>        </div>
+      </div>
+    </nav>
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">VEXcode V5 C++</a>
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content">
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">    <li><a href="../../index.html">Docs</a> &raquo;</li>    <li>API Home</li>    <li class="wy-breadcrumbs-aside">
+      <a href="https://api.vex.com/v5/home/cpp/index.html" class="fa fa-external-link" target="_blank" rel="noopener"> Official VEX API</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div itemprop="articleBody">
+              <div class="section" id="vexcode-v5-c-api-directory">
+                <h1>VEXcode V5 C++ API Directory<a class="headerlink" href="#vexcode-v5-c-api-directory" title="Permalink to this headline"></a></h1>
+                <div class="admonition note">
+                  <p class="first admonition-title">V5RC Competition Legal Hardware Reference</p>
+                  <p class="last">Welcome to the VEXcode V5 C++ API Reference. Select any competition-legal hardware component, sensor, or system module below to inspect full function prototypes, parameter tables, execution wait semantics, and verified example code.</p>
+                </div>
+
+                <div class="section" id="actuators-motors">
+  <h2>Actuators & Motors<a class="headerlink" href="#actuators-motors" title="Permalink to this headline"></a></h2>
+  <div class="api-cards-grid">    <a href="motor.html" class="api-card">
+      <h3><span>Motor (11W)</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-smartport">Smart Port 1-21</span>
+        <code style="font-size:0.75rem;">vex::motor</code>
+      </div>
+      <p>V5 11W Smart Motor with integrated encoder and current, torque, temperature telemetry.</p>
+    </a>    <a href="motor55.html" class="api-card">
+      <h3><span>Motor 5.5W</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-smartport">Smart Port 1-21</span>
+        <code style="font-size:0.75rem;">vex::motor</code>
+      </div>
+      <p>V5 5.5W Smart Motor designed for lightweight mechanisms and compact designs.</p>
+    </a>    <a href="motorgroup.html" class="api-card">
+      <h3><span>Motor Group</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-smartport">Multiple Smart Ports</span>
+        <code style="font-size:0.75rem;">vex::motor_group</code>
+      </div>
+      <p>Synchronized multi-motor control group for lifts, intakes, and drivetrains.</p>
+    </a>    <a href="pneumatics.html" class="api-card">
+      <h3><span>Pneumatics</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-smartport">Smart Port / 3-Wire</span>
+        <code style="font-size:0.75rem;">vex::pneumatics</code>
+      </div>
+      <p>V5 Pneumatic control for single-acting and double-acting solenoid valves.</p>
+    </a>  </div>
+</div>
+<div class="section" id="drivetrain">
+  <h2>Drivetrain<a class="headerlink" href="#drivetrain" title="Permalink to this headline"></a></h2>
+  <div class="api-cards-grid">    <a href="drivetrain.html" class="api-card">
+      <h3><span>Drivetrain</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-smartport">2 or 4 Smart Motors</span>
+        <code style="font-size:0.75rem;">vex::drivetrain</code>
+      </div>
+      <p>Standard 2-motor or 4-motor differential drivetrain with distance and turn tracking.</p>
+    </a>    <a href="smartdrive.html" class="api-card">
+      <h3><span>SmartDrive</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-system">Drivetrain + Inertial</span>
+        <code style="font-size:0.75rem;">vex::smartdrive</code>
+      </div>
+      <p>Inertial-assisted drivetrain offering precision heading turns and gyro correction.</p>
+    </a>  </div>
+</div>
+<div class="section" id="brain-controller">
+  <h2>Brain & Controller<a class="headerlink" href="#brain-controller" title="Permalink to this headline"></a></h2>
+  <div class="api-cards-grid">    <a href="brain.html" class="api-card">
+      <h3><span>Brain</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-system">V5 Brain</span>
+        <code style="font-size:0.75rem;">vex::brain</code>
+      </div>
+      <p>V5 Brain core device providing access to screen, battery, timer, and SD card.</p>
+    </a>    <a href="brain_screen.html" class="api-card">
+      <h3><span>Brain Screen</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-system">V5 Touchscreen</span>
+        <code style="font-size:0.75rem;">Brain.Screen</code>
+      </div>
+      <p>Full-color touchscreen graphics, shape rendering, text printing, and touch events.</p>
+    </a>    <a href="brain_battery.html" class="api-card">
+      <h3><span>Brain Battery</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-system">V5 Battery</span>
+        <code style="font-size:0.75rem;">Brain.Battery</code>
+      </div>
+      <p>Battery telemetry including voltage, current draw, temperature, and percentage capacity.</p>
+    </a>    <a href="brain_sdcard.html" class="api-card">
+      <h3><span>Brain SD Card</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-system">MicroSD Slot</span>
+        <code style="font-size:0.75rem;">Brain.SDcard</code>
+      </div>
+      <p>File system access for reading and writing files to the micro-SD card.</p>
+    </a>    <a href="timer.html" class="api-card">
+      <h3><span>Timer</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-system">System Timer</span>
+        <code style="font-size:0.75rem;">vex::timer</code>
+      </div>
+      <p>High-precision timer for elapsed time measurement and benchmarking.</p>
+    </a>    <a href="controller.html" class="api-card">
+      <h3><span>Controller</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-system">V5 Controller</span>
+        <code style="font-size:0.75rem;">vex::controller</code>
+      </div>
+      <p>V5 handheld remote controller interface for sticks, buttons, and screen.</p>
+    </a>    <a href="controller_axis.html" class="api-card">
+      <h3><span>Controller Axis</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-system">Joysticks</span>
+        <code style="font-size:0.75rem;">Controller.Axis</code>
+      </div>
+      <p>Analog joystick channels (Axis1, Axis2, Axis3, Axis4) with position and callbacks.</p>
+    </a>    <a href="controller_button.html" class="api-card">
+      <h3><span>Controller Button</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-system">Buttons</span>
+        <code style="font-size:0.75rem;">Controller.Button</code>
+      </div>
+      <p>Digital controller buttons (L1, L2, R1, R2, Up, Down, Left, Right, A, B, X, Y).</p>
+    </a>    <a href="controller_screen.html" class="api-card">
+      <h3><span>Controller Screen</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-system">LCD Display</span>
+        <code style="font-size:0.75rem;">Controller.Screen</code>
+      </div>
+      <p>Handheld controller screen text printing, cursor positioning, and line clearing.</p>
+    </a>  </div>
+</div>
+<div class="section" id="smart-sensors">
+  <h2>Smart Sensors<a class="headerlink" href="#smart-sensors" title="Permalink to this headline"></a></h2>
+  <div class="api-cards-grid">    <a href="inertial.html" class="api-card">
+      <h3><span>Inertial Sensor</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-smartport">Smart Port 1-21</span>
+        <code style="font-size:0.75rem;">vex::inertial</code>
+      </div>
+      <p>3-axis accelerometer and 3-axis gyroscope with sensor-fusion heading, pitch, roll, and yaw.</p>
+    </a>    <a href="optical.html" class="api-card">
+      <h3><span>Optical Sensor</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-smartport">Smart Port 1-21</span>
+        <code style="font-size:0.75rem;">vex::optical</code>
+      </div>
+      <p>Ambient light, color hue, proximity, gesture detection, and white LED illumination.</p>
+    </a>    <a href="distance.html" class="api-card">
+      <h3><span>Distance Sensor</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-smartport">Smart Port 1-21</span>
+        <code style="font-size:0.75rem;">vex::distance</code>
+      </div>
+      <p>Time-of-flight laser distance sensor measuring millimetric range and object velocity.</p>
+    </a>    <a href="rotation.html" class="api-card">
+      <h3><span>Rotation Sensor</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-smartport">Smart Port 1-21</span>
+        <code style="font-size:0.75rem;">vex::rotation</code>
+      </div>
+      <p>High-resolution absolute and relative shaft encoder with position and angular velocity.</p>
+    </a>    <a href="gps.html" class="api-card">
+      <h3><span>GPS Sensor</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-smartport">Smart Port 1-21</span>
+        <code style="font-size:0.75rem;">vex::gps</code>
+      </div>
+      <p>Game Field Positioning System sensor tracking absolute X/Y field coordinates and heading.</p>
+    </a>    <a href="aivision.html" class="api-card">
+      <h3><span>AI Vision Sensor</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-smartport">Smart Port 1-21</span>
+        <code style="font-size:0.75rem;">vex::aivision</code>
+      </div>
+      <p>AI-powered vision sensor identifying game objects, AprilTags, and color codes.</p>
+    </a>    <a href="vision.html" class="api-card">
+      <h3><span>Vision Sensor</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-smartport">Smart Port 1-21</span>
+        <code style="font-size:0.75rem;">vex::vision</code>
+      </div>
+      <p>Color-signature tracking camera detecting game objects, sizes, and coordinates.</p>
+    </a>  </div>
+</div>
+<div class="section" id="3-wire-adi-sensors">
+  <h2>3-Wire (ADI) Sensors<a class="headerlink" href="#3-wire-adi-sensors" title="Permalink to this headline"></a></h2>
+  <div class="api-cards-grid">    <a href="triport.html" class="api-card">
+      <h3><span>TriPort (ADI)</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-triport">3-Wire Ports A-H</span>
+        <code style="font-size:0.75rem;">vex::triport</code>
+      </div>
+      <p>TriPort expander and built-in 3-wire ports for competition-legal 3-wire sensors.</p>
+    </a>    <a href="bumper.html" class="api-card">
+      <h3><span>Bumper Switch</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-triport">3-Wire Port A-H</span>
+        <code style="font-size:0.75rem;">vex::bumper</code>
+      </div>
+      <p>Physical mechanical bumper switch detecting contact and presses.</p>
+    </a>    <a href="limit.html" class="api-card">
+      <h3><span>Limit Switch</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-triport">3-Wire Port A-H</span>
+        <code style="font-size:0.75rem;">vex::limit</code>
+      </div>
+      <p>Physical micro-switch limit sensor for mechanical stops.</p>
+    </a>    <a href="line.html" class="api-card">
+      <h3><span>Line Tracker</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-triport">3-Wire Port A-H</span>
+        <code style="font-size:0.75rem;">vex::line</code>
+      </div>
+      <p>Infrared reflectance sensor detecting field line tape and contrast.</p>
+    </a>    <a href="encoder.html" class="api-card">
+      <h3><span>Encoder</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-triport">3-Wire Ports (Pairs)</span>
+        <code style="font-size:0.75rem;">vex::encoder</code>
+      </div>
+      <p>Optical quadrature shaft encoder using two digital ports for rotation tracking.</p>
+    </a>    <a href="potentiometer.html" class="api-card">
+      <h3><span>Potentiometer</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-triport">3-Wire Port A-H</span>
+        <code style="font-size:0.75rem;">vex::potentiometer</code>
+      </div>
+      <p>Analog rotary potentiometer measuring up to 250 degrees of shaft position.</p>
+    </a>    <a href="potentiometer_v2.html" class="api-card">
+      <h3><span>Potentiometer V2</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-triport">3-Wire Port A-H</span>
+        <code style="font-size:0.75rem;">vex::potentiometerV2</code>
+      </div>
+      <p>V2 330-degree rotary potentiometer with enhanced linearity.</p>
+    </a>  </div>
+</div>
+<div class="section" id="system-utilities">
+  <h2>System & Utilities<a class="headerlink" href="#system-utilities" title="Permalink to this headline"></a></h2>
+  <div class="api-cards-grid">    <a href="competition.html" class="api-card">
+      <h3><span>Competition</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-system">Field Control</span>
+        <code style="font-size:0.75rem;">vex::competition</code>
+      </div>
+      <p>VEX Competition match controller managing autonomous and driver control routines.</p>
+    </a>    <a href="thread.html" class="api-card">
+      <h3><span>Thread & Task</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-system">RTOS Multithreading</span>
+        <code style="font-size:0.75rem;">vex::thread</code>
+      </div>
+      <p>Multithreading and background task execution, priorities, sleep, and concurrency.</p>
+    </a>    <a href="event.html" class="api-card">
+      <h3><span>Event</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-system">Event Handling</span>
+        <code style="font-size:0.75rem;">vex::event</code>
+      </div>
+      <p>Broadcast and callback event dispatcher for asynchronous communication.</p>
+    </a>  </div>
+</div>
+<div class="section" id="reference">
+  <h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline"></a></h2>
+  <div class="api-cards-grid">    <a href="color.html" class="api-card">
+      <h3><span>Color</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-system">System Type</span>
+        <code style="font-size:0.75rem;">vex::color</code>
+      </div>
+      <p>Color management class for RGB, HSV, web hex codes, and alpha transparency.</p>
+    </a>    <a href="enums.html" class="api-card">
+      <h3><span>Enumerated Types & Units</span> <span>&rarr;</span></h3>
+      <div style="margin-bottom:0.45rem;">
+        <span class="badge-system">All Hardware Types</span>
+        <code style="font-size:0.75rem;">vex::enums</code>
+      </div>
+      <p>Complete reference of all unit types, direction types, brake types, and gear ratios.</p>
+    </a>  </div>
+</div>
+
+              </div>
+            </div>
+          </div>
+          <footer>
+            <hr/>
+            <div role="contentinfo">
+              <p>&copy; Copyright 2024, VEX Robotics. V5RC Legal Components Reference.</p>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="../../assets/js/sphinx_tabs.js"></script>
+  <script src="../../assets/js/search_index.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/theme.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof initSearch === 'function' && typeof searchIndexData !== 'undefined') {
+        initSearch(searchIndexData);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1536 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brain Screen C++ API &mdash; VEXcode V5 C++ documentation</title>
+  <link rel="stylesheet" href="../../assets/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/pros_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/pros_modern.css" type="text/css" />
+</head>
+<body class="wy-body-for-nav" role="document">
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          <a href="../../index.html" class="icon icon-home"> VEXcode V5 C++
+            <img src="../../assets/img/logo.svg" class="logo" alt="Logo" />
+          </a>
+          <div class="version">
+            vexcode v5 c++ api
+          </div>
+          <div role="search">
+            <form id="rtd-search-form" class="wy-form" action="#" onsubmit="return false;">
+              <input type="text" name="q" id="search-query-input" class="search-input" placeholder="Search docs" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+          </div>
+        </div>
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">          <p class="caption"><span class="caption-text">Getting Started</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="../../index.html">Documentation Home</a></li>            <li class="toctree-l1"><a class="reference internal" href="index.html">API Overview</a></li>          </ul>          <p class="caption"><span class="caption-text">Actuators & Motors</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="motor.html">Motor (11W)</a></li>            <li class="toctree-l1"><a class="reference internal" href="motor55.html">Motor 5.5W</a></li>            <li class="toctree-l1"><a class="reference internal" href="motorgroup.html">Motor Group</a></li>            <li class="toctree-l1"><a class="reference internal" href="pneumatics.html">Pneumatics</a></li>          </ul>          <p class="caption"><span class="caption-text">Drivetrain</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="drivetrain.html">Drivetrain</a></li>            <li class="toctree-l1"><a class="reference internal" href="smartdrive.html">SmartDrive</a></li>          </ul>          <p class="caption"><span class="caption-text">Brain & Controller</span></p>
+          <ul class="current">            <li class="toctree-l1"><a class="reference internal" href="brain.html">Brain</a></li>            <li class="toctree-l1 current"><a class="reference internal current" href="#">Brain Screen</a>              <ul>                <li class="toctree-l2"><a class="reference internal" href="#movement-functions">Movement Functions</a></li>                <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a></li>              </ul>            </li>            <li class="toctree-l1"><a class="reference internal" href="brain_battery.html">Brain Battery</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_sdcard.html">Brain SD Card</a></li>            <li class="toctree-l1"><a class="reference internal" href="timer.html">Timer</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller.html">Controller</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_axis.html">Controller Axis</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_button.html">Controller Button</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_screen.html">Controller Screen</a></li>          </ul>          <p class="caption"><span class="caption-text">Smart Sensors</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="inertial.html">Inertial Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="optical.html">Optical Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="distance.html">Distance Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="rotation.html">Rotation Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="gps.html">GPS Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="aivision.html">AI Vision Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="vision.html">Vision Sensor</a></li>          </ul>          <p class="caption"><span class="caption-text">3-Wire (ADI) Sensors</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="triport.html">TriPort (ADI)</a></li>            <li class="toctree-l1"><a class="reference internal" href="bumper.html">Bumper Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="limit.html">Limit Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="line.html">Line Tracker</a></li>            <li class="toctree-l1"><a class="reference internal" href="encoder.html">Encoder</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer.html">Potentiometer</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer_v2.html">Potentiometer V2</a></li>          </ul>          <p class="caption"><span class="caption-text">System & Utilities</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="competition.html">Competition</a></li>            <li class="toctree-l1"><a class="reference internal" href="thread.html">Thread & Task</a></li>            <li class="toctree-l1"><a class="reference internal" href="event.html">Event</a></li>          </ul>          <p class="caption"><span class="caption-text">Reference</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="color.html">Color</a></li>            <li class="toctree-l1"><a class="reference internal" href="enums.html">Enumerated Types & Units</a></li>          </ul>        </div>
+      </div>
+    </nav>
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">VEXcode V5 C++</a>
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content">
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">    <li><a href="../../index.html">Docs</a> &raquo;</li>    <li><a href="../../api/cpp/index.html">API Home</a> &raquo;</li>
+    <li>Brain & Controller &raquo;</li>
+    <li>Brain Screen C++ API</li>    <li class="wy-breadcrumbs-aside">
+      <a href="https://api.vex.com/v5/home/cpp/index.html" class="fa fa-external-link" target="_blank" rel="noopener"> Official VEX API</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div itemprop="articleBody">
+              <div class="section" id="brain-screen-c-api">
+                <h1>Brain Screen C++ API<a class="headerlink" href="#brain-screen-c-api" title="Permalink to this headline"></a></h1>
+                <div class="admonition note">
+                  <p class="first admonition-title">Hardware Specification</p>
+                  <p class="last">
+                    <strong>Class:</strong> <code>Brain.Screen</code> &nbsp;|&nbsp;
+                    <strong>Port:</strong> V5 Touchscreen &nbsp;|&nbsp;
+                    <strong>Competition Status:</strong> V5RC Legal Hardware &nbsp;|&nbsp;
+                    <strong>Header:</strong> <code>#include "vex.h"</code>
+                  </p>
+                </div>
+
+                <div class="contents local topic" id="contents">
+  <ul class="simple">
+    <li><a class="reference internal" href="#functions" id="toc-functions">Functions</a>
+      <ul>        <li><a class="reference internal" href="#movement-functions" id="toc-movement-functions">Movement Functions</a>
+          <ul>            <li><a class="reference internal" href="#setcursor" id="toc-setcursor">setCursor()</a></li>            <li><a class="reference internal" href="#setorigin" id="toc-setorigin">setOrigin()</a></li>            <li><a class="reference internal" href="#setfont" id="toc-setfont">setFont()</a></li>            <li><a class="reference internal" href="#setpenwidth" id="toc-setpenwidth">setPenWidth()</a></li>            <li><a class="reference internal" href="#setpencolor" id="toc-setpencolor">setPenColor()</a></li>            <li><a class="reference internal" href="#setfillcolor" id="toc-setfillcolor">setFillColor()</a></li>            <li><a class="reference internal" href="#setclipregion" id="toc-setclipregion">setClipRegion()</a></li>          </ul>
+        </li>        <li><a class="reference internal" href="#functions" id="toc-functions">Functions</a>
+          <ul>            <li><a class="reference internal" href="#print" id="toc-print">print()</a></li>            <li><a class="reference internal" href="#printat" id="toc-printat">printAt()</a></li>            <li><a class="reference internal" href="#column" id="toc-column">column()</a></li>            <li><a class="reference internal" href="#row" id="toc-row">row()</a></li>            <li><a class="reference internal" href="#getstringwidth" id="toc-getstringwidth">getStringWidth()</a></li>            <li><a class="reference internal" href="#getstringheight" id="toc-getstringheight">getStringHeight()</a></li>            <li><a class="reference internal" href="#clearscreen" id="toc-clearscreen">clearScreen()</a></li>            <li><a class="reference internal" href="#clearline" id="toc-clearline">clearLine()</a></li>            <li><a class="reference internal" href="#newline" id="toc-newline">newLine()</a></li>            <li><a class="reference internal" href="#pressed" id="toc-pressed">pressed()</a></li>            <li><a class="reference internal" href="#released" id="toc-released">released()</a></li>            <li><a class="reference internal" href="#xposition" id="toc-xposition">xPosition()</a></li>            <li><a class="reference internal" href="#yposition" id="toc-yposition">yPosition()</a></li>            <li><a class="reference internal" href="#pressing" id="toc-pressing">pressing()</a></li>            <li><a class="reference internal" href="#drawpixel" id="toc-drawpixel">drawPixel()</a></li>            <li><a class="reference internal" href="#drawline" id="toc-drawline">drawLine()</a></li>            <li><a class="reference internal" href="#drawrectangle" id="toc-drawrectangle">drawRectangle()</a></li>            <li><a class="reference internal" href="#drawcircle" id="toc-drawcircle">drawCircle()</a></li>            <li><a class="reference internal" href="#drawimagefromfile" id="toc-drawimagefromfile">drawImageFromFile()</a></li>            <li><a class="reference internal" href="#render" id="toc-render">render()</a></li>          </ul>
+        </li>      </ul>
+    </li>
+  </ul>
+</div>
+
+                <div class="section" id="functions">
+                  <h2><a class="toc-backref" href="#toc-functions">Functions</a><a class="headerlink" href="#functions" title="Permalink to this headline"></a></h2>
+                  <div class="section" id="movement-functions">
+  <h3><a class="toc-backref" href="#toc-movement-functions">Movement Functions</a><a class="headerlink" href="#movement-functions" title="Permalink to this headline"></a></h3>  <div class="section" id="setcursor">
+    <h4><a class="toc-backref" href="#toc-setcursor">setCursor()</a><a class="headerlink" href="#setcursor" title="Permalink to this headline"></a></h4>
+    <p>The <code class="docutils literal notranslate"><span class="pre">setCursor(x,</span> <span class="pre">y)</span></code> method sets the cursor position. The row and column spacing will take into account the selected font. The base cell size if 10x20 pixels for the <code class="docutils literal notranslate"><span class="pre">MONO20</span></code> font. The top, left corner of the screen is position (<code class="docutils literal notranslate"><span class="pre">x=1</span></code>, <code class="docutils literal notranslate"><span class="pre">y=1</span></code>).</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-1-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-1-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-1-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">::</span><span class="n">setCursor</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-1-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>x</td>
+<td>The x position of the cursor.</td>
+</tr>
+<tr class="row-odd"><td>y</td>
+<td>The y position of the cursor.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="setorigin">
+    <h4><a class="toc-backref" href="#toc-setorigin">setOrigin()</a><a class="headerlink" href="#setorigin" title="Permalink to this headline"></a></h4>
+    <p>The <code class="docutils literal notranslate"><span class="pre">setOrigin(x,</span> <span class="pre">y)</span></code> method sets the origin used for drawing graphics on the Brainâ€™s screen. Drawing functions consider the top left corner of the Brainâ€™s screen as the origin. This function can move the origin to an alternate position such as the center of the Brainâ€™s screen.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-2-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-2-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-2-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">::</span><span class="n">setOrigin</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-2-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>x</td>
+<td>The originâ€™s x position relative to top left corner.</td>
+</tr>
+<tr class="row-odd"><td>y</td>
+<td>The originâ€™s y position relative to top left corner.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="setfont">
+    <h4><a class="toc-backref" href="#toc-setfont">setFont()</a><a class="headerlink" href="#setfont" title="Permalink to this headline"></a></h4>
+    <p>The <code class="docutils literal notranslate"><span class="pre">setFont(fontname)</span></code> method sets the font type used for printing text on the Brainâ€™s screen.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-3-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-3-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-3-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">::</span><span class="n">setFont</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-3-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Set the font type to MONO40.</span>
+<span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">setFont</span><span class="p">(</span><span class="nc">FontType</span><span class="o">.</span><span class="n">MONO40</span><span class="p">)</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>fontname</td>
+<td>A valid <a class="reference external" href="enums.html#font-types">FontType</a>.</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="setpenwidth">
+    <h4><a class="toc-backref" href="#toc-setpenwidth">setPenWidth()</a><a class="headerlink" href="#setpenwidth" title="Permalink to this headline"></a></h4>
+    <p>The <code class="docutils literal notranslate"><span class="pre">setPenWidth(width)</span></code> method sets the pen width used for drawing lines, rectangles and circles.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-4-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-4-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-4-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">::</span><span class="n">setPenWidth</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-4-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Set the pen width to 5 pixels.</span>
+<span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">setPenWidth</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>width</td>
+<td>The pen width.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="setpencolor">
+    <h4><a class="toc-backref" href="#toc-setpencolor">setPenColor()</a><a class="headerlink" href="#setpencolor" title="Permalink to this headline"></a></h4>
+    <p>The pen color can be set in two ways:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">setPenColor(color)</span></code> method sets the pen color with the specified color.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">setPenColor(hue)</span></code> method sets the pen color with the specified hue.</p>
+<p>Parameters</p>
+<p>Description</p>
+<p>hue</p>
+<p>An integer representing the hue of the color, from 1 - 359.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-5-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-5-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-5-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">::</span><span class="n">setPenColor</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-5-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Set pen color red using a Hex value.</span>
+<span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">setPenColor</span><span class="p">(</span><span class="mi">0xFF0000</span><span class="p">)</span>
+
+<span class="c1">// Set pen color blue using a predefined color.</span>
+<span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">setPenColor</span><span class="p">(</span><span class="nc">Color</span><span class="o">.</span><span class="n">BLUE</span><span class="p">)</span>
+
+<span class="c1">// Set pen color green using a web string.</span>
+<span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">setPenColor</span><span class="p">(</span><span class="s">&quot;#00FF00&quot;</span><span class="p">)</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>color</td>
+<td>Either a previously defined <a class="reference external" href="color.html">color</a> object or a Hex value.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="setfillcolor">
+    <h4><a class="toc-backref" href="#toc-setfillcolor">setFillColor()</a><a class="headerlink" href="#setfillcolor" title="Permalink to this headline"></a></h4>
+    <p>The fill color can be set in two ways:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">setFillColor(color)</span></code> method sets the fill color with the specified color.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">setFillColor(hue)</span></code> method sets the fill color with the specified hue.</p>
+<p>Parameters</p>
+<p>Description</p>
+<p>hue</p>
+<p>An integer representing the hue of the color, from 1 - 359.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-6-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-6-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-6-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">::</span><span class="n">setFillColor</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-6-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Set pen color red using a hex value.</span>
+<span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">setFillColor</span><span class="p">(</span><span class="mi">0xFF0000</span><span class="p">)</span>
+
+<span class="c1">// Set pen color blue using a predefined color.</span>
+<span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">setFillColor</span><span class="p">(</span><span class="nc">Color</span><span class="o">.</span><span class="n">BLUE</span><span class="p">)</span>
+
+<span class="c1">// Set pen color green using a web string.</span>
+<span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">setFillColor</span><span class="p">(</span><span class="s">&quot;#00FF00&quot;</span><span class="p">)</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>color</td>
+<td>Either a previously defined <a class="reference external" href="color.html">color</a> object or a Hex value.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="setclipregion">
+    <h4><a class="toc-backref" href="#toc-setclipregion">setClipRegion()</a><a class="headerlink" href="#setclipregion" title="Permalink to this headline"></a></h4>
+    <p>The <code class="docutils literal notranslate"><span class="pre">setClipRegion(x,</span> <span class="pre">y,</span> <span class="pre">width,</span> <span class="pre">height)</span></code> method sets the clip region for drawing the supplied rectangle.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-7-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-7-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-7-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">::</span><span class="n">setClipRegion</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-7-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>x</td>
+<td>The x position of the top-left corner of the rectangle, referenced to the screen origin.</td>
+</tr>
+<tr class="row-odd"><td>y</td>
+<td>The y position of the top-left corner of the rectangle, referenced to the screen origin.</td>
+</tr>
+<tr class="row-even"><td>width</td>
+<td>The width of the rectangle.</td>
+</tr>
+<tr class="row-odd"><td>height</td>
+<td>The height of the rectangle.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" /></div><div class="section" id="functions">
+  <h3><a class="toc-backref" href="#toc-functions">Functions</a><a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>  <div class="section" id="print">
+    <h4><a class="toc-backref" href="#toc-print">print()</a><a class="headerlink" href="#print" title="Permalink to this headline"></a></h4>
+    <p>The <code class="docutils literal notranslate"><span class="pre">print(value,</span> <span class="pre">format,</span> <span class="pre">...)</span></code> method prints text on the screen using the current cursor position.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-8-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-8-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-8-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">::</span><span class="n">print</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-8-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Print the number 1 on the Brain&#39;s screen at current</span>
+<span class="c1">// cursor position.</span>
+<span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>value</td>
+<td>The text to print.</td>
+</tr>
+<tr class="row-odd"><td>format</td>
+<td><strong>Optional.</strong> A format specifier to be used when printing the value of variables.</td>
+</tr>
+<tr class="row-even"><td>â€¦</td>
+<td><strong>Optional.</strong> A variable list of parameters to be printed with the format specifier.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="printat">
+    <h4><a class="toc-backref" href="#toc-printat">printAt()</a><a class="headerlink" href="#printat" title="Permalink to this headline"></a></h4>
+    <p>The <code class="docutils literal notranslate"><span class="pre">printAt(text,</span> <span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">format,</span> <span class="pre">precision,</span> <span class="pre">...)</span></code> method prints text at a specific x and y coordinates on the screen.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-9-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-9-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-9-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">::</span><span class="n">printAt</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-9-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Print the number 1 on the Brain&#39;s screen at</span>
+<span class="n">position</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span><span class="o">.</span>
+<span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">printAt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>value</td>
+<td>The text to print.</td>
+</tr>
+<tr class="row-odd"><td>x</td>
+<td>The x position to print at as a keyword argument (x=), referenced to the screen origin.</td>
+</tr>
+<tr class="row-even"><td>y</td>
+<td>The y position to print at as a keyword argument (y=), referenced to the screen origin.</td>
+</tr>
+<tr class="row-odd"><td>format</td>
+<td><strong>Optional.</strong> A format specifier to be used when printing the value of variables.</td>
+</tr>
+<tr class="row-even"><td>â€¦</td>
+<td><strong>Optional.</strong> A variable list of parameters to be printed with the format specifier.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="column">
+    <h4><a class="toc-backref" href="#toc-column">column()</a><a class="headerlink" href="#column" title="Permalink to this headline"></a></h4>
+    <p>The <code class="docutils literal notranslate"><span class="pre">column()</span></code> method returns the current column where text will be printed.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-10-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-10-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-10-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">::</span><span class="n">column</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-10-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <p><strong>Returns:</strong> The current column position.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="row">
+    <h4><a class="toc-backref" href="#toc-row">row()</a><a class="headerlink" href="#row" title="Permalink to this headline"></a></h4>
+    <p>The <code class="docutils literal notranslate"><span class="pre">row()</span></code> method returns the current row where text will be printed.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-11-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-11-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-11-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">::</span><span class="n">row</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-11-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <p><strong>Returns:</strong> The current row position.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="getstringwidth">
+    <h4><a class="toc-backref" href="#toc-getstringwidth">getStringWidth()</a><a class="headerlink" href="#getstringwidth" title="Permalink to this headline"></a></h4>
+    <p>The <code class="docutils literal notranslate"><span class="pre">getStringWidth(string)</span></code> method gets the width of a string in pixels as if it was on the Brainâ€™s screen. The width of a string changes based on the length of the string and the size of the font.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-12-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-12-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-12-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">int32_t</span> <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">::</span><span class="n">getStringWidth</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-12-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>string</td>
+<td>The string to measure.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> The width of the string as an integer.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="getstringheight">
+    <h4><a class="toc-backref" href="#toc-getstringheight">getStringHeight()</a><a class="headerlink" href="#getstringheight" title="Permalink to this headline"></a> <span class="badge-nonwaiting">Non-Waiting</span></h4>
+    <p>The <code class="docutils literal notranslate"><span class="pre">getStringHeight(string)</span></code> method gets the height of a string in pixels as if it was on the Brainâ€™s screen. The height of a string changes based on the length of the string and the size of the font.</p>
+<p>This is a <strong>non-waiting</strong> method and allows the next method to run without delay.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-13-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-13-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-13-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">int32_t</span> <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">::</span><span class="n">getStringHeight</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-13-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>string</td>
+<td>The string to measure.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> The height of the string as an integer.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="clearscreen">
+    <h4><a class="toc-backref" href="#toc-clearscreen">clearScreen()</a><a class="headerlink" href="#clearscreen" title="Permalink to this headline"></a></h4>
+    <p>The Brainâ€™s screen can be cleared in three ways:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">clearScreen()</span></code> method clears the Brainâ€™s screen to the default color (black).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">clearScreen(color)</span></code> method clears the whole Brainâ€™s screen to a specified color.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">clearScreen(hue)</span></code> method clears the whole Brainâ€™s screen to a specified hue.</p>
+<p>Parameters</p>
+<p>Description</p>
+<p>hue</p>
+<p>An integer representing the hue of the color, from 1 - 359.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-14-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-14-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-14-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">::</span><span class="n">clearScreen</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-14-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Print VEXcode on the Brain&#39;s screen.</span>
+<span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;VEXcode&quot;</span><span class="p">)</span>
+
+<span class="c1">// Clear screen to black.</span>
+<span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">clearScreen</span><span class="p">(</span><span class="p">)</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>color</td>
+<td>Either a previously defined <a class="reference external" href="color.html">color</a> object or a Hex value.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="clearline">
+    <h4><a class="toc-backref" href="#toc-clearline">clearLine()</a><a class="headerlink" href="#clearline" title="Permalink to this headline"></a></h4>
+    <p>Lines can be cleared on the Brainâ€™s screen in four ways:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">clearLine()</span></code> method clears the row where the cursor is currently located.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">clearLine(number)</span></code> method clears a specified row.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">clearLine(number,</span> <span class="pre">color)</span></code> method clears a specified row and sets the row to a specified color.</p>
+<p>Parameters</p>
+<p>Description</p>
+<p>number</p>
+<p>The row to clear.</p>
+<p>color</p>
+<p>Either a previously defined <a class="reference external" href="color.html">color</a> object or a Hex value.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">clearLine(number,</span> <span class="pre">hue)</span></code> method clears a specified row and sets the row to a specified hue.</p>
+<p>Parameters</p>
+<p>Description</p>
+<p>number</p>
+<p>The row to clear.</p>
+<p>hue</p>
+<p>An integer representing the hue of the color, from 1 - 359.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-15-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-15-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-15-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">::</span><span class="n">clearLine</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-15-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>number</td>
+<td>The row to clear.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="newline">
+    <h4><a class="toc-backref" href="#toc-newline">newLine()</a><a class="headerlink" href="#newline" title="Permalink to this headline"></a></h4>
+    <p>The <code class="docutils literal notranslate"><span class="pre">newLine()</span></code> method moves the cursor to the next row.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-16-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-16-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-16-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">::</span><span class="n">newLine</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-16-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="pressed">
+    <h4><a class="toc-backref" href="#toc-pressed">pressed()</a><a class="headerlink" href="#pressed" title="Permalink to this headline"></a></h4>
+    <p>The <code class="docutils literal notranslate"><span class="pre">pressed(callback)</span></code> method registers a function to be called when the screen is pressed.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-17-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-17-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-17-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">::</span><span class="n">pressed</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-17-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Define the screenPressed function with a void return type,</span>
+<span class="c1">// showing it doesn&#39;t return a value.</span>
+<span class="k">void</span> <span class="n">screenPressed</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">  // The Brain will print that the screen was pressed on</span>
+<span class="c1">  // the Brain&#39;s screen.</span>
+  <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;screen pressed&quot;</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">int</span> <span class="n">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">  // Initializing Robot Configuration. DO NOT REMOVE!</span>
+  <span class="n">vexcodeInit</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+
+<span class="c1">  // Run screenPressed when the screen is pressed on</span>
+<span class="c1">  // the Brain.</span>
+  <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">pressed</span><span class="p">(</span><span class="n">screenPressed</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>callback</td>
+<td>A function that will be called when the screen is pressed.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> An instance of the Event class.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="released">
+    <h4><a class="toc-backref" href="#toc-released">released()</a><a class="headerlink" href="#released" title="Permalink to this headline"></a></h4>
+    <p>The <code class="docutils literal notranslate"><span class="pre">released(callback)</span></code> method sets the function to be called when the screen is released after being pressed.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-18-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-18-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-18-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">::</span><span class="n">released</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-18-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Define the screenReleased function with a void return</span>
+<span class="c1">// type, showing it doesn&#39;t return a value.</span>
+<span class="k">void</span> <span class="n">screenReleased</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">  // The Brain will print that the Brain&#39;s screen was</span>
+<span class="c1">  // released on the Brain&#39;s screen.</span>
+  <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;screen released&quot;</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">int</span> <span class="n">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">  // Initializing Robot Configuration. DO NOT REMOVE!</span>
+  <span class="n">vexcodeInit</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+
+<span class="c1">  // Run screenReleased when the Brain&#39;s screen is released on</span>
+<span class="c1">  // the Brain.</span>
+  <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">released</span><span class="p">(</span><span class="n">screenReleased</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>callback</td>
+<td>A reference to a function.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> An instance of the Event class.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="xposition">
+    <h4><a class="toc-backref" href="#toc-xposition">xPosition()</a><a class="headerlink" href="#xposition" title="Permalink to this headline"></a></h4>
+    <p>The <code class="docutils literal notranslate"><span class="pre">xPosition()</span></code> method returns the last x location pressed on the Brainâ€™s screen.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-19-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-19-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-19-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">::</span><span class="n">xPosition</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-19-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <p><strong>Returns:</strong> The last x location pressed on the screen.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="yposition">
+    <h4><a class="toc-backref" href="#toc-yposition">yPosition()</a><a class="headerlink" href="#yposition" title="Permalink to this headline"></a></h4>
+    <p>The <code class="docutils literal notranslate"><span class="pre">yPosition()</span></code> method returns the last y location pressed on the Brainâ€™s screen.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-20-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-20-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-20-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">::</span><span class="n">yPosition</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-20-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <p><strong>Returns:</strong> The last y location pressed on the screen.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="pressing">
+    <h4><a class="toc-backref" href="#toc-pressing">pressing()</a><a class="headerlink" href="#pressing" title="Permalink to this headline"></a></h4>
+    <p>The <code class="docutils literal notranslate"><span class="pre">pressing()</span></code> method returns whether the Brainâ€™s screen is currently being pressed.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-21-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-21-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-21-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">::</span><span class="n">pressing</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-21-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <p><strong>Returns:</strong> <code class="docutils literal notranslate"><span class="pre">true</span></code> if the screen is being pressed. <code class="docutils literal notranslate"><span class="pre">false</span></code> if it is not.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="drawpixel">
+    <h4><a class="toc-backref" href="#toc-drawpixel">drawPixel()</a><a class="headerlink" href="#drawpixel" title="Permalink to this headline"></a></h4>
+    <p>The <code class="docutils literal notranslate"><span class="pre">drawPixel(x,</span> <span class="pre">y)</span></code> method draws a pixel using the current pen color.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-22-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-22-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-22-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">::</span><span class="n">drawPixel</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-22-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Draw a red pixel on the Brain&#39;s screen.</span>
+<span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">setPenColor</span><span class="p">(</span><span class="nc">Color</span><span class="o">.</span><span class="n">RED</span><span class="p">)</span>
+<span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">drawPixel</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>x</td>
+<td>The x position to draw the pixel referenced to the screen origin.</td>
+</tr>
+<tr class="row-odd"><td>y</td>
+<td>The y position to draw the pixel referenced to the screen origin.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="drawline">
+    <h4><a class="toc-backref" href="#toc-drawline">drawLine()</a><a class="headerlink" href="#drawline" title="Permalink to this headline"></a></h4>
+    <p>The <code class="docutils literal notranslate"><span class="pre">drawLine(x1,</span> <span class="pre">y1,</span> <span class="pre">x2,</span> <span class="pre">y2)</span></code> method draws a line using the current pen color.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-23-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-23-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-23-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">::</span><span class="n">drawLine</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-23-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Draw a red line on the Brain&#39;s screen.</span>
+<span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">setPenColor</span><span class="p">(</span><span class="nc">Color</span><span class="o">.</span><span class="n">RED</span><span class="p">)</span>
+<span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">drawLine</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>x1</td>
+<td>The x position of the start of the line referenced to the screen origin.</td>
+</tr>
+<tr class="row-odd"><td>y1</td>
+<td>The y position of the start of the line referenced to the screen origin.</td>
+</tr>
+<tr class="row-even"><td>x2</td>
+<td>The x position of the end of the line referenced to the screen origin.</td>
+</tr>
+<tr class="row-odd"><td>y2</td>
+<td>The y position of the end of the line referenced to the screen origin.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="drawrectangle">
+    <h4><a class="toc-backref" href="#toc-drawrectangle">drawRectangle()</a><a class="headerlink" href="#drawrectangle" title="Permalink to this headline"></a></h4>
+    <p>A rectangle can be drawn on the Brainâ€™s screen in three ways:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">drawRectangle(x,</span> <span class="pre">y,</span> <span class="pre">width,</span> <span class="pre">height)</span></code> method draws a rectangle on the screen using the current pen and fill colors.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">drawRectangle(x,</span> <span class="pre">y,</span> <span class="pre">width,</span> <span class="pre">height,</span> <span class="pre">color)</span></code> method draws a rectangle on the screen using the current pen and fills the circle with the specified color.</p>
+<p>Parameters</p>
+<p>Description</p>
+<p>x</p>
+<p>The x position of the top-left corner of the rectangle referenced to the screen origin.</p>
+<p>y</p>
+<p>The y position of the top-left corner of the rectangle referenced to the screen origin.</p>
+<p>width</p>
+<p>The width of the rectangle.</p>
+<p>height</p>
+<p>The height of the rectangle.</p>
+<p>color</p>
+<p>Either a previously defined <a class="reference external" href="color.html">color</a> object or a Hex value.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">drawRectangle(x,</span> <span class="pre">y,</span> <span class="pre">width,</span> <span class="pre">height,</span> <span class="pre">hue)</span></code> method draws a rectangle on the screen using the current pen and fills the circle with the specified hue.</p>
+<p>Parameters</p>
+<p>Description</p>
+<p>x</p>
+<p>The x position of the top-left corner of the rectangle referenced to the screen origin.</p>
+<p>y</p>
+<p>The y position of the top-left corner of the rectangle referenced to the screen origin.</p>
+<p>width</p>
+<p>The width of the rectangle.</p>
+<p>height</p>
+<p>The height of the rectangle.</p>
+<p>hue</p>
+<p>An integer representing the hue of the color, from 1 - 359.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-24-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-24-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-24-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">::</span><span class="n">drawRectangle</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-24-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Draw a green rectangle on the screen that is</span>
+<span class="c1">// filled using blue.</span>
+<span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">setPenColor</span><span class="p">(</span><span class="nc">Color</span><span class="o">.</span><span class="n">GREEN</span><span class="p">)</span>
+<span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">setFillColor</span><span class="p">(</span><span class="nc">Color</span><span class="o">.</span><span class="n">BLUE</span><span class="p">)</span>
+<span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">drawRectangle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>x</td>
+<td>The x position of the top-left corner of the rectangle referenced to the screen origin.</td>
+</tr>
+<tr class="row-odd"><td>y</td>
+<td>The y position of the top-left corner of the rectangle referenced to the screen origin.</td>
+</tr>
+<tr class="row-even"><td>width</td>
+<td>The width of the rectangle.</td>
+</tr>
+<tr class="row-odd"><td>height</td>
+<td>The height of the rectangle.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="drawcircle">
+    <h4><a class="toc-backref" href="#toc-drawcircle">drawCircle()</a><a class="headerlink" href="#drawcircle" title="Permalink to this headline"></a></h4>
+    <p>A circle can be drawn on the Brainâ€™s screen in three ways:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">drawCircle(x,</span> <span class="pre">y,</span> <span class="pre">radius)</span></code> method draws a circle using the current pen and fill colors.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">drawCircle(x,</span> <span class="pre">y,</span> <span class="pre">radius,</span> <span class="pre">color)</span></code> method draws a circle using the current pen color and fills the circle with the specified color.</p>
+<p>Parameters</p>
+<p>Description</p>
+<p>x</p>
+<p>The x position of the circle center referenced to the screen origin.</p>
+<p>y</p>
+<p>The y position of the circle center referenced to the screen origin.</p>
+<p>radius</p>
+<p>The radius of the circle in pixels.</p>
+<p>color</p>
+<p>Either a previously defined <a class="reference external" href="color.html">color</a> object or a Hex value.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">drawCircle(x,</span> <span class="pre">y,</span> <span class="pre">radius,</span> <span class="pre">hue)</span></code> method draws a circle using the current pen color and fills the circle with the specified hue.</p>
+<p>Parameters</p>
+<p>Description</p>
+<p>x</p>
+<p>The x position of the circle center referenced to the screen origin.</p>
+<p>y</p>
+<p>The y position of the circle center referenced to the screen origin.</p>
+<p>radius</p>
+<p>The radius of the circle in pixels.</p>
+<p>hue</p>
+<p>An integer representing the hue of the color, from 1 - 359.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-25-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-25-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-25-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">::</span><span class="n">drawCircle</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-25-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Draw a green circle on the Brain&#39;s screen that is</span>
+<span class="c1">// filled using blue.</span>
+<span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">setPenColor</span><span class="p">(</span><span class="nc">Color</span><span class="o">.</span><span class="n">GREEN</span><span class="p">)</span>
+<span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">setFillColor</span><span class="p">(</span><span class="nc">Color</span><span class="o">.</span><span class="n">BLUE</span><span class="p">)</span>
+<span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">drawCircle</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>x</td>
+<td>The x position of the circle center referenced to the screen origin.</td>
+</tr>
+<tr class="row-odd"><td>y</td>
+<td>The y position of the circle center referenced to the screen origin.</td>
+</tr>
+<tr class="row-even"><td>radius</td>
+<td>The radius of the circle in pixels.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="drawimagefromfile">
+    <h4><a class="toc-backref" href="#toc-drawimagefromfile">drawImageFromFile()</a><a class="headerlink" href="#drawimagefromfile" title="Permalink to this headline"></a></h4>
+    <p>The <code class="docutils literal notranslate"><span class="pre">drawImageFromFile(filename,</span> <span class="pre">x,</span> <span class="pre">y)</span></code> method draws an image from the SD card. The filename you put when calling the method must be located on the SD card.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-26-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-26-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-26-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">::</span><span class="n">drawImageFromFile</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-26-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Draw the vex.bmp image on the Brain&#39;s screen at</span>
+<span class="c1">// coordinate 0, 0.</span>
+<span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">drawImageFromFile</span><span class="p">(</span><span class="n">&#39;</span><span class="nc">vex</span><span class="o">.</span><span class="n">bmp</span><span class="n">&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>filename</td>
+<td>The filename of the image.</td>
+</tr>
+<tr class="row-odd"><td>x</td>
+<td>The x coordinate for the top-left corner of the image on the screen.</td>
+</tr>
+<tr class="row-even"><td>y</td>
+<td>The y coordinate for the top-left corner of the image on the screen.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="render">
+    <h4><a class="toc-backref" href="#toc-render">render()</a><a class="headerlink" href="#render" title="Permalink to this headline"></a></h4>
+    <p>The screen can be buffered in two ways:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">render()</span></code> method switches to double buffering or renders the back buffer to the Brainâ€™s screen.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">render(bSyncWait,</span> <span class="pre">bRunScheduler)</span></code> method switches to double buffering or renders the back buffer to the Brainâ€™s screen, with options to wait for the Vsync signal before proceeding and to run the scheduler during the process.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-27-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-27-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-27-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">::</span><span class="n">render</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-27-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>bSyncWait</td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code> to make the Brain wait for the Vsync signal before allowing subsequent commands to execute.</td>
+</tr>
+<tr class="row-odd"><td>bRunScheduler</td>
+<td><strong>Optional.</strong> <code class="docutils literal notranslate"><span class="pre">true</span></code> will run background tasks while waiting for the Brainâ€™s screen to render. By default, this parameter is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> <code class="docutils literal notranslate"><span class="pre">True</span></code> if buffer was successfully rendered to the screen.</p>
+  </div>
+  <hr class="docutils" /></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer>
+            <hr/>
+            <div role="contentinfo">
+              <p>&copy; Copyright 2024, VEX Robotics. V5RC Legal Components Reference.</p>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="../../assets/js/sphinx_tabs.js"></script>
+  <script src="../../assets/js/search_index.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/theme.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof initSearch === 'function' && typeof searchIndexData !== 'undefined') {
+        initSearch(searchIndexData);
+      }
+    });
+  </script>
+</body>
+</html>
