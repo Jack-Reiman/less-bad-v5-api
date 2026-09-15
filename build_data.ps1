@@ -53,8 +53,7 @@ $categories = @(
         name = "3-Wire (ADI) Devices"
         pages = @(
             @{ title = "TriPort (ADI)"; source = "Triport.html"; dest = "api/cpp/triport.html"; className = "vex::triport"; port = "3-Wire Ports A-H"; summary = "TriPort expander and built-in 3-wire ports for competition-legal 3-wire sensors and actuators." }
-            @{ title = "Pneumatics"; source = "Pneumatics.html"; dest = "api/cpp/pneumatics.html"; className = "vex::pneumatics"; port = "3-Wire Port A-H"; summary = "V5 Pneumatics cylinder solenoid control (extend, retract, open, close, set, toggle, value) via 3-wire ADI ports." }
-            @{ title = "Digital Out"; source = "DigitalOut.html"; dest = "api/cpp/digital_out.html"; className = "vex::digital_out"; port = "3-Wire Port A-H"; summary = "3-Wire digital output control for pneumatic solenoids, relays, and custom electronics." }
+            @{ title = "Digital Out"; source = "DigitalOut.html"; dest = "api/cpp/digital_out.html"; className = "vex::digital_out"; port = "3-Wire Port A-H"; summary = "3-Wire digital output controlling pneumatic solenoids (single & double-acting), relays, and indicators." }
             @{ title = "Digital In"; source = "DigitalIn.html"; dest = "api/cpp/digital_in.html"; className = "vex::digital_in"; port = "3-Wire Port A-H"; summary = "3-Wire digital input line with high/low state change event callbacks." }
             @{ title = "Bumper Switch"; source = "Bumper.html"; dest = "api/cpp/bumper.html"; className = "vex::bumper"; port = "3-Wire Port A-H"; summary = "Physical mechanical bumper switch detecting contact and presses." }
             @{ title = "Limit Switch"; source = "Limit.html"; dest = "api/cpp/limit.html"; className = "vex::limit"; port = "3-Wire Port A-H"; summary = "Physical micro-switch limit sensor for mechanical stops." }

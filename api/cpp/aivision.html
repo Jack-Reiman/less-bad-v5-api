@@ -34,7 +34,7 @@
           <ul >            <li class="toctree-l1"><a class="reference internal" href="drivetrain.html">Drivetrain</a></li>            <li class="toctree-l1"><a class="reference internal" href="smartdrive.html">SmartDrive</a></li>          </ul>          <p class="caption"><span class="caption-text">Brain & Controller</span></p>
           <ul >            <li class="toctree-l1"><a class="reference internal" href="brain.html">Brain</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_screen.html">Brain Screen</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_battery.html">Brain Battery</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_sdcard.html">Brain SD Card</a></li>            <li class="toctree-l1"><a class="reference internal" href="timer.html">Timer</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller.html">Controller</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_axis.html">Controller Axis</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_button.html">Controller Button</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_screen.html">Controller Screen</a></li>          </ul>          <p class="caption"><span class="caption-text">Smart Sensors</span></p>
           <ul class="current">            <li class="toctree-l1"><a class="reference internal" href="inertial.html">Inertial Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="optical.html">Optical Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="distance.html">Distance Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="rotation.html">Rotation Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="gps.html">GPS Sensor</a></li>            <li class="toctree-l1 current"><a class="reference internal current" href="#">AI Vision Sensor</a>              <ul>                <li class="toctree-l2"><a class="reference internal" href="#constructor-s-">Constructor(s)</a></li>                <li class="toctree-l2"><a class="reference internal" href="#telemetry-functions">Telemetry Functions</a></li>                <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a></li>              </ul>            </li>            <li class="toctree-l1"><a class="reference internal" href="vision.html">Vision Sensor</a></li>          </ul>          <p class="caption"><span class="caption-text">3-Wire (ADI) Devices</span></p>
-          <ul >            <li class="toctree-l1"><a class="reference internal" href="triport.html">TriPort (ADI)</a></li>            <li class="toctree-l1"><a class="reference internal" href="pneumatics.html">Pneumatics</a></li>            <li class="toctree-l1"><a class="reference internal" href="digital_out.html">Digital Out</a></li>            <li class="toctree-l1"><a class="reference internal" href="digital_in.html">Digital In</a></li>            <li class="toctree-l1"><a class="reference internal" href="bumper.html">Bumper Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="limit.html">Limit Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="line.html">Line Tracker</a></li>            <li class="toctree-l1"><a class="reference internal" href="encoder.html">Encoder</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer.html">Potentiometer</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer_v2.html">Potentiometer V2</a></li>            <li class="toctree-l1"><a class="reference internal" href="analog_in.html">Analog In</a></li>            <li class="toctree-l1"><a class="reference internal" href="led.html">LED Indicator</a></li>          </ul>          <p class="caption"><span class="caption-text">System & Utilities</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="triport.html">TriPort (ADI)</a></li>            <li class="toctree-l1"><a class="reference internal" href="digital_out.html">Digital Out</a></li>            <li class="toctree-l1"><a class="reference internal" href="digital_in.html">Digital In</a></li>            <li class="toctree-l1"><a class="reference internal" href="bumper.html">Bumper Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="limit.html">Limit Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="line.html">Line Tracker</a></li>            <li class="toctree-l1"><a class="reference internal" href="encoder.html">Encoder</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer.html">Potentiometer</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer_v2.html">Potentiometer V2</a></li>            <li class="toctree-l1"><a class="reference internal" href="analog_in.html">Analog In</a></li>            <li class="toctree-l1"><a class="reference internal" href="led.html">LED Indicator</a></li>          </ul>          <p class="caption"><span class="caption-text">System & Utilities</span></p>
           <ul >            <li class="toctree-l1"><a class="reference internal" href="competition.html">Competition</a></li>            <li class="toctree-l1"><a class="reference internal" href="thread.html">Thread & Task</a></li>            <li class="toctree-l1"><a class="reference internal" href="event.html">Event</a></li>          </ul>          <p class="caption"><span class="caption-text">Reference</span></p>
           <ul >            <li class="toctree-l1"><a class="reference internal" href="color.html">Color</a></li>            <li class="toctree-l1"><a class="reference internal" href="enums.html">Enumerated Types & Units</a></li>          </ul>        </div>
       </div>
@@ -84,6 +84,8 @@
   </ul>
 </div>
 
+                
+
                 <div class="section" id="functions">
                   <h2><a class="toc-backref" href="#toc-functions">Functions</a><a class="headerlink" href="#functions" title="Permalink to this headline"></a></h2>
                   <div class="section" id="constructor-s-">
@@ -92,7 +94,7 @@
     <p>Constructors are used to manually create <code>aivision</code>, <code>colordesc</code>, and <code>codedesc</code> objects, which are necessary for configuring the AI Vision Sensor outside of VEXcode. If fewer arguments are provided, default arguments or function overloading should be used in the constructor definition.</p>
 <p><code>aivision</code> creates an AI Vision Sensor.</p>
 <p><strong>Default Usage:</strong><br>
-<code>aivision( int32_t index, uint8_t bright, Args &amp;â€¦ sigs )</code></p>
+<code>aivision( int32_t index, uint8_t bright, Args &amp;… sigs )</code></p>
         <div class="sphinx-tabs docutils container">
       <div class="ui top attached tabular menu sphinx-menu docutils container">
         <div class="active item sphinx-data-tab-1-0 docutils container">
@@ -134,7 +136,7 @@
 <td>Which Smart Port the AI Vision Sensor is connected to, from 1 to 12.</td>
 </tr>
 <tr class="row-odd"><td><code>sigs</code></td>
-<td>Optional. The name of one or more signatures: </p><ul><li><a class="reference internal" href="#color-signature">Color Signature</a></li><li><a class="reference internal" href="#color-code">Color Code</a></li><li><code>aivision::ALL_TAGS</code> â€“ All AprilTags</li><li><code>aivision::ALL_AIOBJS</code> â€“ All AI Classifications</li></ul><p></td>
+<td>Optional. The name of one or more signatures: </p><ul><li><a class="reference internal" href="#color-signature">Color Signature</a></li><li><a class="reference internal" href="#color-code">Color Code</a></li><li><code>aivision::ALL_TAGS</code> – All AprilTags</li><li><code>aivision::ALL_AIOBJS</code> – All AI Classifications</li></ul><p></td>
 </tr>
   </tbody>
 </table>
@@ -144,8 +146,8 @@
   <h3><a class="toc-backref" href="#toc-telemetry-functions">Telemetry Functions</a><a class="headerlink" href="#telemetry-functions" title="Permalink to this headline"></a></h3>  <div class="section" id="installed">
     <h4><a class="toc-backref" href="#toc-installed">installed</a><a class="headerlink" href="#installed" title="Permalink to this headline"></a></h4>
     <p><code>installed</code> returns an integer indicating whether the AI Vision Sensor is currently connected to the V5 Brain.</p>
-<p><code>1</code> â€“ The AI Vision Sensor is connected to the V5 Brain.</p>
-<p><code>0</code> â€“ The AI Vision Sensor is not connected to the V5 Brain.</p>
+<p><code>1</code> – The AI Vision Sensor is connected to the V5 Brain.</p>
+<p><code>0</code> – The AI Vision Sensor is not connected to the V5 Brain.</p>
         <div class="sphinx-tabs docutils container">
       <div class="ui top attached tabular menu sphinx-menu docutils container">
         <div class="active item sphinx-data-tab-2-0 docutils container">
@@ -204,25 +206,25 @@
 <p>For the examples below, the configured AI Vision Sensor will be named <code>AIVision1</code>, and the configured Color Signature objects, such as <code>redBox</code>, will be used in all subsequent examples throughout this API documentation when referring to <code>aivision</code> class methods.</p>
 <p>Below is a list of all methods:</p>
 <p><strong>Getters</strong></p>
-<p><a class="reference internal" href="#takesnapshot"><code>takeSnapshot</code></a> â€“ Captures data for a specific Color Signature or Color Code.</p>
-<p><a class="reference internal" href="#objectcount"><code>objectCount</code></a> â€“ Returns the number of detected objects as an integer.</p>
-<p><a class="reference internal" href="#largestobject"><code>largestObject</code></a> â€“ Immediately select the largest object from the snapshot.</p>
-<p><a class="reference internal" href="#installed"><code>installed</code></a> â€“ Whether the AI Vision Sensor is connected to the V5 Brain.</p>
-<p><strong>Properties</strong> â€“ Object data returned from <a class="reference internal" href="#takesnapshot"><code>takeSnapshot</code></a>.</p>
-<p><a class="reference internal" href="#exists"><code>.exists</code></a> â€“ Whether the object exists in the current detection as a Boolean.</p>
-<p><a class="reference internal" href="#width"><code>.width</code></a> â€“ Width of the detected object in pixels.</p>
-<p><a class="reference internal" href="#height"><code>.height</code></a> â€“ Height of the detected object in pixels.</p>
-<p><a class="reference internal" href="#centerx"><code>.centerX</code></a> â€“ X position of the objectâ€™s center in pixels.</p>
-<p><a class="reference internal" href="#centery"><code>.centerY</code></a> â€“ Y position of the objectâ€™s center in pixels.</p>
-<p><a class="reference internal" href="#angle"><code>.angle</code></a> â€“ Orientation of the Color Code in degrees.</p>
-<p><a class="reference internal" href="#originx"><code>.originX</code></a> â€“ X position of the objectâ€™s top-left corner in pixels.</p>
-<p><a class="reference internal" href="#originy"><code>.originY</code></a> â€“ Y position of the objectâ€™s top-left corner in pixels.</p>
-<p><a class="reference internal" href="#id"><code>.id</code></a> â€“ Classification or tag ID of the object.</p>
-<p><a class="reference internal" href="#score"><code>.score</code></a> â€“ Confidence score for AI Classifications (1â€“100).</p>
-<p><strong>Constructors â€“ Manually initialize and configure the sensors.</strong></p>
-<p><a class="reference internal" href="#ai-vision-sensor-1"><span class="xref myst"><code>aivision</code></span></a> â€“ Creates an AI Vision Sensor.</p>
-<p><a class="reference internal" href="#color-signature"><code>aivision::colordesc</code></a> â€“ Creates a Color Signature.</p>
-<p><a class="reference internal" href="#color-code"><code>aivision::codedesc</code></a> â€“ Creates a Color Code.</p>
+<p><a class="reference internal" href="#takesnapshot"><code>takeSnapshot</code></a> – Captures data for a specific Color Signature or Color Code.</p>
+<p><a class="reference internal" href="#objectcount"><code>objectCount</code></a> – Returns the number of detected objects as an integer.</p>
+<p><a class="reference internal" href="#largestobject"><code>largestObject</code></a> – Immediately select the largest object from the snapshot.</p>
+<p><a class="reference internal" href="#installed"><code>installed</code></a> – Whether the AI Vision Sensor is connected to the V5 Brain.</p>
+<p><strong>Properties</strong> – Object data returned from <a class="reference internal" href="#takesnapshot"><code>takeSnapshot</code></a>.</p>
+<p><a class="reference internal" href="#exists"><code>.exists</code></a> – Whether the object exists in the current detection as a Boolean.</p>
+<p><a class="reference internal" href="#width"><code>.width</code></a> – Width of the detected object in pixels.</p>
+<p><a class="reference internal" href="#height"><code>.height</code></a> – Height of the detected object in pixels.</p>
+<p><a class="reference internal" href="#centerx"><code>.centerX</code></a> – X position of the object’s center in pixels.</p>
+<p><a class="reference internal" href="#centery"><code>.centerY</code></a> – Y position of the object’s center in pixels.</p>
+<p><a class="reference internal" href="#angle"><code>.angle</code></a> – Orientation of the Color Code in degrees.</p>
+<p><a class="reference internal" href="#originx"><code>.originX</code></a> – X position of the object’s top-left corner in pixels.</p>
+<p><a class="reference internal" href="#originy"><code>.originY</code></a> – Y position of the object’s top-left corner in pixels.</p>
+<p><a class="reference internal" href="#id"><code>.id</code></a> – Classification or tag ID of the object.</p>
+<p><a class="reference internal" href="#score"><code>.score</code></a> – Confidence score for AI Classifications (1–100).</p>
+<p><strong>Constructors – Manually initialize and configure the sensors.</strong></p>
+<p><a class="reference internal" href="#ai-vision-sensor-1"><span class="xref myst"><code>aivision</code></span></a> – Creates an AI Vision Sensor.</p>
+<p><a class="reference internal" href="#color-signature"><code>aivision::colordesc</code></a> – Creates a Color Signature.</p>
+<p><a class="reference internal" href="#color-code"><code>aivision::codedesc</code></a> – Creates a Color Code.</p>
         <div class="sphinx-tabs docutils container">
       <div class="ui top attached tabular menu sphinx-menu docutils container">
         <div class="active item sphinx-data-tab-3-0 docutils container">
@@ -258,7 +260,7 @@
     <h4><a class="toc-backref" href="#toc-takesnapshot">takeSnapshot</a><a class="headerlink" href="#takesnapshot" title="Permalink to this headline"></a></h4>
     <p><code>takeSnapshot</code> captures an image from the AI Vision Sensor, processes it based on the signature, and updates the <code>objects</code> array. This method can also limit the amount of objects captured in the snapshot.</p>
 <p><a class="reference internal" href="#color-signatures">Color Signatures</a> and <a class="reference internal" href="#color-codes">Color Codes</a> must be configured first in the Vision Utility before they can be used with this method.</p>
-<p>The <code>objects</code> array stores objects ordered from largest to smallest by width, starting at index 0. Each objectâ€™s <a class="reference internal" href="#properties">properties</a> can be accessed using its index. <code>objects</code> is an empty array if no matching objects are detected.</p>
+<p>The <code>objects</code> array stores objects ordered from largest to smallest by width, starting at index 0. Each object’s <a class="reference internal" href="#properties">properties</a> can be accessed using its index. <code>objects</code> is an empty array if no matching objects are detected.</p>
 <p><strong>Default Usage:</strong><br>
 <code>AIVision1.takeSnapshot(signature)</code></p>
 <p><strong>Overloads:</strong><br>
@@ -276,13 +278,13 @@
 | 7 | <code>greenCube</code>   |
 | 8 | <code>redCube</code>     |</p>
 <p><strong>V5RC High Stakes</strong></p>
-<p>|:â€”â€”â€”â€”â€”â€”:|â€“|
+<p>|:——————:|–|
 | ID Number | AI Classification |
 | 0 | <code>mobileGoal</code>    |
 | 1 | <code>redRing</code>   |
 | 2 | <code>blueRing</code>     |</p>
 <p><strong>V5RC Push Back</strong></p>
-<p>|:â€”â€”â€”â€”â€”â€”:|â€“|
+<p>|:——————:|–|
 | ID Number | AI Classification |
 | 0 | <code>blueBlock</code>    |
 | 1 | <code>redBlock</code>   |</p>
@@ -324,7 +326,7 @@
   </thead>
   <tbody valign="top">
 <tr class="row-even"><td><code>signature</code></td>
-<td>What signature to get data of. </p><ul><li>Color Signatures or Color Codes â€“ The name of the AI Vision Sensor, two underscores, and then the Color Signatureâ€™s or Color Codeâ€™s name.For example: <code>AIVision1__redBox</code>.</li><li><code>aivision::ALL_AIOBJS</code> â€“ Cubes, rings, and balls.</li><li><code>aivision::ALL_TAGS</code> â€“ All AprilTags.<p></p></li></ul></td>
+<td>What signature to get data of. </p><ul><li>Color Signatures or Color Codes – The name of the AI Vision Sensor, two underscores, and then the Color Signature’s or Color Code’s name.For example: <code>AIVision1__redBox</code>.</li><li><code>aivision::ALL_AIOBJS</code> – Cubes, rings, and balls.</li><li><code>aivision::ALL_TAGS</code> – All AprilTags.<p></p></li></ul></td>
 </tr>
 <tr class="row-odd"><td><code>count</code></td>
 <td>Optional. Sets the maximum number of objects that can be returned from 1 to 24 (default: 8).</td>
@@ -336,7 +338,7 @@
   <hr class="docutils" />  <div class="section" id="color-signatures">
     <h4><a class="toc-backref" href="#toc-color-signatures">Color Signatures</a><a class="headerlink" href="#color-signatures" title="Permalink to this headline"></a></h4>
     <p>A Color Signature is a unique color that the AI Vision Sensor can recognize. These signatures allow the AI Vision Sensor to detect and track objects based on their color. Once a Color Signature is configured, the sensor can identify objects with that specific color in its field of view. Color signatures are used with <a class="reference internal" href="#takesnapshot"><code>takeSnapshot</code></a> to process and detect colored objects in real-time.</p>
-<p>In order to use a configured Color Signature in a project, its name must be the name of the sensor, two underscores, and then the Color Signatureâ€™s name. For example: <code>AIVision1__redBox</code>.</p>
+<p>In order to use a configured Color Signature in a project, its name must be the name of the sensor, two underscores, and then the Color Signature’s name. For example: <code>AIVision1__redBox</code>.</p>
         <div class="sphinx-tabs docutils container">
       <div class="ui top attached tabular menu sphinx-menu docutils container">
         <div class="active item sphinx-data-tab-5-0 docutils container">
@@ -371,7 +373,7 @@
   <hr class="docutils" />  <div class="section" id="color-codes">
     <h4><a class="toc-backref" href="#toc-color-codes">Color Codes</a><a class="headerlink" href="#color-codes" title="Permalink to this headline"></a></h4>
     <p>A Color Code is a structured pattern made up of color signatures arranged in a specific order. These codes allow the Vision Sensor to recognize predefined patterns of colors. Color codes are useful for identifying complex objects or creating unique markers for autonomous navigation.</p>
-<p>To use a configured Color Code in a project, its name must be passed as a string in the format: the Vision Sensorâ€™s name, followed by two underscores, and then the Color Codeâ€™s name. For example: <code>AIVision1__redBlue</code>.</p>
+<p>To use a configured Color Code in a project, its name must be passed as a string in the format: the Vision Sensor’s name, followed by two underscores, and then the Color Code’s name. For example: <code>AIVision1__redBlue</code>.</p>
         <div class="sphinx-tabs docutils container">
       <div class="ui top attached tabular menu sphinx-menu docutils container">
         <div class="active item sphinx-data-tab-6-0 docutils container">
@@ -508,7 +510,7 @@
 <p><strong>Default Usage:</strong><br>
 <code>AIVision1.objects</code></p>
 <p>There are ten properties that are included with each object stored in the <code>objects</code> array after <code>takeSnapshot</code> is used.</p>
-<p>Some property values are based off of the detected objectâ€™s position in the Vision Sensorâ€™s view at the time that <code>takeSnapshot</code> was used. The AI Vision Sensor has a resolution of 320 by 240 pixels.</p>
+<p>Some property values are based off of the detected object’s position in the Vision Sensor’s view at the time that <code>takeSnapshot</code> was used. The AI Vision Sensor has a resolution of 320 by 240 pixels.</p>
 <p><code>.exists</code> returns an integer indicating if the index exists in the <code>objects</code> array or not.</p>
 <p><code>1</code>: The index exists.</p>
 <p><code>0</code>: The index does not exist.</p>
@@ -587,7 +589,7 @@
   </thead>
   <tbody valign="top">
 <tr class="row-even"><td><code>index</code></td>
-<td>The <code>colordesc</code> objectâ€™s index, from 1 - 7. <strong>Note:</strong> Creating two <code>colordesc</code> objects with the same index number will cause the second created object to override the first.</td>
+<td>The <code>colordesc</code> object’s index, from 1 - 7. <strong>Note:</strong> Creating two <code>colordesc</code> objects with the same index number will cause the second created object to override the first.</td>
 </tr>
 <tr class="row-odd"><td><code>uMin</code></td>
 <td>The value from <code>uMin</code> in the Vision Utility.</td>

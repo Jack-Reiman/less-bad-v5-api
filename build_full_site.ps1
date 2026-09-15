@@ -46,7 +46,8 @@ function Clean-HtmlContent($raw) {
     $s = $s -replace 'GPS\.html', 'gps.html'
     $s = $s -replace 'AiVision\.html', 'aivision.html'
     $s = $s -replace 'Vision\.html', 'vision.html'
-    $s = $s -replace 'Pneumatics\.html', 'pneumatics.html'
+    $s = $s -replace 'Pneumatics\.html', 'digital_out.html'
+    $s = $s -replace 'pneumatics\.html', 'digital_out.html'
     $s = $s -replace 'Triport\.html', 'triport.html'
     $s = $s -replace 'Bumper\.html', 'bumper.html'
     $s = $s -replace 'Limit\.html', 'limit.html'
@@ -123,14 +124,14 @@ function Format-CppPrototype($className, $methodName, $rawArgs, $returnsText, $t
             '^(wait)$' { $typedArgs += "bool $cleanArg = true" }
             '^(reverse|reversed)$' { $typedArgs += "bool $cleanArg = false" }
             '^(port|index|channel|pin|port[12AB])$' { 
-                if ($className -match '^(?:vex::)?(pneumatics|bumper|limit|line|encoder|potentiometer|potentiometerV2|digital_out|digital_in|analog_in|led)$') {
+                if ($className -match '^(?:vex::)?(bumper|limit|line|encoder|potentiometer|potentiometerV2|digital_out|digital_in|analog_in|led)$') {
                     $typedArgs += "vex::triport::port &$cleanArg"
                 } else {
                     $typedArgs += "int32_t $cleanArg"
                 }
             }
             '^(value|state)$' {
-                if ($className -match '^(?:vex::)?(pneumatics|digital_out)$' -or $tableHtml -match "\b$cleanArg\b.*?bool") {
+                if ($className -match '^(?:vex::)?(digital_out)$' -or $tableHtml -match "\b$cleanArg\b.*?bool") {
                     $typedArgs += "bool $cleanArg"
                 } else {
                     $typedArgs += "double $cleanArg"
@@ -205,7 +206,7 @@ function Format-PygmentsCpp([string]$rawCode) {
                 $lineHtml.Append('<span class="cp">' + [System.Net.WebUtility]::HtmlEncode($tok) + '</span>') | Out-Null
             } elseif ($tok -match '^(void|int|int8_t|int16_t|int32_t|int64_t|uint8_t|uint16_t|uint32_t|uint64_t|size_t|double|float|bool|char|auto|const|static|virtual|override|class|struct|enum|namespace|using|public|private|protected|true|false|nullptr|return|if|else|while|for|do|switch|case|break|continue|default|new|delete)$') {
                 $lineHtml.Append("<span class=`"k`">$tok</span>") | Out-Null
-            } elseif ($tok -match '^(vex|motor|motor_group|drivetrain|smartdrive|brain|controller|inertial|optical|distance|rotation|gps|aivision|vision|triport|bumper|limit|line|encoder|potentiometer|potentiometerV2|competition|thread|task|event|color|timer|pneumatics|brakeType|directionType|velocityUnits|rotationUnits|distanceUnits|timeUnits|percentUnits|voltageUnits|gearSetting|fontType|Brain|Controller|Axis|Button|Screen|SDcard|Battery)$') {
+            } elseif ($tok -match '^(vex|motor|motor_group|drivetrain|smartdrive|brain|controller|inertial|optical|distance|rotation|gps|aivision|vision|triport|bumper|limit|line|encoder|potentiometer|potentiometerV2|competition|thread|task|event|color|timer|digital_out|digital_in|analog_in|led|brakeType|directionType|velocityUnits|rotationUnits|distanceUnits|timeUnits|percentUnits|voltageUnits|gearSetting|fontType|Brain|Controller|Axis|Button|Screen|SDcard|Battery)$') {
                 $lineHtml.Append("<span class=`"nc`">$tok</span>") | Out-Null
             } elseif ($tok -match '^(0x[0-9a-fA-F]+|\d+(?:\.\d+)?(?:f|u|l|ul)?)$') {
                 $lineHtml.Append("<span class=`"mi`">$tok</span>") | Out-Null
@@ -280,6 +281,11 @@ function Build-Sidebar($activeDest, $sectionsByCat) {
                     $sb += @"
               <ul>
 "@
+                    if ($activeDest -eq "api/cpp/digital_out.html") {
+                        $sb += @"
+                <li class="toctree-l2"><a class="reference internal" href="#v5-pneumatics-guide">V5RC Pneumatics Guide</a></li>
+"@
+                    }
                     foreach ($catKey in $sectionsByCat.Keys) {
                         $items = $sectionsByCat[$catKey]
                         if ($items.Count -gt 0) {
@@ -402,7 +408,7 @@ foreach ($cat in $categories) {
             continue
         }
 
-        $html = Get-Content $rawPath -Raw
+        $html = Get-Content $rawPath -Raw -Encoding utf8
 
         # Add class itself to search index
         $globalSearchIndex += @{
@@ -569,206 +575,7 @@ $( Build-Breadcrumbs $dest "Enumerated Types & Units" "Reference" )
             "Functions" = @()
         }
 
-        if ($dest -eq "api/cpp/pneumatics.html") {
-            $pneumaticMethods = @(
-                @{
-                    cat = "Constructor(s)"
-                    id = "initializing-the-pneumatics-class"
-                    rawTitle = "Initializing the pneumatics Class"
-                    cleanTitle = "pneumatics()"
-                    desc = "<p>Creates a new <code>pneumatics</code> object connected to the specified 3-Wire (ADI) Port on the V5 Brain or a 3-Wire Expander.</p><p>This <code>Piston</code> object will be used in subsequent examples throughout this API documentation when referring to pneumatic class methods.</p>"
-                    proto = "vex::pneumatics( vex::triport::port &port );"
-                    example = @"
-// Create the Brain.
-brain Brain;
-
-// Construct a Pneumatic Cylinder on 3-Wire Port A.
-vex::pneumatics Piston = vex::pneumatics(Brain.ThreeWirePort.A);
-
-// Alternatively, construct on a 3-Wire Expander on Smart Port 20:
-vex::triport Expander = vex::triport(vex::PORT20);
-vex::pneumatics Piston2 = vex::pneumatics(Expander.A);
-"@
-                    table = @"
-<table border="1" class="docutils">
-  <colgroup>
-    <col width="22%" />
-    <col width="78%" />
-  </colgroup>
-  <thead valign="bottom">
-    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
-  </thead>
-  <tbody valign="top">
-    <tr class="row-even"><td><code>port</code></td><td>The 3-Wire Port that the pneumatic solenoid driver cable is connected to, whether on the Brain (e.g. <code>Brain.ThreeWirePort.A</code>) or on a 3-Wire Expander.</td></tr>
-  </tbody>
-</table>
-"@
-                    returns = ""
-                    isWaiting = $false
-                    isNonWaiting = $false
-                },
-                @{
-                    cat = "Movement Functions"
-                    id = "extend"
-                    rawTitle = "extend()"
-                    cleanTitle = "extend()"
-                    desc = "<p>The <code>extend()</code> method actuates the pneumatic solenoid to extend the pneumatic cylinder by supplying 5V power.</p>"
-                    proto = "void vex::pneumatics::extend();"
-                    example = @"
-// Extend the pneumatic cylinder.
-Piston.extend();
-"@
-                    table = ""
-                    returns = "None."
-                    isWaiting = $false
-                    isNonWaiting = $false
-                },
-                @{
-                    cat = "Movement Functions"
-                    id = "retract"
-                    rawTitle = "retract()"
-                    cleanTitle = "retract()"
-                    desc = "<p>The <code>retract()</code> method de-actuates the pneumatic solenoid to retract the pneumatic cylinder by removing power.</p>"
-                    proto = "void vex::pneumatics::retract();"
-                    example = @"
-// Retract the pneumatic cylinder.
-Piston.retract();
-"@
-                    table = ""
-                    returns = "None."
-                    isWaiting = $false
-                    isNonWaiting = $false
-                },
-                @{
-                    cat = "Movement Functions"
-                    id = "open"
-                    rawTitle = "open()"
-                    cleanTitle = "open()"
-                    desc = "<p>The <code>open()</code> method opens the pneumatic cylinder. This is functionally identical to <code>extend()</code>.</p>"
-                    proto = "void vex::pneumatics::open();"
-                    example = @"
-// Open the pneumatic claw mechanism.
-Piston.open();
-"@
-                    table = ""
-                    returns = "None."
-                    isWaiting = $false
-                    isNonWaiting = $false
-                },
-                @{
-                    cat = "Movement Functions"
-                    id = "close"
-                    rawTitle = "close()"
-                    cleanTitle = "close()"
-                    desc = "<p>The <code>close()</code> method closes the pneumatic cylinder. This is functionally identical to <code>retract()</code>.</p>"
-                    proto = "void vex::pneumatics::close();"
-                    example = @"
-// Close the pneumatic claw mechanism.
-Piston.close();
-"@
-                    table = ""
-                    returns = "None."
-                    isWaiting = $false
-                    isNonWaiting = $false
-                },
-                @{
-                    cat = "Movement Functions"
-                    id = "set"
-                    rawTitle = "set()"
-                    cleanTitle = "set()"
-                    desc = "<p>The <code>set(value)</code> method sets the active state of the pneumatic solenoid. Passing <code>true</code> extends/opens the cylinder, and passing <code>false</code> retracts/closes the cylinder.</p>"
-                    proto = "void vex::pneumatics::set( bool value );"
-                    example = @"
-// Extend while button L1 is held, retract when released.
-if (Controller1.ButtonL1.pressing()) {
-    Piston.set(true);
-} else {
-    Piston.set(false);
-}
-"@
-                    table = @"
-<table border="1" class="docutils">
-  <colgroup>
-    <col width="22%" />
-    <col width="78%" />
-  </colgroup>
-  <thead valign="bottom">
-    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
-  </thead>
-  <tbody valign="top">
-    <tr class="row-even"><td><code>value</code></td><td>Boolean state: <code>true</code> to extend / open the cylinder, <code>false</code> to retract / close the cylinder.</td></tr>
-  </tbody>
-</table>
-"@
-                    returns = "None."
-                    isWaiting = $false
-                    isNonWaiting = $false
-                },
-                @{
-                    cat = "Movement Functions"
-                    id = "toggle"
-                    rawTitle = "toggle()"
-                    cleanTitle = "toggle()"
-                    desc = "<p>The <code>toggle()</code> method toggles the pneumatic cylinder between extended and retracted states.</p>"
-                    proto = "void vex::pneumatics::toggle();"
-                    example = @"
-// Toggle the cylinder state when Button A is pressed.
-Controller1.ButtonA.pressed([]() {
-    Piston.toggle();
-});
-"@
-                    table = ""
-                    returns = "None."
-                    isWaiting = $false
-                    isNonWaiting = $false
-                },
-                @{
-                    cat = "Telemetry Functions"
-                    id = "value"
-                    rawTitle = "value()"
-                    cleanTitle = "value()"
-                    desc = "<p>The <code>value()</code> method returns the current state of the pneumatic solenoid output.</p>"
-                    proto = "int32_t vex::pneumatics::value();"
-                    example = @"
-// Display whether the cylinder is extended.
-if (Piston.value()) {
-    Brain.Screen.print(""Cylinder is Extended"");
-} else {
-    Brain.Screen.print(""Cylinder is Retracted"");
-}
-"@
-                    table = ""
-                    returns = "int32_t: 1 if the cylinder is currently extended/energized, 0 if retracted/de-energized."
-                    isWaiting = $false
-                    isNonWaiting = $false
-                }
-            )
-
-            foreach ($pm in $pneumaticMethods) {
-                $secObj = @{
-                    id = $pm.id
-                    rawTitle = $pm.rawTitle
-                    cleanTitle = $pm.cleanTitle
-                    desc = $pm.desc
-                    proto = $pm.proto
-                    example = $pm.example
-                    table = $pm.table
-                    returns = $pm.returns
-                    isWaiting = $pm.isWaiting
-                    isNonWaiting = $pm.isNonWaiting
-                }
-                $sectionsByCat[$pm.cat] += $secObj
-
-                $fileUrl = if ($dest.StartsWith("api/cpp/")) { $dest.Substring("api/cpp/".Length) } else { $dest }
-                $globalSearchIndex += @{
-                    title = "vex::pneumatics::$($pm.cleanTitle)"
-                    category = "Pneumatics C++ API"
-                    url = "$fileUrl#$($pm.id)"
-                    desc = ($pm.desc -replace '<[^>]+>', '')
-                }
-            }
-        } else {
-            foreach ($sm in $secMatches) {
+        foreach ($sm in $secMatches) {
             $secId = $sm.Groups[1].Value
             $secTitle = $sm.Groups[2].Value.Trim()
             $secBody = $sm.Groups[3].Value
@@ -787,6 +594,36 @@ if (Piston.value()) {
             $exampleCode = if ($codeMatch.Success) { 
                 [System.Net.WebUtility]::HtmlDecode($codeMatch.Groups[1].Value.Trim())
             } else { "" }
+
+            if ($dest -eq "api/cpp/digital_out.html") {
+                if ($isConstructor) {
+                    $exampleCode = @"
+// Create the Brain.
+brain Brain;
+
+// Construct a Digital Output on 3-Wire Port A (e.g. for pneumatic solenoid valve).
+digital_out Piston = digital_out(Brain.ThreeWirePort.A);
+
+// Alternatively, construct on a 3-Wire Expander on Smart Port 20:
+triport Expander = triport(PORT20);
+digital_out Piston2 = digital_out(Expander.A);
+"@
+                } elseif ($cleanTitleName -eq "set") {
+                    $exampleCode = @"
+// Create the Brain and Solenoid on 3-Wire Port A.
+brain Brain;
+digital_out Piston = digital_out(Brain.ThreeWirePort.A);
+
+// Extend the pneumatic cylinder (energize 5V solenoid valve)
+Piston.set(true);
+
+wait(1, seconds);
+
+// Retract the pneumatic cylinder (de-energize solenoid valve)
+Piston.set(false);
+"@
+                }
+            }
 
             # Returns
             $retMatch = [regex]::Match($secBody, '(?s)<p><strong>Returns:</strong>\s*(.*?)</p>')
@@ -965,13 +802,37 @@ $tRows  </tbody>
                 desc = if ($descParas.Count -gt 0) { ($descParas[0] -replace '<[^>]+>', '') } else { "" }
             }
         }
-    }
+
+        if ($dest -eq "api/cpp/digital_out.html") {
+            $globalSearchIndex += @{
+                title = "Pneumatics (vex::digital_out)"
+                category = "3-Wire (ADI) Devices"
+                url = "digital_out.html"
+                desc = "V5RC competition pneumatics cylinder solenoid control (extend, retract, toggle) using digital_out."
+            }
+            $globalSearchIndex += @{
+                title = "Piston / Cylinder Control (vex::digital_out)"
+                category = "3-Wire (ADI) Devices"
+                url = "digital_out.html"
+                desc = "Controlling pneumatic pistons and cylinders via 3-Wire digital_out solenoid valves."
+            }
+            $globalSearchIndex += @{
+                title = "Solenoid Valve Actuation (vex::digital_out)"
+                category = "3-Wire (ADI) Devices"
+                url = "digital_out.html"
+                desc = "Single-acting and double-acting pneumatic solenoid valve programming in VEXcode V5."
+            }
+        }
 
         # Build On-Page TOC matching PROS layout
+        $pneuTocEntry = if ($dest -eq "api/cpp/digital_out.html") {
+            "    <li><a class=`"reference internal`" href=`"#v5-pneumatics-guide`" id=`"toc-pneumatics-guide`">V5RC Competition Pneumatics Guide</a></li>`n"
+        } else { "" }
+
         $tocHtml = @"
 <div class="contents local topic" id="contents">
   <ul class="simple">
-    <li><a class="reference internal" href="#functions" id="toc-functions">Functions</a>
+$pneuTocEntry    <li><a class="reference internal" href="#functions" id="toc-functions">Functions</a>
       <ul>
 "@
         foreach ($catKey in $sectionsByCat.Keys) {
@@ -1079,24 +940,153 @@ $tRows  </tbody>
         $pageSlug = ($pageTitle.ToLower() -replace '[^a-z0-9]+', '-') + "-c-api"
 
         $extraNoticeHtml = ""
-        if ($dest -eq "api/cpp/pneumatics.html") {
+        $pneumaticsGuideHtml = ""
+        if ($dest -eq "api/cpp/digital_out.html") {
             $extraNoticeHtml = @"
                 <div class="admonition important">
-                  <p class="first admonition-title">V5RC Competition Pneumatics Note</p>
+                  <p class="first admonition-title">V5RC Competition Pneumatics &amp; Solenoid Guide</p>
                   <p class="last">
-                    In the VEX V5 Robotics Competition (V5RC), pneumatic systems use manual air reservoir tanks pre-charged before the match with a bicycle hand pump (up to 100 PSI maximum). <strong>Motorized air compressors and pumps are strictly illegal under competition rule &lt;R18&gt;.</strong><br/><br/>
-                    Pneumatic cylinders are actuated by 5V solenoid valves connected to the Brain's <strong>3-Wire (ADI) Ports (A&ndash;H)</strong> or an external 3-Wire Expander. Solenoids can be controlled using this dedicated <code>vex::pneumatics</code> class, or configured as a <a class="reference internal" href="digital_out.html"><code>vex::digital_out</code></a> device in the VEXcode Devices window.
+                    <strong>No Dedicated Pneumatics Class in VEXcode C++:</strong> In official VEXcode V5 C++, there is <em>no</em> separate <code>pneumatics</code> class. All V5RC competition pneumatic cylinders (both single-acting and double-acting solenoids) are controlled using <strong><code>vex::digital_out</code></strong> connected to 3-Wire (ADI) ports (<code>Brain.ThreeWirePort.A</code> &ndash; <code>.H</code>) or an external 3-Wire Expander.<br/><br/>
+                    <strong>Solenoid Valve Logic:</strong> Calling <code>.set(true)</code> sends 5V power to energize the solenoid valve, extending the cylinder. Calling <code>.set(false)</code> removes power, allowing the cylinder to retract.<br/><br/>
+                    <strong>V5RC Competition Rule &lt;R18&gt;:</strong> Pneumatic systems must be charged before matches using a manual bicycle pump (100 PSI max). Motorized onboard air compressors and pumps are strictly illegal in competition.
                   </p>
                 </div>
 "@
-        } elseif ($dest -eq "api/cpp/digital_out.html") {
-            $extraNoticeHtml = @"
-                <div class="admonition note">
-                  <p class="first admonition-title">Common Application: V5 Pneumatics Solenoids</p>
-                  <p class="last">
-                    In VEXcode V5, <code>digital_out</code> is the primary class configured by the graphical Devices window for pneumatic solenoid valves (Add a device &gt; 3-WIRE &gt; DIGITAL OUT). Calling <code>.set(true)</code> energizes the solenoid to extend the cylinder, and <code>.set(false)</code> de-energizes the solenoid to retract it. For cylinder-specific methods (extend, retract, toggle), see also <a class="reference internal" href="pneumatics.html"><code>vex::pneumatics</code></a>.
-                  </p>
-                </div>
+            $p1 = Format-PygmentsCpp @"
+#include "vex.h"
+using namespace vex;
+
+// Global brain instance
+brain Brain;
+
+// Single-acting pneumatic cylinder solenoid plugged into 3-Wire Port A
+digital_out Piston = digital_out(Brain.ThreeWirePort.A);
+
+int main() {
+    vexcodeInit();
+
+    // Extend cylinder by energizing solenoid
+    Piston.set(true);
+    wait(1, seconds);
+
+    // Retract cylinder by de-energizing solenoid (spring return)
+    Piston.set(false);
+}
+"@
+            $p2 = Format-PygmentsCpp @"
+#include "vex.h"
+using namespace vex;
+
+brain Brain;
+controller Controller1;
+
+// Pneumatics cylinder on 3-Wire Port A
+digital_out Piston = digital_out(Brain.ThreeWirePort.A);
+
+// State tracker variable
+bool isExtended = false;
+
+// Callback function executed when button is pressed
+void togglePiston() {
+    isExtended = !isExtended;
+    Piston.set(isExtended);
+}
+
+int main() {
+    vexcodeInit();
+
+    // Register callback for Controller Button A press event
+    Controller1.ButtonA.pressed(togglePiston);
+
+    while (true) {
+        wait(20, msec); // Keep user thread alive
+    }
+}
+"@
+            $p3 = Format-PygmentsCpp @"
+#include "vex.h"
+using namespace vex;
+
+brain Brain;
+controller Controller1;
+
+// Clamp solenoid on 3-Wire Port A
+digital_out Clamp = digital_out(Brain.ThreeWirePort.A);
+
+int main() {
+    vexcodeInit();
+
+    while (true) {
+        // Clamp extends while Button R1 is held down, retracts on release
+        if (Controller1.ButtonR1.pressing()) {
+            Clamp.set(true);
+        } else {
+            Clamp.set(false);
+        }
+        wait(20, msec);
+    }
+}
+"@
+            $p4 = Format-PygmentsCpp @"
+#include "vex.h"
+using namespace vex;
+
+brain Brain;
+
+// Double-acting cylinder using two 3-Wire ports:
+// Port A = Extend Solenoid line, Port B = Retract Solenoid line
+digital_out CylinderExtend = digital_out(Brain.ThreeWirePort.A);
+digital_out CylinderRetract = digital_out(Brain.ThreeWirePort.B);
+
+void actuateCylinder(bool extend) {
+    if (extend) {
+        CylinderRetract.set(false);
+        CylinderExtend.set(true);
+    } else {
+        CylinderExtend.set(false);
+        CylinderRetract.set(true);
+    }
+}
+
+int main() {
+    vexcodeInit();
+
+    // Extend the double-acting cylinder
+    actuateCylinder(true);
+    wait(1, seconds);
+
+    // Retract the double-acting cylinder
+    actuateCylinder(false);
+}
+"@
+
+            $pneumaticsGuideHtml = @"
+<div class="section" id="v5-pneumatics-guide">
+  <h2><a class="toc-backref" href="#toc-pneumatics-guide">V5RC Competition Pneumatics Programming Guide</a><a class="headerlink" href="#v5-pneumatics-guide" title="Permalink to this headline"></a></h2>
+  <p>In the VEX V5 Robotics Competition (V5RC), pneumatic cylinders are actuated by 5V solenoid valves connected to 3-Wire ADI ports. Because official VEXcode V5 C++ does not provide a separate <code>pneumatics</code> class, all competition pneumatic actuation is programmed using <code>vex::digital_out</code>. Select a common competition programming pattern below:</p>
+
+  <div class="sphinx-tabs docutils container">
+    <div class="ui top attached tabular menu sphinx-menu docutils container">
+      <div class="active item sphinx-data-tab-pneu-0 docutils container"><div class="docutils container">Single-Acting (Extend / Retract)</div></div>
+      <div class="item sphinx-data-tab-pneu-1 docutils container"><div class="docutils container">Button Toggle Callback</div></div>
+      <div class="item sphinx-data-tab-pneu-2 docutils container"><div class="docutils container">Momentary Button Hold</div></div>
+      <div class="item sphinx-data-tab-pneu-3 docutils container"><div class="docutils container">Double-Acting Solenoids</div></div>
+    </div>
+    <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-pneu-0 active docutils container">
+      <div class="highlight-cpp notranslate"><div class="highlight"><pre>$p1</pre></div></div>
+    </div>
+    <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-pneu-1 docutils container">
+      <div class="highlight-cpp notranslate"><div class="highlight"><pre>$p2</pre></div></div>
+    </div>
+    <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-pneu-2 docutils container">
+      <div class="highlight-cpp notranslate"><div class="highlight"><pre>$p3</pre></div></div>
+    </div>
+    <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-pneu-3 docutils container">
+      <div class="highlight-cpp notranslate"><div class="highlight"><pre>$p4</pre></div></div>
+    </div>
+  </div>
+</div>
+<hr class="docutils" />
 "@
         }
 
@@ -1142,6 +1132,8 @@ $( Build-Breadcrumbs $dest $pageTitle $catName )
                 $extraNoticeHtml
 
                 $tocHtml
+
+                $pneumaticsGuideHtml
 
                 <div class="section" id="functions">
                   <h2><a class="toc-backref" href="#toc-functions">Functions</a><a class="headerlink" href="#functions" title="Permalink to this headline"></a></h2>
