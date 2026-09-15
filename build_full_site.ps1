@@ -217,9 +217,7 @@ function Build-Sidebar($activeDest, $sectionsByCat) {
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search">
-          <a href="${rel}index.html" class="icon icon-home"> VEXcode V5 C++
-            <img src="${rel}assets/img/logo.svg" class="logo" alt="Logo" />
-          </a>
+          <a href="${rel}index.html" class="icon icon-home"> VEXcode V5 C++</a>
           <div class="version">
             vexcode v5 c++ api
           </div>
@@ -1127,11 +1125,6 @@ $( Build-Breadcrumbs $rootDest "Documentation Home" "" )
             <div itemprop="articleBody">
               <div class="section" id="vexcode-v5-c-documentation">
                 <h1>VEXcode V5 C++ Documentation<a class="headerlink" href="#vexcode-v5-c-documentation" title="Permalink to this headline"></a></h1>
-
-                <div class="admonition tip">
-                  <p class="first admonition-title">PROS Styling &bull; Official VEXcode C++ API</p>
-                  <p class="last">This documentation portal redesigns the official <strong>VEXcode V5 C++ API</strong> into the clean, developer-focused stylization of the <strong>PROS documentation</strong>. All class definitions, method names, execution models, parameter tables, and code snippets are sourced directly from the official VEX Robotics V5 API and limited strictly to <strong>V5RC competition-legal components</strong>.</p>
-                </div>
 
                 <div class="section" id="api-categories">
                   <h2>API Categories<a class="headerlink" href="#api-categories" title="Permalink to this headline"></a></h2>
