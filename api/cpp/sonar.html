@@ -1,0 +1,378 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Range Finder (Sonar) C++ API &mdash; VEXcode V5 C++ documentation</title>
+  <link rel="stylesheet" href="../../assets/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/pros_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../assets/css/pros_modern.css" type="text/css" />
+</head>
+<body class="wy-body-for-nav" role="document">
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          <a href="../../index.html" class="icon icon-home"> VEXcode V5 C++</a>
+          <div class="version">
+            vexcode v5 c++ api
+          </div>
+          <div role="search">
+            <form id="rtd-search-form" class="wy-form" action="#" onsubmit="return false;">
+              <input type="text" name="q" id="search-query-input" class="search-input" placeholder="Search docs" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+          </div>
+        </div>
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">          <p class="caption"><span class="caption-text">Getting Started</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="../../index.html">Documentation Home</a></li>            <li class="toctree-l1"><a class="reference internal" href="index.html">API Overview</a></li>          </ul>          <p class="caption"><span class="caption-text">Actuators & Motors</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="motor.html">Motor (11W & 5.5W)</a></li>            <li class="toctree-l1"><a class="reference internal" href="motorgroup.html">Motor Group</a></li>          </ul>          <p class="caption"><span class="caption-text">Drivetrain</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="drivetrain.html">Drivetrain</a></li>            <li class="toctree-l1"><a class="reference internal" href="smartdrive.html">SmartDrive</a></li>          </ul>          <p class="caption"><span class="caption-text">Brain & Controller</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="brain.html">Brain</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_screen.html">Brain Screen</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_battery.html">Brain Battery</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_sdcard.html">Brain SD Card</a></li>            <li class="toctree-l1"><a class="reference internal" href="timer.html">Timer</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller.html">Controller</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_axis.html">Controller Axis</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_button.html">Controller Button</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_screen.html">Controller Screen</a></li>          </ul>          <p class="caption"><span class="caption-text">Smart Sensors</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="inertial.html">Inertial Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="optical.html">Optical Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="distance.html">Distance Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="rotation.html">Rotation Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="gps.html">GPS Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="aivision.html">AI Vision Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="vision.html">Vision Sensor</a></li>          </ul>          <p class="caption"><span class="caption-text">3-Wire (ADI) Devices</span></p>
+          <ul class="current">            <li class="toctree-l1"><a class="reference internal" href="triport.html">TriPort (ADI)</a></li>            <li class="toctree-l1"><a class="reference internal" href="digital_out.html">Digital Out</a></li>            <li class="toctree-l1"><a class="reference internal" href="digital_in.html">Digital In</a></li>            <li class="toctree-l1"><a class="reference internal" href="bumper.html">Bumper Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="limit.html">Limit Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="line.html">Line Tracker</a></li>            <li class="toctree-l1"><a class="reference internal" href="encoder.html">Encoder</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer.html">Potentiometer</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer_v2.html">Potentiometer V2</a></li>            <li class="toctree-l1 current"><a class="reference internal current" href="#">Range Finder (Sonar)</a>              <ul>                <li class="toctree-l2"><a class="reference internal" href="#constructor-s-">Constructor(s)</a></li>                <li class="toctree-l2"><a class="reference internal" href="#movement-functions">Movement Functions</a></li>                <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a></li>              </ul>            </li>            <li class="toctree-l1"><a class="reference internal" href="analog_in.html">Analog In</a></li>            <li class="toctree-l1"><a class="reference internal" href="led.html">LED Indicator</a></li>          </ul>          <p class="caption"><span class="caption-text">System & Utilities</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="competition.html">Competition</a></li>            <li class="toctree-l1"><a class="reference internal" href="thread.html">Thread & Task</a></li>            <li class="toctree-l1"><a class="reference internal" href="event.html">Event</a></li>          </ul>          <p class="caption"><span class="caption-text">Reference</span></p>
+          <ul >            <li class="toctree-l1"><a class="reference internal" href="color.html">Color</a></li>            <li class="toctree-l1"><a class="reference internal" href="enums.html">Enumerated Types & Units</a></li>          </ul>        </div>
+      </div>
+    </nav>
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">VEXcode V5 C++</a>
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content">
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">    <li><a href="../../index.html">Docs</a> &raquo;</li>    <li><a href="../../api/cpp/index.html">API Home</a> &raquo;</li>
+    <li>3-Wire (ADI) Devices &raquo;</li>
+    <li>Range Finder (Sonar) C++ API</li>    <li class="wy-breadcrumbs-aside">
+      <a href="https://api.vex.com/v5/home/cpp/index.html" class="fa fa-external-link" target="_blank" rel="noopener"> Official VEX API</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div itemprop="articleBody">
+              <div class="section" id="range-finder-sonar--c-api">
+                <h1>Range Finder (Sonar) C++ API<a class="headerlink" href="#range-finder-sonar--c-api" title="Permalink to this headline"></a></h1>
+                <div class="admonition note">
+                  <p class="first admonition-title">Hardware Specification</p>
+                  <p class="last">
+                    <strong>Class:</strong> <code>vex::sonar</code> &nbsp;|&nbsp;
+                    <strong>Port:</strong> 3-Wire Ports (Pairs) &nbsp;|&nbsp;
+                    <strong>Competition Status:</strong> V5RC Legal Hardware &nbsp;|&nbsp;
+                    <strong>Header:</strong> <code>#include "vex.h"</code>
+                  </p>
+                </div>
+                
+
+                <div class="contents local topic" id="contents">
+  <ul class="simple">
+    <li><a class="reference internal" href="#functions" id="toc-functions">Functions</a>
+      <ul>        <li><a class="reference internal" href="#constructor-s-" id="toc-constructor-s-">Constructor(s)</a>
+          <ul>            <li><a class="reference internal" href="#initializing-the-sonar-class" id="toc-initializing-the-sonar-class">Initializing the sonar Class</a></li>          </ul>
+        </li>        <li><a class="reference internal" href="#movement-functions" id="toc-movement-functions">Movement Functions</a>
+          <ul>            <li><a class="reference internal" href="#setmaximum" id="toc-setmaximum">setMaximum()</a></li>          </ul>
+        </li>        <li><a class="reference internal" href="#functions" id="toc-functions">Functions</a>
+          <ul>            <li><a class="reference internal" href="#distance" id="toc-distance">distance()</a></li>            <li><a class="reference internal" href="#foundobject" id="toc-foundobject">foundObject()</a></li>            <li><a class="reference internal" href="#changed" id="toc-changed">changed()</a></li>          </ul>
+        </li>      </ul>
+    </li>
+  </ul>
+</div>
+
+                
+
+                <div class="section" id="functions">
+                  <h2><a class="toc-backref" href="#toc-functions">Functions</a><a class="headerlink" href="#functions" title="Permalink to this headline"></a></h2>
+                  <div class="section" id="constructor-s-">
+  <h3><a class="toc-backref" href="#toc-constructor-s-">Constructor(s)</a><a class="headerlink" href="#constructor-s-" title="Permalink to this headline"></a></h3>  <div class="section" id="initializing-the-sonar-class">
+    <h4><a class="toc-backref" href="#toc-initializing-the-sonar-class">Initializing the sonar Class</a><a class="headerlink" href="#initializing-the-sonar-class" title="Permalink to this headline"></a></h4>
+    <p>A Range Finder is created by using the following constructor:</p>
+<p>The <code>sonar</code> constructor creates a sonar object in the specified Three Wire Port.</p>
+<p>A <a class="reference external" href="http://web.archive.org/web/20250922013955/https://api.vex.com/v5/home/cpp/Brain/index.html">Brain</a> or <a class="reference external" href="triport.html">3-Wire Expander</a> must be created first before they can be used to create an object with the sonar Class constructor.</p>
+<p>This <code>Sonar</code> object will be used in all subsequent examples throughout this API documentation when referring to sonar class methods.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-1-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-1-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-1-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="nc">sonar</span><span class="p">(</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">triport</span><span class="o">::</span><span class="n">port</span> <span class="o">&amp;</span><span class="n">port</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-1-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Create the Brain.</span>
+<span class="nc">brain</span> <span class="nc">Brain</span><span class="p">;</span>
+
+<span class="c1">// Construct a Range Finder (Sonar) on 3-Wire Port A (uses adjacent ports A and B)</span>
+<span class="nc">sonar</span> <span class="n">RangeFinder</span> <span class="o">=</span> <span class="nc">sonar</span><span class="p">(</span><span class="nc">Brain</span><span class="o">.</span><span class="n">ThreeWirePort</span><span class="o">.</span><span class="n">A</span><span class="p">)</span><span class="p">;</span>
+
+<span class="c1">// Or on a 3-Wire Expander:</span>
+<span class="nc">triport</span> <span class="n">Expander</span> <span class="o">=</span> <span class="nc">triport</span><span class="p">(</span><span class="n">PORT20</span><span class="p">)</span><span class="p">;</span>
+<span class="nc">sonar</span> <span class="n">RangeFinder2</span> <span class="o">=</span> <span class="nc">sonar</span><span class="p">(</span><span class="n">Expander</span><span class="o">.</span><span class="n">A</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td><code>port</code></td>
+<td>The 3-Wire Port “pair” that the Range Finder is connected to, whether it’s a port on the <a class="reference external" href="http://web.archive.org/web/20250922013955/https://api.vex.com/v5/home/cpp/Brain/index.html">Brain</a>, or a <a class="reference external" href="triport.html">3-Wire Expander</a>.<br><strong>Note:</strong> A Range Finder uses two adjacent 3-Wire ports. These pairs are a/b, c/d, e/f, and g/h. When entering the pair as an argument, use the first letter of the pair, ie: <code>Brain.ThreeWirePort.A</code> refers to the a/b pair.</td>
+</tr>
+  </tbody>
+</table>
+    
+  </div>
+  <hr class="docutils" /></div><div class="section" id="movement-functions">
+  <h3><a class="toc-backref" href="#toc-movement-functions">Movement Functions</a><a class="headerlink" href="#movement-functions" title="Permalink to this headline"></a></h3>  <div class="section" id="setmaximum">
+    <h4><a class="toc-backref" href="#toc-setmaximum">setMaximum()</a><a class="headerlink" href="#setmaximum" title="Permalink to this headline"></a></h4>
+    <p>The <code>setMaximum(distance, units)</code> method sets the maximum distance the <code>foundObject()</code> method will return <code>true</code> for.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-2-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-2-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-2-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">sonar</span><span class="o">::</span><span class="n">setMaximum</span><span class="p">(</span> <span class="k">double</span> <span class="nc">distance</span><span class="p">,</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">rotationUnits</span> <span class="n">units</span> <span class="o">=</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">rotationUnits</span><span class="o">::</span><span class="n">deg</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-2-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>distance</td>
+<td>A double representing the maximum distance the Range Finder will find objects at.</td>
+</tr>
+<tr class="row-odd"><td>units</td>
+<td>A valid <a class="reference external" href="enums.html#distance-units">distanceUnit</a>.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" /></div><div class="section" id="functions">
+  <h3><a class="toc-backref" href="#toc-functions">Functions</a><a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>  <div class="section" id="distance">
+    <h4><a class="toc-backref" href="#toc-distance">distance()</a><a class="headerlink" href="#distance" title="Permalink to this headline"></a></h4>
+    <p>The <code>distance(units)</code> method returns the current distance the Range Finder is detecting on abject at. The Range Finder will return a large positive number if no object is detected in range.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-3-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-3-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-3-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">double</span> <span class="nc">sonar</span><span class="o">::</span><span class="nc">distance</span><span class="p">(</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">distanceUnits</span> <span class="n">units</span> <span class="o">=</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">distanceUnits</span><span class="o">::</span><span class="n">mm</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-3-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Read distance in millimeters</span>
+<span class="k">double</span> <span class="n">dist</span> <span class="o">=</span> <span class="n">RangeFinder</span><span class="o">.</span><span class="nc">distance</span><span class="p">(</span><span class="n">mm</span><span class="p">)</span><span class="p">;</span>
+<span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Distance: %.1f mm&quot;</span><span class="p">,</span> <span class="n">dist</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>units</td>
+<td>A valid <a class="reference external" href="enums.html#distance-units">distanceUnit</a>.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> A double representing the distance measured by the Range Finder.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="foundobject">
+    <h4><a class="toc-backref" href="#toc-foundobject">foundObject()</a><a class="headerlink" href="#foundobject" title="Permalink to this headline"></a></h4>
+    <p>The <code>foundObject()</code> method checks if an object is detected by the Range Finder in the range 0 - 1000 millimeters. The Range Finder will return true if an object is detected closer than 1000mm.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-4-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-4-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-4-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">bool</span> <span class="nc">sonar</span><span class="o">::</span><span class="n">foundObject</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-4-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Check if an object is 1000mm or closer to the Range Finder.</span>
+<span class="k">if</span> <span class="p">(</span><span class="nc">Sonar</span><span class="o">.</span><span class="n">foundObject</span><span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="p">{</span>
+<span class="c1">    // Print to screen on the brain that an object was found.</span>
+    <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;object found&quot;</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <p><strong>Returns:</strong> <code>true</code> if an object is detected by the Range Finder. <code>false</code> if one is not.</p>
+  </div>
+  <hr class="docutils" />  <div class="section" id="changed">
+    <h4><a class="toc-backref" href="#toc-changed">changed()</a><a class="headerlink" href="#changed" title="Permalink to this headline"></a></h4>
+    <p>The <code>changed(callback)</code> method runs a callback function when the Range Finder’s value changes.</p>
+        <div class="sphinx-tabs docutils container">
+      <div class="ui top attached tabular menu sphinx-menu docutils container">
+        <div class="active item sphinx-data-tab-5-0 docutils container">
+          <div class="docutils container">
+            Prototype
+          </div>
+        </div>
+        <div class="item sphinx-data-tab-5-1 docutils container">
+          <div class="docutils container">
+            Example
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-5-0 active docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="k">void</span> <span class="nc">sonar</span><span class="o">::</span><span class="n">changed</span><span class="p">(</span> <span class="k">void</span> <span class="p">(</span><span class="o">*</span><span class="n">callback</span><span class="p">)</span><span class="p">(</span><span class="k">void</span><span class="p">)</span> <span class="p">)</span><span class="p">;</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-5-1 docutils container">
+        <div class="highlight-cpp notranslate">
+          <div class="highlight">
+            <pre><span></span><span class="c1">// Define the sonarChanged function with a void return type,</span>
+<span class="c1">// showing it doesn&#39;t return a value.</span>
+<span class="k">void</span> <span class="n">sonarChanged</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">  // The Brain will print that the value detected by the</span>
+<span class="c1">  // Range Finder changed on the Brain&#39;s screen.</span>
+  <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Range Finder value changed&quot;</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">int</span> <span class="n">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">  // Initializing Robot Configuration. DO NOT REMOVE!</span>
+  <span class="n">vexcodeInit</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+
+<span class="c1">  // Run sonarChanged when the value of the</span>
+<span class="c1">  // Range Finder changes.</span>
+  <span class="nc">Sonar</span><span class="o">.</span><span class="n">changed</span><span class="p">(</span><span class="n">sonarChanged</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>callback</td>
+<td>A callback function to run when the value of the Range Finder changes.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> None.</p>
+  </div>
+  <hr class="docutils" /></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer>
+            <hr/>
+            <div role="contentinfo">
+              <p>&copy; Copyright 2024, VEX Robotics. V5RC Legal Components Reference.</p>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="../../assets/js/sphinx_tabs.js"></script>
+  <script src="../../assets/js/search_index.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/theme.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof initSearch === 'function' && typeof searchIndexData !== 'undefined') {
+        initSearch(searchIndexData);
+      }
+    });
+  </script>
+</body>
+</html>

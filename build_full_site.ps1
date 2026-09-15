@@ -35,7 +35,8 @@ function Clean-HtmlContent($raw) {
     $s = $s -replace 'Color\.html', 'color.html'
     $s = $s -replace 'Enums\.html', 'enums.html'
     $s = $s -replace 'Motor\.html', 'motor.html'
-    $s = $s -replace 'Motor55\.html', 'motor55.html'
+    $s = $s -replace 'Motor55\.html', 'motor.html'
+    $s = $s -replace 'motor55\.html', 'motor.html'
     $s = $s -replace 'MotorGroup\.html', 'motorgroup.html'
     $s = $s -replace 'Drivetrain\.html', 'drivetrain.html'
     $s = $s -replace 'SmartDrive\.html', 'smartdrive.html'
@@ -55,6 +56,7 @@ function Clean-HtmlContent($raw) {
     $s = $s -replace 'Encoder\.html', 'encoder.html'
     $s = $s -replace 'Potentiometer\.html', 'potentiometer.html'
     $s = $s -replace 'PotentiometerV2\.html', 'potentiometer_v2.html'
+    $s = $s -replace 'Sonar\.html', 'sonar.html'
     $s = $s -replace 'Competition\.html', 'competition.html'
     $s = $s -replace 'Thread\.html', 'thread.html'
     $s = $s -replace 'Event\.html', 'event.html'
@@ -67,10 +69,19 @@ function Clean-HtmlContent($raw) {
 }
 
 function Format-CppPrototype($className, $methodName, $rawArgs, $returnsText, $tableHtml) {
-    $bareClass = $className -replace '^.*::', ''
-    $cleanMethod = $methodName -replace '^(?:vex::)?[A-Za-z0-9_]+::', ''
-    $isCtor = ($bareClass -eq $cleanMethod -or $cleanMethod -match 'Constructor$' -or $methodName -eq $className)
+    $bareClass = $className -replace '^.*::', '' -replace '^.*\.', ''
+    $cleanMethod = $methodName -replace '^(?:vex::)?[A-Za-z0-9_]+[::\.]', ''
+    $isCtor = ($bareClass -eq $cleanMethod -or $cleanMethod -match 'Constructor$' -or $methodName -eq $className -or $methodName -match '(?i)Constructor$')
     
+    # Handle properties, e.g. .exists, .width, .height, etc.
+    if ($cleanMethod.StartsWith(".")) {
+        $propName = $cleanMethod.Substring(1)
+        $propType = if ($propName -match '^(exists|is.*)$') { "bool" }
+                    elseif ($propName -match '^(angle|score)$') { "double" }
+                    else { "int32_t" }
+        return "$propType $propName;"
+    }
+
     if (-not $rawArgs -or $rawArgs.Trim() -eq "") {
         if ($isCtor) {
             return "$bareClass();"
@@ -81,7 +92,16 @@ function Format-CppPrototype($className, $methodName, $rawArgs, $returnsText, $t
                elseif ($returnsText -match 'int') { "int32_t" } 
                elseif ($returnsText -match 'color') { "vex::color" } 
                elseif ($returnsText -match 'directionType') { "vex::directionType" } 
-               else { "void" }
+               elseif ($returnsText -match 'turnType') { "vex::turnType" }
+               elseif ($returnsText -match 'gearSetting') { "vex::gearSetting" }
+               elseif ($returnsText -match 'uint32_t') { "uint32_t" }
+               elseif ($returnsText -match 'brakeType') { "vex::brakeType" }
+               else { 
+                   if ($cleanMethod -match '^(is|has|exists|found)') { "bool" }
+                   elseif ($cleanMethod -match '^(position|velocity|current|voltage|power|torque|efficiency|temperature|heading|rotation|angle|pitch|roll|yaw|hue|brightness|reflectivity|capacity|acceleration|gyroRate)') { "double" }
+                   elseif ($cleanMethod -match '^(count|row|column|xPosition|yPosition|objectCount|id)') { "int32_t" }
+                   else { "void" }
+               }
         return "$ret $bareClass`::$cleanMethod();"
     }
 
@@ -96,6 +116,9 @@ function Format-CppPrototype($className, $methodName, $rawArgs, $returnsText, $t
             $t = $matches[1]
             $n = $matches[2]
             $def = if ($matches[3]) { " = " + $matches[3] } else { "" }
+            if ($t -match '^(gearSetting|directionType|turnType|velocityUnits|rotationUnits|distanceUnits|timeUnits|percentUnits|voltageUnits|powerUnits|brakeType|fontType|color|axisType)$') {
+                $t = "vex::$t"
+            }
             $typedArgs += "$t $n$def"
             continue
         }
@@ -105,6 +128,7 @@ function Format-CppPrototype($className, $methodName, $rawArgs, $returnsText, $t
         
         switch -Regex ($cleanArg) {
             '^(direction|dir)$' { $typedArgs += "vex::directionType $cleanArg" }
+            '^(turntype)$' { $typedArgs += "vex::turnType $cleanArg" }
             '^(velocity|vel|speed)$' { $typedArgs += "double $cleanArg" }
             '^(units_v|velocityUnits)$' { $typedArgs += "vex::velocityUnits $cleanArg = vex::velocityUnits::rpm" }
             '^(rotation|rot|distance|dist|deg|degrees|angle|timeout)$' { $typedArgs += "double $cleanArg" }
@@ -121,10 +145,11 @@ function Format-CppPrototype($className, $methodName, $rawArgs, $returnsText, $t
             '^(timeUnits)$' { $typedArgs += "vex::timeUnits $cleanArg = vex::timeUnits::msec" }
             '^(percentUnits)$' { $typedArgs += "vex::percentUnits $cleanArg = vex::percentUnits::pct" }
             '^(voltageUnits)$' { $typedArgs += "vex::voltageUnits $cleanArg = vex::voltageUnits::volt" }
-            '^(wait)$' { $typedArgs += "bool $cleanArg = true" }
+            '^(powerUnits)$' { $typedArgs += "vex::powerUnits $cleanArg = vex::powerUnits::watt" }
+            '^(wait|waitForCompletion)$' { $typedArgs += "bool $cleanArg = true" }
             '^(reverse|reversed)$' { $typedArgs += "bool $cleanArg = false" }
             '^(port|index|channel|pin|port[12AB])$' { 
-                if ($className -match '^(?:vex::)?(bumper|limit|line|encoder|potentiometer|potentiometerV2|digital_out|digital_in|analog_in|led)$') {
+                if ($className -match '^(?:vex::)?(bumper|limit|line|encoder|pot|potentiometer|potV2|potentiometerV2|digital_out|digital_in|analog_in|led|sonar)$') {
                     $typedArgs += "vex::triport::port &$cleanArg"
                 } else {
                     $typedArgs += "int32_t $cleanArg"
@@ -133,12 +158,26 @@ function Format-CppPrototype($className, $methodName, $rawArgs, $returnsText, $t
             '^(value|state)$' {
                 if ($className -match '^(?:vex::)?(digital_out)$' -or $tableHtml -match "\b$cleanArg\b.*?bool") {
                     $typedArgs += "bool $cleanArg"
+                } elseif ($cleanMethod -match '^(setLight|led)') {
+                    $typedArgs += "bool $cleanArg"
                 } else {
                     $typedArgs += "double $cleanArg"
                 }
             }
-            '^(mode)$' { $typedArgs += "vex::brakeType $cleanArg" }
+            '^(mode)$' { 
+                if ($cleanMethod -match '^(stop|setStopping)') {
+                    $typedArgs += "vex::brakeType $cleanArg" 
+                } else {
+                    $typedArgs += "double $cleanArg"
+                }
+            }
+            '^(color)$' { $typedArgs += "vex::color $cleanArg" }
+            '^(fontname|font)$' { $typedArgs += "vex::fontType $cleanArg" }
+            '^(axis)$' { $typedArgs += "vex::axisType $cleanArg" }
             '^(callback|func)$' { $typedArgs += "void (*$cleanArg)(void)" }
+            '^(x|y|x1|y1|x2|y2|width|height|radius|row|col|number|precision|hue)$' { $typedArgs += "int32_t $cleanArg" }
+            '^(text|string|filename)$' { $typedArgs += "const char* $cleanArg" }
+            '^(bRaw|raw|bSyncWait|bRunScheduler)$' { $typedArgs += "bool $cleanArg" }
             default {
                 if ($tableHtml -match "\b$cleanArg\b.*?bool") {
                     $typedArgs += "bool $cleanArg"
@@ -165,7 +204,16 @@ function Format-CppPrototype($className, $methodName, $rawArgs, $returnsText, $t
            elseif ($returnsText -match 'int') { "int32_t" } 
            elseif ($returnsText -match 'color') { "vex::color" } 
            elseif ($returnsText -match 'directionType') { "vex::directionType" } 
-           else { "void" }
+           elseif ($returnsText -match 'turnType') { "vex::turnType" }
+           elseif ($returnsText -match 'gearSetting') { "vex::gearSetting" }
+           elseif ($returnsText -match 'uint32_t') { "uint32_t" }
+           elseif ($returnsText -match 'brakeType') { "vex::brakeType" }
+           else { 
+               if ($cleanMethod -match '^(is|has|exists|found)') { "bool" }
+               elseif ($cleanMethod -match '^(position|velocity|current|voltage|power|torque|efficiency|temperature|heading|rotation|angle|pitch|roll|yaw|hue|brightness|reflectivity|capacity|acceleration|gyroRate)') { "double" }
+               elseif ($cleanMethod -match '^(count|row|column|xPosition|yPosition|objectCount|id)') { "int32_t" }
+               else { "void" }
+           }
 
     return "$ret $bareClass`::$cleanMethod( $argsStr );"
 }
@@ -206,7 +254,7 @@ function Format-PygmentsCpp([string]$rawCode) {
                 $lineHtml.Append('<span class="cp">' + [System.Net.WebUtility]::HtmlEncode($tok) + '</span>') | Out-Null
             } elseif ($tok -match '^(void|int|int8_t|int16_t|int32_t|int64_t|uint8_t|uint16_t|uint32_t|uint64_t|size_t|double|float|bool|char|auto|const|static|virtual|override|class|struct|enum|namespace|using|public|private|protected|true|false|nullptr|return|if|else|while|for|do|switch|case|break|continue|default|new|delete)$') {
                 $lineHtml.Append("<span class=`"k`">$tok</span>") | Out-Null
-            } elseif ($tok -match '^(vex|motor|motor_group|drivetrain|smartdrive|brain|controller|inertial|optical|distance|rotation|gps|aivision|vision|triport|bumper|limit|line|encoder|potentiometer|potentiometerV2|competition|thread|task|event|color|timer|digital_out|digital_in|analog_in|led|brakeType|directionType|velocityUnits|rotationUnits|distanceUnits|timeUnits|percentUnits|voltageUnits|gearSetting|fontType|Brain|Controller|Axis|Button|Screen|SDcard|Battery)$') {
+            } elseif ($tok -match '^(vex|motor|motor_group|drivetrain|smartdrive|brain|controller|inertial|optical|distance|rotation|gps|aivision|vision|triport|bumper|limit|line|encoder|pot|potentiometer|potV2|potentiometerV2|sonar|competition|thread|task|event|color|timer|digital_out|digital_in|analog_in|led|brakeType|directionType|turnType|velocityUnits|rotationUnits|distanceUnits|timeUnits|percentUnits|voltageUnits|powerUnits|gearSetting|fontType|axisType|Brain|Controller|Axis|Button|Screen|SDcard|Battery|lcd)$') {
                 $lineHtml.Append("<span class=`"nc`">$tok</span>") | Out-Null
             } elseif ($tok -match '^(0x[0-9a-fA-F]+|\d+(?:\.\d+)?(?:f|u|l|ul)?)$') {
                 $lineHtml.Append("<span class=`"mi`">$tok</span>") | Out-Null
@@ -563,9 +611,14 @@ $( Build-Breadcrumbs $dest "Enumerated Types & Units" "Reference" )
         }
 
         # Standard class pages
-        $secRegex = [regex]'(?s)<section id="([^"]+)">\s*<h[23]>(?:<a[^>]*>)?([^<]+)(?:</a>)?(?:<a[^>]*>#</a>)?</h[23]>(.*?)</section>'
-        $cleanHtml = $html -replace '(?s)<section id="(?:class-)?methods"[^>]*>\s*<h[23]>.*?</h[23]>', ''
-        $secMatches = $secRegex.Matches($cleanHtml)
+        # First remove any inner span tags from Sphinx to enable clean matching
+        $cleanHtml = $html -replace '<span[^>]*>', '' -replace '</span>', ''
+        
+        # Unwrap container sections (methods, class-methods, properties, constructors)
+        $unwrapped = $cleanHtml -replace '(?s)<section id="(?:class-)?(?:methods|properties|constructors)"[^>]*>\s*<h[23]>.*?</h[23]>', ''
+        
+        # Match leaf sections by heading up to the next section or end of article
+        $secMatches = [regex]::Matches($unwrapped, '(?s)<section id="([^"]+)">\s*<h[234]>(?:<a[^>]*>)?([^<]+)(?:</a>)?(?:<a[^>]*>#</a>)?</h[234]>(.*?)(?=<section id=|</article>)')
 
         $sectionsByCat = [ordered]@{
             "Constructor(s)" = @()
@@ -580,14 +633,14 @@ $( Build-Breadcrumbs $dest "Enumerated Types & Units" "Reference" )
             $secTitle = $sm.Groups[2].Value.Trim()
             $secBody = $sm.Groups[3].Value
 
-            if ($secId -eq "class-methods" -or $secId -eq "methods") {
+            if ($secId -eq "class-methods" -or $secId -eq "methods" -or $secId -eq "properties" -or $secId -eq "constructors" -or $secId -eq "introduction") {
                 continue
             }
 
             $cleanTitle = $secTitle -replace '^[A-Za-z0-9_]+\.', '' # e.g. Motor.spin() -> spin()
             $cleanTitleName = $cleanTitle -replace '\(.*', ''
 
-            $isConstructor = ($secId -match 'constructor' -or $secId -match 'initializing')
+            $isConstructor = ($secId -match 'constructor' -or $secId -match 'initializing' -or $cleanTitle -match '(?i)Constructor')
             
             # Code example
             $codeMatch = [regex]::Match($secBody, '(?s)<code class="language-cpp">(.*?)</code>')
@@ -595,6 +648,7 @@ $( Build-Breadcrumbs $dest "Enumerated Types & Units" "Reference" )
                 [System.Net.WebUtility]::HtmlDecode($codeMatch.Groups[1].Value.Trim())
             } else { "" }
 
+            # Dedicated verified examples for specific devices
             if ($dest -eq "api/cpp/digital_out.html") {
                 if ($isConstructor) {
                     $exampleCode = @"
@@ -623,6 +677,26 @@ wait(1, seconds);
 Piston.set(false);
 "@
                 }
+            } elseif ($dest -eq "api/cpp/sonar.html") {
+                if ($isConstructor) {
+                    $exampleCode = @"
+// Create the Brain.
+brain Brain;
+
+// Construct a Range Finder (Sonar) on 3-Wire Port A (uses adjacent ports A and B)
+sonar RangeFinder = sonar(Brain.ThreeWirePort.A);
+
+// Or on a 3-Wire Expander:
+triport Expander = triport(PORT20);
+sonar RangeFinder2 = sonar(Expander.A);
+"@
+                } elseif ($cleanTitleName -eq "distance") {
+                    $exampleCode = @"
+// Read distance in millimeters
+double dist = RangeFinder.distance(mm);
+Brain.Screen.print("Distance: %.1f mm", dist);
+"@
+                }
             }
 
             # Returns
@@ -642,6 +716,7 @@ Piston.set(false);
                     if ($rowBody -match '<th') { continue }
                     $rClass = if ($rIdx % 2 -eq 0) { "row-even" } else { "row-odd" }
                     $cleanRow = [regex]::Replace($rowBody, '(?s)<td[^>]*>(?:<p>)?(.*?)(?:</p>)?</td>', '<td>$1</td>')
+                    $cleanRow = $cleanRow -replace '<code[^>]*>', '<code>'
                     $tRows += "<tr class=`"$rClass`">$cleanRow</tr>`n"
                     $rIdx++
                 }
@@ -733,9 +808,13 @@ $tRows  </tbody>
                 }
             }
 
-            # Prototype generation
+            # Prototype generation with multi-overload extraction
             $protoCode = ""
-            if ($isConstructor) {
+            $bareClass = $className -replace '^.*::', '' -replace '^.*\.', ''
+            if ($cleanTitleName.StartsWith(".")) {
+                # Struct property (e.g. .exists, .width)
+                $protoCode = Format-CppPrototype $className $cleanTitleName "" $returnsText $tableHtml
+            } elseif ($isConstructor) {
                 $liMatches = [regex]::Matches($secBody, '<li><p>(?:[A-Za-z0-9_]+\s+[A-Za-z0-9_]+\s*=\s*)?([A-Za-z0-9_]+\([^;]+\));</p>')
                 if ($liMatches.Count -gt 0) {
                     $protos = @()
@@ -744,23 +823,42 @@ $tRows  </tbody>
                         $cArgs = ($cCall -replace '^[A-Za-z0-9_]+\(', '') -replace '\)$', ''
                         $protos += Format-CppPrototype $className $className $cArgs "void" $tableHtml
                     }
-                    $protoCode = $protos -join "`n"
+                    $protoCode = ($protos | Select-Object -Unique) -join "`n"
                 } else {
-                    $ctorCmdMatch = [regex]::Match($secBody, '<code>([A-Za-z0-9_]+)\(([^)]*)\)</code>')
-                    if ($ctorCmdMatch.Success) {
-                        $protoCode = Format-CppPrototype $className $className $ctorCmdMatch.Groups[2].Value "void" $tableHtml
+                    $ctorCmdMatches = [regex]::Matches($secBody, '<code[^>]*>([A-Za-z0-9_]+)\(([^)]*)\)</code>')
+                    $protos = @()
+                    foreach ($ccm in $ctorCmdMatches) {
+                        if ($ccm.Groups[1].Value -eq $bareClass -or $ccm.Groups[1].Value -eq ($className -replace '^vex::', '')) {
+                            $protos += Format-CppPrototype $className $className $ccm.Groups[2].Value "void" $tableHtml
+                        }
+                    }
+                    if ($protos.Count -gt 0) {
+                        $protoCode = ($protos | Select-Object -Unique) -join "`n"
                     } elseif ($tableHtml -match 'port|index') {
                         $protoCode = Format-CppPrototype $className $className "port" "void" $tableHtml
                     } else {
-                        $protoCode = "$className();"
+                        $protoCode = "$bareClass();"
                     }
                 }
             } else {
-                $protoCmdMatch = [regex]::Match($secBody, '(?:The\s+)?<code>(?:[A-Za-z0-9_]+\.)?([A-Za-z0-9_]+)\(([^)]*)\)</code>')
-                if ($protoCmdMatch.Success) {
-                    $mName = $protoCmdMatch.Groups[1].Value
-                    $mArgs = $protoCmdMatch.Groups[2].Value
-                    $protoCode = Format-CppPrototype $className $mName $mArgs $returnsText $tableHtml
+                # Method overloads
+                $sigMatches = [regex]::Matches($secBody, '<code[^>]*>(?:[A-Za-z0-9_]+\.)?([A-Za-z0-9_]+)\(([^)]*)\)</code>')
+                $matchedSigs = @()
+                foreach ($smSig in $sigMatches) {
+                    if ($smSig.Groups[1].Value -eq $cleanTitleName) {
+                        $matchedSigs += $smSig.Groups[2].Value
+                    }
+                }
+                if ($matchedSigs.Count -gt 0) {
+                    $protos = @()
+                    $seenSig = @{}
+                    foreach ($mArgs in $matchedSigs) {
+                        if (-not $seenSig.ContainsKey($mArgs)) {
+                            $seenSig[$mArgs] = $true
+                            $protos += Format-CppPrototype $className $cleanTitleName $mArgs $returnsText $tableHtml
+                        }
+                    }
+                    $protoCode = $protos -join "`n"
                 } else {
                     $protoCode = Format-CppPrototype $className $cleanTitleName "" $returnsText $tableHtml
                 }
@@ -941,7 +1039,37 @@ $pneuTocEntry    <li><a class="reference internal" href="#functions" id="toc-fun
 
         $extraNoticeHtml = ""
         $pneumaticsGuideHtml = ""
-        if ($dest -eq "api/cpp/digital_out.html") {
+        if ($dest -eq "api/cpp/motor.html") {
+            $extraNoticeHtml = @"
+                <div class="admonition note">
+                  <p class="first admonition-title">11W and 5.5W Smart Motor Programming</p>
+                  <p class="last">
+                    Both the <strong>V5 11W Smart Motor</strong> (276-4840) and <strong>V5 5.5W Smart Motor</strong> (276-4842) are programmed using the exact same <strong><code>vex::motor</code></strong> class in VEXcode V5 C++.<br/><br/>
+                    <strong>11W Motors:</strong> Support three swappable internal gear cartridges: <code>vex::gearSetting::ratio36_1</code> (100 rpm, Red), <code>vex::gearSetting::ratio18_1</code> (200 rpm, Green), and <code>vex::gearSetting::ratio6_1</code> (600 rpm, Blue).<br/><br/>
+                    <strong>5.5W Motors:</strong> Feature a fixed internal 200 rpm ratio (equivalent to <code>vex::gearSetting::ratio18_1</code>). Constructed with <code>motor(PORT1)</code> or <code>motor(PORT1, false)</code>. Cartridges cannot be swapped.<br/><br/>
+                    <strong>V5RC Power Limits (&lt;R12&gt;):</strong> Robots are limited to a combined 88W maximum of motor power (e.g. eight 11W motors, or six 11W motors + four 5.5W motors). Both types connect directly to Smart Ports (1&ndash;21).
+                  </p>
+                </div>
+"@
+        } elseif ($dest -eq "api/cpp/potentiometer.html") {
+            $extraNoticeHtml = @"
+                <div class="admonition note">
+                  <p class="first admonition-title">Class Naming: vex::pot vs vex::potentiometer</p>
+                  <p class="last">
+                    In official VEXcode V5 C++, the primary class is <strong><code>vex::pot</code></strong>. The header <code>vex_pot.h</code> also provides the typedef alias <code>using potentiometer = pot;</code>, meaning both <code>vex::pot</code> and <code>vex::potentiometer</code> are 100% equivalent and interchangeable in your code.
+                  </p>
+                </div>
+"@
+        } elseif ($dest -eq "api/cpp/potentiometer_v2.html") {
+            $extraNoticeHtml = @"
+                <div class="admonition note">
+                  <p class="first admonition-title">Class Naming: vex::potV2 vs vex::potentiometerV2</p>
+                  <p class="last">
+                    In official VEXcode V5 C++, the primary class is <strong><code>vex::potV2</code></strong>. The header provides the typedef alias <code>using potentiometerV2 = potV2;</code>, meaning both <code>vex::potV2</code> and <code>vex::potentiometerV2</code> are 100% equivalent and interchangeable in your code.
+                  </p>
+                </div>
+"@
+        } elseif ($dest -eq "api/cpp/digital_out.html") {
             $extraNoticeHtml = @"
                 <div class="admonition important">
                   <p class="first admonition-title">V5RC Competition Pneumatics &amp; Solenoid Guide</p>
