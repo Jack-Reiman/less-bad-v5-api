@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Limit Switch C++ API &mdash; VEXcode V5 C++ documentation</title>
+  <title>Digital In C++ API &mdash; VEXcode V5 C++ documentation</title>
   <link rel="stylesheet" href="../../assets/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../assets/css/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../assets/css/tabs.css" type="text/css" />
@@ -34,7 +34,7 @@
           <ul >            <li class="toctree-l1"><a class="reference internal" href="drivetrain.html">Drivetrain</a></li>            <li class="toctree-l1"><a class="reference internal" href="smartdrive.html">SmartDrive</a></li>          </ul>          <p class="caption"><span class="caption-text">Brain & Controller</span></p>
           <ul >            <li class="toctree-l1"><a class="reference internal" href="brain.html">Brain</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_screen.html">Brain Screen</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_battery.html">Brain Battery</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_sdcard.html">Brain SD Card</a></li>            <li class="toctree-l1"><a class="reference internal" href="timer.html">Timer</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller.html">Controller</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_axis.html">Controller Axis</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_button.html">Controller Button</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_screen.html">Controller Screen</a></li>          </ul>          <p class="caption"><span class="caption-text">Smart Sensors</span></p>
           <ul >            <li class="toctree-l1"><a class="reference internal" href="inertial.html">Inertial Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="optical.html">Optical Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="distance.html">Distance Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="rotation.html">Rotation Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="gps.html">GPS Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="aivision.html">AI Vision Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="vision.html">Vision Sensor</a></li>          </ul>          <p class="caption"><span class="caption-text">3-Wire (ADI) Devices</span></p>
-          <ul class="current">            <li class="toctree-l1"><a class="reference internal" href="triport.html">TriPort (ADI)</a></li>            <li class="toctree-l1"><a class="reference internal" href="pneumatics.html">Pneumatics</a></li>            <li class="toctree-l1"><a class="reference internal" href="digital_out.html">Digital Out</a></li>            <li class="toctree-l1"><a class="reference internal" href="digital_in.html">Digital In</a></li>            <li class="toctree-l1"><a class="reference internal" href="bumper.html">Bumper Switch</a></li>            <li class="toctree-l1 current"><a class="reference internal current" href="#">Limit Switch</a>              <ul>                <li class="toctree-l2"><a class="reference internal" href="#constructor-s-">Constructor(s)</a></li>                <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a></li>              </ul>            </li>            <li class="toctree-l1"><a class="reference internal" href="line.html">Line Tracker</a></li>            <li class="toctree-l1"><a class="reference internal" href="encoder.html">Encoder</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer.html">Potentiometer</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer_v2.html">Potentiometer V2</a></li>            <li class="toctree-l1"><a class="reference internal" href="analog_in.html">Analog In</a></li>            <li class="toctree-l1"><a class="reference internal" href="led.html">LED Indicator</a></li>          </ul>          <p class="caption"><span class="caption-text">System & Utilities</span></p>
+          <ul class="current">            <li class="toctree-l1"><a class="reference internal" href="triport.html">TriPort (ADI)</a></li>            <li class="toctree-l1"><a class="reference internal" href="pneumatics.html">Pneumatics</a></li>            <li class="toctree-l1"><a class="reference internal" href="digital_out.html">Digital Out</a></li>            <li class="toctree-l1 current"><a class="reference internal current" href="#">Digital In</a>              <ul>                <li class="toctree-l2"><a class="reference internal" href="#constructor-s-">Constructor(s)</a></li>                <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a></li>              </ul>            </li>            <li class="toctree-l1"><a class="reference internal" href="bumper.html">Bumper Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="limit.html">Limit Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="line.html">Line Tracker</a></li>            <li class="toctree-l1"><a class="reference internal" href="encoder.html">Encoder</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer.html">Potentiometer</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer_v2.html">Potentiometer V2</a></li>            <li class="toctree-l1"><a class="reference internal" href="analog_in.html">Analog In</a></li>            <li class="toctree-l1"><a class="reference internal" href="led.html">LED Indicator</a></li>          </ul>          <p class="caption"><span class="caption-text">System & Utilities</span></p>
           <ul >            <li class="toctree-l1"><a class="reference internal" href="competition.html">Competition</a></li>            <li class="toctree-l1"><a class="reference internal" href="thread.html">Thread & Task</a></li>            <li class="toctree-l1"><a class="reference internal" href="event.html">Event</a></li>          </ul>          <p class="caption"><span class="caption-text">Reference</span></p>
           <ul >            <li class="toctree-l1"><a class="reference internal" href="color.html">Color</a></li>            <li class="toctree-l1"><a class="reference internal" href="enums.html">Enumerated Types & Units</a></li>          </ul>        </div>
       </div>
@@ -49,7 +49,7 @@
 <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">    <li><a href="../../index.html">Docs</a> &raquo;</li>    <li><a href="../../api/cpp/index.html">API Home</a> &raquo;</li>
     <li>3-Wire (ADI) Devices &raquo;</li>
-    <li>Limit Switch C++ API</li>    <li class="wy-breadcrumbs-aside">
+    <li>Digital In C++ API</li>    <li class="wy-breadcrumbs-aside">
       <a href="https://api.vex.com/v5/home/cpp/index.html" class="fa fa-external-link" target="_blank" rel="noopener"> Official VEX API</a>
     </li>
   </ul>
@@ -57,12 +57,12 @@
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div itemprop="articleBody">
-              <div class="section" id="limit-switch-c-api">
-                <h1>Limit Switch C++ API<a class="headerlink" href="#limit-switch-c-api" title="Permalink to this headline"></a></h1>
+              <div class="section" id="digital-in-c-api">
+                <h1>Digital In C++ API<a class="headerlink" href="#digital-in-c-api" title="Permalink to this headline"></a></h1>
                 <div class="admonition note">
                   <p class="first admonition-title">Hardware Specification</p>
                   <p class="last">
-                    <strong>Class:</strong> <code>vex::limit</code> &nbsp;|&nbsp;
+                    <strong>Class:</strong> <code>vex::digital_in</code> &nbsp;|&nbsp;
                     <strong>Port:</strong> 3-Wire Port A-H &nbsp;|&nbsp;
                     <strong>Competition Status:</strong> V5RC Legal Hardware &nbsp;|&nbsp;
                     <strong>Header:</strong> <code>#include "vex.h"</code>
@@ -74,9 +74,9 @@
   <ul class="simple">
     <li><a class="reference internal" href="#functions" id="toc-functions">Functions</a>
       <ul>        <li><a class="reference internal" href="#constructor-s-" id="toc-constructor-s-">Constructor(s)</a>
-          <ul>            <li><a class="reference internal" href="#initializing-the-limit-class" id="toc-initializing-the-limit-class">Initializing the limit Class</a></li>          </ul>
+          <ul>            <li><a class="reference internal" href="#initializing-the-digital-in-class" id="toc-initializing-the-digital-in-class">Initializing the digital_in Class</a></li>          </ul>
         </li>        <li><a class="reference internal" href="#functions" id="toc-functions">Functions</a>
-          <ul>            <li><a class="reference internal" href="#pressed" id="toc-pressed">pressed()</a></li>            <li><a class="reference internal" href="#released" id="toc-released">released()</a></li>            <li><a class="reference internal" href="#pressing" id="toc-pressing">pressing()</a></li>          </ul>
+          <ul>            <li><a class="reference internal" href="#high" id="toc-high">high()</a></li>            <li><a class="reference internal" href="#low" id="toc-low">low()</a></li>          </ul>
         </li>      </ul>
     </li>
   </ul>
@@ -85,12 +85,13 @@
                 <div class="section" id="functions">
                   <h2><a class="toc-backref" href="#toc-functions">Functions</a><a class="headerlink" href="#functions" title="Permalink to this headline"></a></h2>
                   <div class="section" id="constructor-s-">
-  <h3><a class="toc-backref" href="#toc-constructor-s-">Constructor(s)</a><a class="headerlink" href="#constructor-s-" title="Permalink to this headline"></a></h3>  <div class="section" id="initializing-the-limit-class">
-    <h4><a class="toc-backref" href="#toc-initializing-the-limit-class">Initializing the limit Class</a><a class="headerlink" href="#initializing-the-limit-class" title="Permalink to this headline"></a></h4>
-    <p>A Limit Switch is created by using the following constructor:</p>
-<p>The <code>limit</code> constructor creates a limit object in the specified Three Wire Port.</p>
-<p>A <a class="reference external" href="http://web.archive.org/web/20250922013955/https://api.vex.com/v5/home/cpp/Brain/index.html">Brain</a> or <a class="reference external" href="triport.html">3-Wire Expander</a> must be created first before they can be used to create an object with the Limit Class constructor.</p>
-<p>This <code>limit</code> object will be used in all subsequent examples throughout this API documentation when referring to limit class methods.</p>
+  <h3><a class="toc-backref" href="#toc-constructor-s-">Constructor(s)</a><a class="headerlink" href="#constructor-s-" title="Permalink to this headline"></a></h3>  <div class="section" id="initializing-the-digital-in-class">
+    <h4><a class="toc-backref" href="#toc-initializing-the-digital-in-class">Initializing the digital_in Class</a><a class="headerlink" href="#initializing-the-digital-in-class" title="Permalink to this headline"></a></h4>
+    <p>A Digital Input is created by using the following constructor:</p>
+<p><code>digital_in</code></p>
+<p>This constructor creates a digital_in object in the specified Three Wire Port:</p>
+<p>A <a class="reference external" href="http://web.archive.org/web/20251107235555/https://api.vex.com/v5/home/cpp/Brain/index.html"><code>Brain</code></a> or <a class="reference external" href="triport.html"><code>3-Wire Expander</code></a> must be created first before they can be used to create an object with the digital_in Class constructor.</p>
+<p>This <code>digin</code> object will be used in all subsequent examples throughout this API documentation when referring to digital_in class methods.</p>
         <div class="sphinx-tabs docutils container">
       <div class="ui top attached tabular menu sphinx-menu docutils container">
         <div class="active item sphinx-data-tab-1-0 docutils container">
@@ -107,7 +108,7 @@
       <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-1-0 active docutils container">
         <div class="highlight-cpp notranslate">
           <div class="highlight">
-            <pre><span></span><span class="nc">limit</span><span class="p">(</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">triport</span><span class="o">::</span><span class="n">port</span> <span class="o">&amp;</span><span class="n">port</span> <span class="p">)</span><span class="p">;</span></pre>
+            <pre><span></span><span class="n">digital_in</span><span class="p">(</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">triport</span><span class="o">::</span><span class="n">port</span> <span class="o">&amp;</span><span class="n">port</span> <span class="p">)</span><span class="p">;</span></pre>
           </div>
         </div>
       </div>
@@ -116,8 +117,9 @@
           <div class="highlight">
             <pre><span></span><span class="c1">// Create the Brain.</span>
 <span class="nc">brain</span> <span class="nc">Brain</span><span class="p">;</span>
-<span class="c1">// Construct a Limit Switch &quot;limit&quot; with the Limit class.</span>
-<span class="nc">limit</span> <span class="nc">Limit</span> <span class="o">=</span> <span class="nc">limit</span><span class="p">(</span><span class="nc">Brain</span><span class="o">.</span><span class="n">ThreeWirePort</span><span class="o">.</span><span class="n">A</span><span class="p">)</span><span class="p">;</span></pre>
+<span class="c1">// Construct a Digital Input &quot;digin&quot; with the</span>
+<span class="c1">// digital_in class.</span>
+<span class="n">digital_in</span> <span class="n">digin</span> <span class="o">=</span> <span class="n">digital_in</span><span class="p">(</span><span class="nc">Brain</span><span class="o">.</span><span class="n">ThreeWirePort</span><span class="o">.</span><span class="n">A</span><span class="p">)</span><span class="p">;</span></pre>
           </div>
         </div>
       </div>
@@ -132,16 +134,16 @@
   </thead>
   <tbody valign="top">
 <tr class="row-even"><td><code>port</code></td>
-<td>The 3-Wire Port that the Limit Switch is connected to, whether itâ€™s a port on the <a class="reference external" href="http://web.archive.org/web/20250922013955/https://api.vex.com/v5/home/cpp/Brain/index.html">Brain</a>, or a <a class="reference external" href="triport.html">3-Wire Expander</a>.</td>
+<td>The 3-Wire Port that the Digital Input is connected to, whether itâ€™s a port on the <a class="reference external" href="http://web.archive.org/web/20251107235555/https://api.vex.com/v5/home/cpp/Brain/index.html"><code>Brain</code></a>, or a <a class="reference external" href="triport.html"><code>3-Wire Expander</code></a>.</td>
 </tr>
   </tbody>
 </table>
     
   </div>
   <hr class="docutils" /></div><div class="section" id="functions">
-  <h3><a class="toc-backref" href="#toc-functions">Functions</a><a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>  <div class="section" id="pressed">
-    <h4><a class="toc-backref" href="#toc-pressed">pressed()</a><a class="headerlink" href="#pressed" title="Permalink to this headline"></a></h4>
-    <p>The <code>pressed(callback)</code> command registers a callback function for when the Limit Switch is pressed.</p>
+  <h3><a class="toc-backref" href="#toc-functions">Functions</a><a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>  <div class="section" id="high">
+    <h4><a class="toc-backref" href="#toc-high">high()</a><a class="headerlink" href="#high" title="Permalink to this headline"></a></h4>
+    <p>The <code>high(callback)</code> method registers a callback function to be called when the Digital Input is high.</p>
         <div class="sphinx-tabs docutils container">
       <div class="ui top attached tabular menu sphinx-menu docutils container">
         <div class="active item sphinx-data-tab-2-0 docutils container">
@@ -158,27 +160,27 @@
       <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-2-0 active docutils container">
         <div class="highlight-cpp notranslate">
           <div class="highlight">
-            <pre><span></span><span class="k">void</span> <span class="nc">limit</span><span class="o">::</span><span class="n">pressed</span><span class="p">(</span> <span class="k">void</span> <span class="p">(</span><span class="o">*</span><span class="n">callback</span><span class="p">)</span><span class="p">(</span><span class="k">void</span><span class="p">)</span> <span class="p">)</span><span class="p">;</span></pre>
+            <pre><span></span><span class="k">void</span> <span class="n">digital_in</span><span class="o">::</span><span class="n">high</span><span class="p">(</span> <span class="k">void</span> <span class="p">(</span><span class="o">*</span><span class="n">callback</span><span class="p">)</span><span class="p">(</span><span class="k">void</span><span class="p">)</span> <span class="p">)</span><span class="p">;</span></pre>
           </div>
         </div>
       </div>
       <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-2-1 docutils container">
         <div class="highlight-cpp notranslate">
           <div class="highlight">
-            <pre><span></span><span class="c1">// Define the switchPressed function with a void return type,</span>
-<span class="c1">// showing it doesn&#39;t return a value.</span>
-<span class="k">void</span> <span class="n">switchPressed</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-<span class="c1">  // The Brain will print that the Limit Switch was pressed</span>
+            <pre><span></span><span class="c1">// Define the inputHigh function with a void return</span>
+<span class="c1">// type, showing it doesn&#39;t return a value.</span>
+<span class="k">void</span> <span class="n">inputHigh</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">  // The Brain will print that the Digital Input is high</span>
 <span class="c1">  // on the Brain&#39;s screen.</span>
-  <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;switch pressed&quot;</span><span class="p">)</span><span class="p">;</span>
+  <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;digital input high&quot;</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="k">int</span> <span class="n">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
 <span class="c1">  // Initializing Robot Configuration. DO NOT REMOVE!</span>
   <span class="n">vexcodeInit</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
 
-<span class="c1">  // Run switchPressed when the Limit Switch is pressed.</span>
-  <span class="nc">Limit</span><span class="o">.</span><span class="n">pressed</span><span class="p">(</span><span class="n">switchPressed</span><span class="p">)</span><span class="p">;</span>
+<span class="c1">  // Run inputHigh when the Digital Input is high.</span>
+  <span class="n">digin</span><span class="o">.</span><span class="n">high</span><span class="p">(</span><span class="n">inputHigh</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span></pre>
           </div>
         </div>
@@ -193,16 +195,16 @@
     <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
   </thead>
   <tbody valign="top">
-<tr class="row-even"><td>callback</td>
-<td>The callback function to be called when the Limit Switch is pressed.</td>
+<tr class="row-even"><td><code>callback</code></td>
+<td>A function that will be called when the input is high.</td>
 </tr>
   </tbody>
 </table>
-    <p><strong>Returns:</strong> None.</p>
+    <p><strong>Returns:</strong> An instance of the Event class.</p>
   </div>
-  <hr class="docutils" />  <div class="section" id="released">
-    <h4><a class="toc-backref" href="#toc-released">released()</a><a class="headerlink" href="#released" title="Permalink to this headline"></a></h4>
-    <p>The <code>released(callback)</code> command registers a callback function for when the Limit Switch is released.</p>
+  <hr class="docutils" />  <div class="section" id="low">
+    <h4><a class="toc-backref" href="#toc-low">low()</a><a class="headerlink" href="#low" title="Permalink to this headline"></a></h4>
+    <p>The <code>low(callback)</code> method registers a callback function to be called when the Digital Input is low.</p>
         <div class="sphinx-tabs docutils container">
       <div class="ui top attached tabular menu sphinx-menu docutils container">
         <div class="active item sphinx-data-tab-3-0 docutils container">
@@ -219,27 +221,27 @@
       <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-3-0 active docutils container">
         <div class="highlight-cpp notranslate">
           <div class="highlight">
-            <pre><span></span><span class="k">void</span> <span class="nc">limit</span><span class="o">::</span><span class="n">released</span><span class="p">(</span> <span class="k">void</span> <span class="p">(</span><span class="o">*</span><span class="n">callback</span><span class="p">)</span><span class="p">(</span><span class="k">void</span><span class="p">)</span> <span class="p">)</span><span class="p">;</span></pre>
+            <pre><span></span><span class="k">void</span> <span class="n">digital_in</span><span class="o">::</span><span class="n">low</span><span class="p">(</span> <span class="k">void</span> <span class="p">(</span><span class="o">*</span><span class="n">callback</span><span class="p">)</span><span class="p">(</span><span class="k">void</span><span class="p">)</span> <span class="p">)</span><span class="p">;</span></pre>
           </div>
         </div>
       </div>
       <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-3-1 docutils container">
         <div class="highlight-cpp notranslate">
           <div class="highlight">
-            <pre><span></span><span class="c1">// Define the switchReleased function with a void return</span>
-<span class="c1">// type, showing it doesn&#39;t return a value.</span>
-<span class="k">void</span> <span class="n">switchReleased</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-<span class="c1">  // The Brain will print that the Limit Switch was released</span>
+            <pre><span></span><span class="c1">// Define the inputLow function with a void return type,</span>
+<span class="c1">// showing it doesn&#39;t return a value.</span>
+<span class="k">void</span> <span class="n">inputLow</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">  // The Brain will print that the Digital Input is low</span>
 <span class="c1">  // on the Brain&#39;s screen.</span>
-  <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;switch released&quot;</span><span class="p">)</span><span class="p">;</span>
+  <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;digital input low&quot;</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="k">int</span> <span class="n">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
 <span class="c1">  // Initializing Robot Configuration. DO NOT REMOVE!</span>
   <span class="n">vexcodeInit</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
 
-<span class="c1">  // Run switchReleased when the Limit Switch is released.</span>
-  <span class="n">LimitSwitchA</span><span class="o">.</span><span class="n">released</span><span class="p">(</span><span class="n">switchReleased</span><span class="p">)</span><span class="p">;</span>
+<span class="c1">  // Run inputLow when the Digital Input is low.</span>
+  <span class="n">digin</span><span class="o">.</span><span class="n">low</span><span class="p">(</span><span class="n">inputLow</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span></pre>
           </div>
         </div>
@@ -254,46 +256,12 @@
     <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
   </thead>
   <tbody valign="top">
-<tr class="row-even"><td>callback</td>
-<td>The callback function to be called when the Limit Switch is released.</td>
+<tr class="row-even"><td><code>callback</code></td>
+<td>A function that will be called when the input is low.</td>
 </tr>
   </tbody>
 </table>
-    <p><strong>Returns:</strong> None.</p>
-  </div>
-  <hr class="docutils" />  <div class="section" id="pressing">
-    <h4><a class="toc-backref" href="#toc-pressing">pressing()</a><a class="headerlink" href="#pressing" title="Permalink to this headline"></a></h4>
-    <p>The <code>pressing()</code> command checks if the Limit Switch is currently being pressed.</p>
-        <div class="sphinx-tabs docutils container">
-      <div class="ui top attached tabular menu sphinx-menu docutils container">
-        <div class="active item sphinx-data-tab-4-0 docutils container">
-          <div class="docutils container">
-            Prototype
-          </div>
-        </div>
-        <div class="item sphinx-data-tab-4-1 docutils container">
-          <div class="docutils container">
-            Example
-          </div>
-        </div>
-      </div>
-      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-4-0 active docutils container">
-        <div class="highlight-cpp notranslate">
-          <div class="highlight">
-            <pre><span></span><span class="k">int32_t</span> <span class="nc">limit</span><span class="o">::</span><span class="n">pressing</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
-          </div>
-        </div>
-      </div>
-      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-4-1 docutils container">
-        <div class="highlight-cpp notranslate">
-          <div class="highlight">
-            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <p><strong>Returns:</strong> An integer value representing the state of the Bumper Switch. A <code>1</code> is returned if the Bumper Switch is being pressed. A <code>0</code> will be returned if it is not.</p>
+    <p><strong>Returns:</strong> An instance of the Event class.</p>
   </div>
   <hr class="docutils" /></div>
                 </div>

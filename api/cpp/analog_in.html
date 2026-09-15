@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Potentiometer V2 C++ API &mdash; VEXcode V5 C++ documentation</title>
+  <title>Analog In C++ API &mdash; VEXcode V5 C++ documentation</title>
   <link rel="stylesheet" href="../../assets/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../assets/css/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../assets/css/tabs.css" type="text/css" />
@@ -34,7 +34,7 @@
           <ul >            <li class="toctree-l1"><a class="reference internal" href="drivetrain.html">Drivetrain</a></li>            <li class="toctree-l1"><a class="reference internal" href="smartdrive.html">SmartDrive</a></li>          </ul>          <p class="caption"><span class="caption-text">Brain & Controller</span></p>
           <ul >            <li class="toctree-l1"><a class="reference internal" href="brain.html">Brain</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_screen.html">Brain Screen</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_battery.html">Brain Battery</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_sdcard.html">Brain SD Card</a></li>            <li class="toctree-l1"><a class="reference internal" href="timer.html">Timer</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller.html">Controller</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_axis.html">Controller Axis</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_button.html">Controller Button</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_screen.html">Controller Screen</a></li>          </ul>          <p class="caption"><span class="caption-text">Smart Sensors</span></p>
           <ul >            <li class="toctree-l1"><a class="reference internal" href="inertial.html">Inertial Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="optical.html">Optical Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="distance.html">Distance Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="rotation.html">Rotation Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="gps.html">GPS Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="aivision.html">AI Vision Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="vision.html">Vision Sensor</a></li>          </ul>          <p class="caption"><span class="caption-text">3-Wire (ADI) Devices</span></p>
-          <ul class="current">            <li class="toctree-l1"><a class="reference internal" href="triport.html">TriPort (ADI)</a></li>            <li class="toctree-l1"><a class="reference internal" href="pneumatics.html">Pneumatics</a></li>            <li class="toctree-l1"><a class="reference internal" href="digital_out.html">Digital Out</a></li>            <li class="toctree-l1"><a class="reference internal" href="digital_in.html">Digital In</a></li>            <li class="toctree-l1"><a class="reference internal" href="bumper.html">Bumper Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="limit.html">Limit Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="line.html">Line Tracker</a></li>            <li class="toctree-l1"><a class="reference internal" href="encoder.html">Encoder</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer.html">Potentiometer</a></li>            <li class="toctree-l1 current"><a class="reference internal current" href="#">Potentiometer V2</a>              <ul>                <li class="toctree-l2"><a class="reference internal" href="#constructor-s-">Constructor(s)</a></li>                <li class="toctree-l2"><a class="reference internal" href="#telemetry-functions">Telemetry Functions</a></li>                <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a></li>              </ul>            </li>            <li class="toctree-l1"><a class="reference internal" href="analog_in.html">Analog In</a></li>            <li class="toctree-l1"><a class="reference internal" href="led.html">LED Indicator</a></li>          </ul>          <p class="caption"><span class="caption-text">System & Utilities</span></p>
+          <ul class="current">            <li class="toctree-l1"><a class="reference internal" href="triport.html">TriPort (ADI)</a></li>            <li class="toctree-l1"><a class="reference internal" href="pneumatics.html">Pneumatics</a></li>            <li class="toctree-l1"><a class="reference internal" href="digital_out.html">Digital Out</a></li>            <li class="toctree-l1"><a class="reference internal" href="digital_in.html">Digital In</a></li>            <li class="toctree-l1"><a class="reference internal" href="bumper.html">Bumper Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="limit.html">Limit Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="line.html">Line Tracker</a></li>            <li class="toctree-l1"><a class="reference internal" href="encoder.html">Encoder</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer.html">Potentiometer</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer_v2.html">Potentiometer V2</a></li>            <li class="toctree-l1 current"><a class="reference internal current" href="#">Analog In</a>              <ul>                <li class="toctree-l2"><a class="reference internal" href="#constructor-s-">Constructor(s)</a></li>                <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a></li>              </ul>            </li>            <li class="toctree-l1"><a class="reference internal" href="led.html">LED Indicator</a></li>          </ul>          <p class="caption"><span class="caption-text">System & Utilities</span></p>
           <ul >            <li class="toctree-l1"><a class="reference internal" href="competition.html">Competition</a></li>            <li class="toctree-l1"><a class="reference internal" href="thread.html">Thread & Task</a></li>            <li class="toctree-l1"><a class="reference internal" href="event.html">Event</a></li>          </ul>          <p class="caption"><span class="caption-text">Reference</span></p>
           <ul >            <li class="toctree-l1"><a class="reference internal" href="color.html">Color</a></li>            <li class="toctree-l1"><a class="reference internal" href="enums.html">Enumerated Types & Units</a></li>          </ul>        </div>
       </div>
@@ -49,7 +49,7 @@
 <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">    <li><a href="../../index.html">Docs</a> &raquo;</li>    <li><a href="../../api/cpp/index.html">API Home</a> &raquo;</li>
     <li>3-Wire (ADI) Devices &raquo;</li>
-    <li>Potentiometer V2 C++ API</li>    <li class="wy-breadcrumbs-aside">
+    <li>Analog In C++ API</li>    <li class="wy-breadcrumbs-aside">
       <a href="https://api.vex.com/v5/home/cpp/index.html" class="fa fa-external-link" target="_blank" rel="noopener"> Official VEX API</a>
     </li>
   </ul>
@@ -57,12 +57,12 @@
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div itemprop="articleBody">
-              <div class="section" id="potentiometer-v2-c-api">
-                <h1>Potentiometer V2 C++ API<a class="headerlink" href="#potentiometer-v2-c-api" title="Permalink to this headline"></a></h1>
+              <div class="section" id="analog-in-c-api">
+                <h1>Analog In C++ API<a class="headerlink" href="#analog-in-c-api" title="Permalink to this headline"></a></h1>
                 <div class="admonition note">
                   <p class="first admonition-title">Hardware Specification</p>
                   <p class="last">
-                    <strong>Class:</strong> <code>vex::potentiometerV2</code> &nbsp;|&nbsp;
+                    <strong>Class:</strong> <code>vex::analog_in</code> &nbsp;|&nbsp;
                     <strong>Port:</strong> 3-Wire Port A-H &nbsp;|&nbsp;
                     <strong>Competition Status:</strong> V5RC Legal Hardware &nbsp;|&nbsp;
                     <strong>Header:</strong> <code>#include "vex.h"</code>
@@ -74,9 +74,7 @@
   <ul class="simple">
     <li><a class="reference internal" href="#functions" id="toc-functions">Functions</a>
       <ul>        <li><a class="reference internal" href="#constructor-s-" id="toc-constructor-s-">Constructor(s)</a>
-          <ul>            <li><a class="reference internal" href="#initializing-the-potv2-class" id="toc-initializing-the-potv2-class">Initializing the potV2 Class</a></li>          </ul>
-        </li>        <li><a class="reference internal" href="#telemetry-functions" id="toc-telemetry-functions">Telemetry Functions</a>
-          <ul>            <li><a class="reference internal" href="#angle" id="toc-angle">angle()</a></li>          </ul>
+          <ul>            <li><a class="reference internal" href="#initializing-the-analog-in-class" id="toc-initializing-the-analog-in-class">Initializing the analog_in Class</a></li>          </ul>
         </li>        <li><a class="reference internal" href="#functions" id="toc-functions">Functions</a>
           <ul>            <li><a class="reference internal" href="#changed" id="toc-changed">changed()</a></li>          </ul>
         </li>      </ul>
@@ -87,12 +85,12 @@
                 <div class="section" id="functions">
                   <h2><a class="toc-backref" href="#toc-functions">Functions</a><a class="headerlink" href="#functions" title="Permalink to this headline"></a></h2>
                   <div class="section" id="constructor-s-">
-  <h3><a class="toc-backref" href="#toc-constructor-s-">Constructor(s)</a><a class="headerlink" href="#constructor-s-" title="Permalink to this headline"></a></h3>  <div class="section" id="initializing-the-potv2-class">
-    <h4><a class="toc-backref" href="#toc-initializing-the-potv2-class">Initializing the potV2 Class</a><a class="headerlink" href="#initializing-the-potv2-class" title="Permalink to this headline"></a></h4>
-    <p>A PotentiometerV2 is created by using the following constructor:</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">potV2</span></code> constructor creates a potV2 object in the specified Three Wire Port:</p>
-<p>A <a class="reference external" href="https://web.archive.org/web/20250613100926/https://api.vex.com/v5/home/cpp/Brain/index.html">Brain</a> or <a class="reference external" href="triport.html">3-Wire Expander</a> must be created first before they can be used to create an object with the potV2 Class constructor.</p>
-<p>This <code class="docutils literal notranslate"><span class="pre">potentiometerV2</span></code> object will be used in all subsequent examples throughout this API documentation when referring to potV2 class methods.</p>
+  <h3><a class="toc-backref" href="#toc-constructor-s-">Constructor(s)</a><a class="headerlink" href="#constructor-s-" title="Permalink to this headline"></a></h3>  <div class="section" id="initializing-the-analog-in-class">
+    <h4><a class="toc-backref" href="#toc-initializing-the-analog-in-class">Initializing the analog_in Class</a><a class="headerlink" href="#initializing-the-analog-in-class" title="Permalink to this headline"></a></h4>
+    <p>An Analog Input is created by using the following constructor:</p>
+<p>The <code>analog_in</code> constructor creates an analog_in object in the specified Three Wire Port.</p>
+<p>A <a class="reference external" href="http://web.archive.org/web/20250922013959/https://api.vex.com/v5/home/cpp/Brain/index.html">Brain</a> or <a class="reference external" href="triport.html">3-Wire Expander</a> must be created first before they can be used to create an object with the analog_in Class constructor.</p>
+<p>This <code>analogIn</code> object will be used in all subsequent examples throughout this API documentation when referring to analog_in class methods.</p>
         <div class="sphinx-tabs docutils container">
       <div class="ui top attached tabular menu sphinx-menu docutils container">
         <div class="active item sphinx-data-tab-1-0 docutils container">
@@ -109,7 +107,7 @@
       <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-1-0 active docutils container">
         <div class="highlight-cpp notranslate">
           <div class="highlight">
-            <pre><span></span><span class="nc">potentiometerV2</span><span class="p">(</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">triport</span><span class="o">::</span><span class="n">port</span> <span class="o">&amp;</span><span class="n">port</span> <span class="p">)</span><span class="p">;</span></pre>
+            <pre><span></span><span class="n">analog_in</span><span class="p">(</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">triport</span><span class="o">::</span><span class="n">port</span> <span class="o">&amp;</span><span class="n">port</span> <span class="p">)</span><span class="p">;</span></pre>
           </div>
         </div>
       </div>
@@ -118,8 +116,9 @@
           <div class="highlight">
             <pre><span></span><span class="c1">// Create the Brain.</span>
 <span class="nc">brain</span> <span class="nc">Brain</span><span class="p">;</span>
-<span class="c1">// Construct a PotentiometerV2 &quot;potentiometerV2&quot; with the potV2 class.</span>
-<span class="n">potV2</span> <span class="nc">potentiometerV2</span> <span class="o">=</span> <span class="n">potV2</span><span class="p">(</span><span class="nc">Brain</span><span class="o">.</span><span class="n">ThreeWirePort</span><span class="o">.</span><span class="n">A</span><span class="p">)</span><span class="p">;</span></pre>
+<span class="c1">// Construct an analog_in &quot;analogIn&quot; with the</span>
+<span class="c1">// analog_in class.</span>
+<span class="n">analog_in</span> <span class="n">analogIn</span> <span class="o">=</span> <span class="n">analog_in</span><span class="p">(</span><span class="nc">Brain</span><span class="o">.</span><span class="n">ThreeWirePort</span><span class="o">.</span><span class="n">A</span><span class="p">)</span></pre>
           </div>
         </div>
       </div>
@@ -133,17 +132,17 @@
     <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
   </thead>
   <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">port</span></code></td>
-<td>The 3-Wire Port that the PotentiometerV2 is connected to, whether itâ€™s a port on the <a class="reference external" href="https://web.archive.org/web/20250613100926/https://api.vex.com/v5/home/cpp/Brain/index.html">Brain</a>, or a <a class="reference external" href="triport.html">3-Wire Expander</a>.</td>
+<tr class="row-even"><td><code>port</code></td>
+<td>The 3-Wire Port that the Analog Input is connected to, whether itâ€™s a port on the <a class="reference external" href="http://web.archive.org/web/20250922013959/https://api.vex.com/v5/home/cpp/Brain/index.html">Brain</a>, or a <a class="reference external" href="triport.html">3-Wire Expander</a>.</td>
 </tr>
   </tbody>
 </table>
     
   </div>
-  <hr class="docutils" /></div><div class="section" id="telemetry-functions">
-  <h3><a class="toc-backref" href="#toc-telemetry-functions">Telemetry Functions</a><a class="headerlink" href="#telemetry-functions" title="Permalink to this headline"></a></h3>  <div class="section" id="angle">
-    <h4><a class="toc-backref" href="#toc-angle">angle()</a><a class="headerlink" href="#angle" title="Permalink to this headline"></a></h4>
-    <p>The <code class="docutils literal notranslate"><span class="pre">angle(units)</span></code> method returns the angle measured by the PotentiometerV2.</p>
+  <hr class="docutils" /></div><div class="section" id="functions">
+  <h3><a class="toc-backref" href="#toc-functions">Functions</a><a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>  <div class="section" id="changed">
+    <h4><a class="toc-backref" href="#toc-changed">changed()</a><a class="headerlink" href="#changed" title="Permalink to this headline"></a></h4>
+    <p>The <code>changed(callback)</code> method registers a function to be called when the value of the analog input changes.</p>
         <div class="sphinx-tabs docutils container">
       <div class="ui top attached tabular menu sphinx-menu docutils container">
         <div class="active item sphinx-data-tab-2-0 docutils container">
@@ -160,82 +159,28 @@
       <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-2-0 active docutils container">
         <div class="highlight-cpp notranslate">
           <div class="highlight">
-            <pre><span></span><span class="k">double</span> <span class="nc">potentiometerV2</span><span class="o">::</span><span class="n">angle</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+            <pre><span></span><span class="k">void</span> <span class="n">analog_in</span><span class="o">::</span><span class="n">changed</span><span class="p">(</span> <span class="k">void</span> <span class="p">(</span><span class="o">*</span><span class="n">callback</span><span class="p">)</span><span class="p">(</span><span class="k">void</span><span class="p">)</span> <span class="p">)</span><span class="p">;</span></pre>
           </div>
         </div>
       </div>
       <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-2-1 docutils container">
         <div class="highlight-cpp notranslate">
           <div class="highlight">
-            <pre><span></span><span class="c1">// Get the current angle of the PotentiometerV2 in the</span>
-<span class="c1">// range 0 - 250 degrees.</span>
-<span class="k">double</span> <span class="n">angle</span> <span class="o">=</span> <span class="nc">potentiometerV2</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">degrees</span><span class="p">)</span><span class="p">;</span>
-
-<span class="c1">// Print the current angle of the PotentiometerV2 to the</span>
-<span class="c1">// Brain&#39;s screen.</span>
-<span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span><span class="p">;</span></pre>
-          </div>
-        </div>
-      </div>
-    </div>
-    <table border="1" class="docutils">
-  <colgroup>
-    <col width="22%" />
-    <col width="78%" />
-  </colgroup>
-  <thead valign="bottom">
-    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
-  </thead>
-  <tbody valign="top">
-<tr class="row-even"><td>units</td>
-<td>A valid <a class="reference external" href="enums.html#rotation-units">rotationUnit</a> or <code class="docutils literal notranslate"><span class="pre">percent</span></code>. The default is <code class="docutils literal notranslate"><span class="pre">degrees</span></code>.</td>
-</tr>
-  </tbody>
-</table>
-    <p><strong>Returns:</strong> A double representing the angle measured by the PotentiometerV2 in the specified units.</p>
-  </div>
-  <hr class="docutils" /></div><div class="section" id="functions">
-  <h3><a class="toc-backref" href="#toc-functions">Functions</a><a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>  <div class="section" id="changed">
-    <h4><a class="toc-backref" href="#toc-changed">changed()</a><a class="headerlink" href="#changed" title="Permalink to this headline"></a></h4>
-    <p>The <code class="docutils literal notranslate"><span class="pre">changed(callback)</span></code> method registers a callback function for when the value measured by the PotentiometerV2 changes.</p>
-        <div class="sphinx-tabs docutils container">
-      <div class="ui top attached tabular menu sphinx-menu docutils container">
-        <div class="active item sphinx-data-tab-3-0 docutils container">
-          <div class="docutils container">
-            Prototype
-          </div>
-        </div>
-        <div class="item sphinx-data-tab-3-1 docutils container">
-          <div class="docutils container">
-            Example
-          </div>
-        </div>
-      </div>
-      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-3-0 active docutils container">
-        <div class="highlight-cpp notranslate">
-          <div class="highlight">
-            <pre><span></span><span class="k">void</span> <span class="nc">potentiometerV2</span><span class="o">::</span><span class="n">changed</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
-          </div>
-        </div>
-      </div>
-      <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-3-1 docutils container">
-        <div class="highlight-cpp notranslate">
-          <div class="highlight">
-            <pre><span></span><span class="c1">// Define the potentiometerChanged function with a void</span>
-<span class="c1">// return type, showing it doesn&#39;t return a value.</span>
-<span class="k">void</span> <span class="n">potentiometerChanged</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-<span class="c1">  // The brain will print that the value of the PotentiometerV2</span>
-<span class="c1">  // changed on the Brain&#39;s screen.</span>
-  <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;PotentiometerV2 changed&quot;</span><span class="p">)</span><span class="p">;</span>
+            <pre><span></span><span class="c1">// Define the AnalogInputChanged function with a void return</span>
+<span class="c1">// type, showing it doesn&#39;t return a value.</span>
+<span class="k">void</span> <span class="n">AnalogInputChanged</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">  // The Brain will print that the Analog Input changed on</span>
+<span class="c1">  // the Brain&#39;s screen.</span>
+  <span class="nc">Brain</span><span class="o">.</span><span class="nc">Screen</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;analog input changed&quot;</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="k">int</span> <span class="n">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
 <span class="c1">  // Initializing Robot Configuration. DO NOT REMOVE!</span>
   <span class="n">vexcodeInit</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
 
-<span class="c1">  // Run potentiometerChanged when the value measured by</span>
-<span class="c1">  // the PotentiometerV2 changes.</span>
-  <span class="nc">potentiometerV2</span><span class="o">.</span><span class="n">changed</span><span class="p">(</span><span class="n">potentiometerChanged</span><span class="p">)</span><span class="p">;</span>
+<span class="c1">  // Run analogInputChanged when the value of the</span>
+<span class="c1">  // Analog Input changes.</span>
+  <span class="n">analogIn</span><span class="o">.</span><span class="n">changed</span><span class="p">(</span><span class="n">analogInputChanged</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span></pre>
           </div>
         </div>
@@ -251,11 +196,11 @@
   </thead>
   <tbody valign="top">
 <tr class="row-even"><td>callback</td>
-<td>The callback function to be called when the value measured by the PotentiometerV2 changes.</td>
+<td>A function that will be called when the value of analog input changes.</td>
 </tr>
   </tbody>
 </table>
-    <p><strong>Returns:</strong> None.</p>
+    <p><strong>Returns:</strong> An instance of the Event class.</p>
   </div>
   <hr class="docutils" /></div>
                 </div>

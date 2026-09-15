@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TriPort (ADI) C++ API &mdash; VEXcode V5 C++ documentation</title>
+  <title>Digital Out C++ API &mdash; VEXcode V5 C++ documentation</title>
   <link rel="stylesheet" href="../../assets/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../assets/css/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../assets/css/tabs.css" type="text/css" />
@@ -34,7 +34,7 @@
           <ul >            <li class="toctree-l1"><a class="reference internal" href="drivetrain.html">Drivetrain</a></li>            <li class="toctree-l1"><a class="reference internal" href="smartdrive.html">SmartDrive</a></li>          </ul>          <p class="caption"><span class="caption-text">Brain & Controller</span></p>
           <ul >            <li class="toctree-l1"><a class="reference internal" href="brain.html">Brain</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_screen.html">Brain Screen</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_battery.html">Brain Battery</a></li>            <li class="toctree-l1"><a class="reference internal" href="brain_sdcard.html">Brain SD Card</a></li>            <li class="toctree-l1"><a class="reference internal" href="timer.html">Timer</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller.html">Controller</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_axis.html">Controller Axis</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_button.html">Controller Button</a></li>            <li class="toctree-l1"><a class="reference internal" href="controller_screen.html">Controller Screen</a></li>          </ul>          <p class="caption"><span class="caption-text">Smart Sensors</span></p>
           <ul >            <li class="toctree-l1"><a class="reference internal" href="inertial.html">Inertial Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="optical.html">Optical Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="distance.html">Distance Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="rotation.html">Rotation Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="gps.html">GPS Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="aivision.html">AI Vision Sensor</a></li>            <li class="toctree-l1"><a class="reference internal" href="vision.html">Vision Sensor</a></li>          </ul>          <p class="caption"><span class="caption-text">3-Wire (ADI) Devices</span></p>
-          <ul class="current">            <li class="toctree-l1 current"><a class="reference internal current" href="#">TriPort (ADI)</a>              <ul>                <li class="toctree-l2"><a class="reference internal" href="#constructor-s-">Constructor(s)</a></li>                <li class="toctree-l2"><a class="reference internal" href="#telemetry-functions">Telemetry Functions</a></li>              </ul>            </li>            <li class="toctree-l1"><a class="reference internal" href="pneumatics.html">Pneumatics</a></li>            <li class="toctree-l1"><a class="reference internal" href="digital_out.html">Digital Out</a></li>            <li class="toctree-l1"><a class="reference internal" href="digital_in.html">Digital In</a></li>            <li class="toctree-l1"><a class="reference internal" href="bumper.html">Bumper Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="limit.html">Limit Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="line.html">Line Tracker</a></li>            <li class="toctree-l1"><a class="reference internal" href="encoder.html">Encoder</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer.html">Potentiometer</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer_v2.html">Potentiometer V2</a></li>            <li class="toctree-l1"><a class="reference internal" href="analog_in.html">Analog In</a></li>            <li class="toctree-l1"><a class="reference internal" href="led.html">LED Indicator</a></li>          </ul>          <p class="caption"><span class="caption-text">System & Utilities</span></p>
+          <ul class="current">            <li class="toctree-l1"><a class="reference internal" href="triport.html">TriPort (ADI)</a></li>            <li class="toctree-l1"><a class="reference internal" href="pneumatics.html">Pneumatics</a></li>            <li class="toctree-l1 current"><a class="reference internal current" href="#">Digital Out</a>              <ul>                <li class="toctree-l2"><a class="reference internal" href="#constructor-s-">Constructor(s)</a></li>                <li class="toctree-l2"><a class="reference internal" href="#movement-functions">Movement Functions</a></li>              </ul>            </li>            <li class="toctree-l1"><a class="reference internal" href="digital_in.html">Digital In</a></li>            <li class="toctree-l1"><a class="reference internal" href="bumper.html">Bumper Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="limit.html">Limit Switch</a></li>            <li class="toctree-l1"><a class="reference internal" href="line.html">Line Tracker</a></li>            <li class="toctree-l1"><a class="reference internal" href="encoder.html">Encoder</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer.html">Potentiometer</a></li>            <li class="toctree-l1"><a class="reference internal" href="potentiometer_v2.html">Potentiometer V2</a></li>            <li class="toctree-l1"><a class="reference internal" href="analog_in.html">Analog In</a></li>            <li class="toctree-l1"><a class="reference internal" href="led.html">LED Indicator</a></li>          </ul>          <p class="caption"><span class="caption-text">System & Utilities</span></p>
           <ul >            <li class="toctree-l1"><a class="reference internal" href="competition.html">Competition</a></li>            <li class="toctree-l1"><a class="reference internal" href="thread.html">Thread & Task</a></li>            <li class="toctree-l1"><a class="reference internal" href="event.html">Event</a></li>          </ul>          <p class="caption"><span class="caption-text">Reference</span></p>
           <ul >            <li class="toctree-l1"><a class="reference internal" href="color.html">Color</a></li>            <li class="toctree-l1"><a class="reference internal" href="enums.html">Enumerated Types & Units</a></li>          </ul>        </div>
       </div>
@@ -49,7 +49,7 @@
 <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">    <li><a href="../../index.html">Docs</a> &raquo;</li>    <li><a href="../../api/cpp/index.html">API Home</a> &raquo;</li>
     <li>3-Wire (ADI) Devices &raquo;</li>
-    <li>TriPort (ADI) C++ API</li>    <li class="wy-breadcrumbs-aside">
+    <li>Digital Out C++ API</li>    <li class="wy-breadcrumbs-aside">
       <a href="https://api.vex.com/v5/home/cpp/index.html" class="fa fa-external-link" target="_blank" rel="noopener"> Official VEX API</a>
     </li>
   </ul>
@@ -57,26 +57,31 @@
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div itemprop="articleBody">
-              <div class="section" id="triport-adi--c-api">
-                <h1>TriPort (ADI) C++ API<a class="headerlink" href="#triport-adi--c-api" title="Permalink to this headline"></a></h1>
+              <div class="section" id="digital-out-c-api">
+                <h1>Digital Out C++ API<a class="headerlink" href="#digital-out-c-api" title="Permalink to this headline"></a></h1>
                 <div class="admonition note">
                   <p class="first admonition-title">Hardware Specification</p>
                   <p class="last">
-                    <strong>Class:</strong> <code>vex::triport</code> &nbsp;|&nbsp;
-                    <strong>Port:</strong> 3-Wire Ports A-H &nbsp;|&nbsp;
+                    <strong>Class:</strong> <code>vex::digital_out</code> &nbsp;|&nbsp;
+                    <strong>Port:</strong> 3-Wire Port A-H &nbsp;|&nbsp;
                     <strong>Competition Status:</strong> V5RC Legal Hardware &nbsp;|&nbsp;
                     <strong>Header:</strong> <code>#include "vex.h"</code>
                   </p>
                 </div>
-                
+                                <div class="admonition note">
+                  <p class="first admonition-title">Common Application: V5 Pneumatics Solenoids</p>
+                  <p class="last">
+                    In VEXcode V5, <code>digital_out</code> is the primary class configured by the graphical Devices window for pneumatic solenoid valves (Add a device &gt; 3-WIRE &gt; DIGITAL OUT). Calling <code>.set(true)</code> energizes the solenoid to extend the cylinder, and <code>.set(false)</code> de-energizes the solenoid to retract it. For cylinder-specific methods (extend, retract, toggle), see also <a class="reference internal" href="pneumatics.html"><code>vex::pneumatics</code></a>.
+                  </p>
+                </div>
 
                 <div class="contents local topic" id="contents">
   <ul class="simple">
     <li><a class="reference internal" href="#functions" id="toc-functions">Functions</a>
       <ul>        <li><a class="reference internal" href="#constructor-s-" id="toc-constructor-s-">Constructor(s)</a>
-          <ul>            <li><a class="reference internal" href="#initializing-the-triport-class" id="toc-initializing-the-triport-class">Initializing the triport Class</a></li>          </ul>
-        </li>        <li><a class="reference internal" href="#telemetry-functions" id="toc-telemetry-functions">Telemetry Functions</a>
-          <ul>            <li><a class="reference internal" href="#installed" id="toc-installed">installed()</a></li>          </ul>
+          <ul>            <li><a class="reference internal" href="#initializing-the-digital-out-class" id="toc-initializing-the-digital-out-class">Initializing the digital_out Class</a></li>          </ul>
+        </li>        <li><a class="reference internal" href="#movement-functions" id="toc-movement-functions">Movement Functions</a>
+          <ul>            <li><a class="reference internal" href="#set" id="toc-set">set()</a></li>          </ul>
         </li>      </ul>
     </li>
   </ul>
@@ -85,12 +90,12 @@
                 <div class="section" id="functions">
                   <h2><a class="toc-backref" href="#toc-functions">Functions</a><a class="headerlink" href="#functions" title="Permalink to this headline"></a></h2>
                   <div class="section" id="constructor-s-">
-  <h3><a class="toc-backref" href="#toc-constructor-s-">Constructor(s)</a><a class="headerlink" href="#constructor-s-" title="Permalink to this headline"></a></h3>  <div class="section" id="initializing-the-triport-class">
-    <h4><a class="toc-backref" href="#toc-initializing-the-triport-class">Initializing the triport Class</a><a class="headerlink" href="#initializing-the-triport-class" title="Permalink to this headline"></a></h4>
-    <p>A Triport, or 3-Wire Expander, is created by using the following constructor:</p>
-<p>The <code>triport</code> constructor creates a triport object.</p>
-<p>This <code>Triport1</code> object will be used in all subsequent examples throughout this API documentation when referring to triport class methods.</p>
-<p>Triports also have a letter attribute denoting the specific port in use. Each port is identified by a letter (a through h) and can be accessed using the format <code>Triport1.x</code>, where <code>x</code> is the port letter. For example, <code>Triport1.a</code> refers to the Sensor connected to the Triportâ€™s port A.</p>
+  <h3><a class="toc-backref" href="#toc-constructor-s-">Constructor(s)</a><a class="headerlink" href="#constructor-s-" title="Permalink to this headline"></a></h3>  <div class="section" id="initializing-the-digital-out-class">
+    <h4><a class="toc-backref" href="#toc-initializing-the-digital-out-class">Initializing the digital_out Class</a><a class="headerlink" href="#initializing-the-digital-out-class" title="Permalink to this headline"></a></h4>
+    <p>A Digital Output is created by using the following constructor:</p>
+<p>The <code>digital_out</code> constructor creates a digital_out object in the specified Three Wire Port:</p>
+<p>A <a class="reference external" href="http://web.archive.org/web/20250922013959/https://api.vex.com/v5/home/cpp/Brain/index.html">Brain</a> or <a class="reference external" href="triport.html">3-Wire Expander</a> must be created first before they can be used to create an object with the digital_out Class constructor.</p>
+<p>This <code>digout</code> object will be used in all subsequent examples throughout this API documentation when referring to digital_out class methods.</p>
         <div class="sphinx-tabs docutils container">
       <div class="ui top attached tabular menu sphinx-menu docutils container">
         <div class="active item sphinx-data-tab-1-0 docutils container">
@@ -107,15 +112,18 @@
       <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-1-0 active docutils container">
         <div class="highlight-cpp notranslate">
           <div class="highlight">
-            <pre><span></span><span class="nc">triport</span><span class="p">(</span> <span class="k">int32_t</span> <span class="n">port</span> <span class="p">)</span><span class="p">;</span></pre>
+            <pre><span></span><span class="n">digital_out</span><span class="p">(</span> <span class="nc">vex</span><span class="o">::</span><span class="nc">triport</span><span class="o">::</span><span class="n">port</span> <span class="o">&amp;</span><span class="n">port</span> <span class="p">)</span><span class="p">;</span></pre>
           </div>
         </div>
       </div>
       <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-1-1 docutils container">
         <div class="highlight-cpp notranslate">
           <div class="highlight">
-            <pre><span></span><span class="c1">// Construct a 3-Wire Expander &quot;Triport1&quot; with the triport class.</span>
-<span class="nc">triport</span> <span class="n">Triport1</span> <span class="o">=</span> <span class="nc">triport</span><span class="p">(</span><span class="n">PORT1</span><span class="p">)</span><span class="p">;</span></pre>
+            <pre><span></span><span class="c1">// Create the Brain.</span>
+<span class="nc">brain</span> <span class="nc">Brain</span><span class="p">;</span>
+<span class="c1">// Construct a Digital Input &quot;digin&quot; with the</span>
+<span class="c1">// digital_out class.</span>
+<span class="n">digital_out</span> <span class="n">digout</span> <span class="o">=</span> <span class="n">digital_out</span><span class="p">(</span><span class="nc">Brain</span><span class="o">.</span><span class="n">ThreeWirePort</span><span class="o">.</span><span class="n">A</span><span class="p">)</span><span class="p">;</span></pre>
           </div>
         </div>
       </div>
@@ -130,16 +138,16 @@
   </thead>
   <tbody valign="top">
 <tr class="row-even"><td><code>port</code></td>
-<td>The <a class="reference external" href="enums.html#ports">port</a> the 3-Wire Expander is connected to on the V5 Brain.</td>
+<td>The 3-Wire Port that the Digital Output is connected to, whether itâ€™s a port on the <a class="reference external" href="http://web.archive.org/web/20250922013959/https://api.vex.com/v5/home/cpp/Brain/index.html">Brain</a>, or a <a class="reference external" href="triport.html">3-Wire Expander</a>.</td>
 </tr>
   </tbody>
 </table>
     
   </div>
-  <hr class="docutils" /></div><div class="section" id="telemetry-functions">
-  <h3><a class="toc-backref" href="#toc-telemetry-functions">Telemetry Functions</a><a class="headerlink" href="#telemetry-functions" title="Permalink to this headline"></a></h3>  <div class="section" id="installed">
-    <h4><a class="toc-backref" href="#toc-installed">installed()</a><a class="headerlink" href="#installed" title="Permalink to this headline"></a></h4>
-    <p>The <code>installed()</code> command returns the status of what is installed on the port.</p>
+  <hr class="docutils" /></div><div class="section" id="movement-functions">
+  <h3><a class="toc-backref" href="#toc-movement-functions">Movement Functions</a><a class="headerlink" href="#movement-functions" title="Permalink to this headline"></a></h3>  <div class="section" id="set">
+    <h4><a class="toc-backref" href="#toc-set">set()</a><a class="headerlink" href="#set" title="Permalink to this headline"></a></h4>
+    <p>The <code>set(value)</code> command sets the value of the Digital Output.</p>
         <div class="sphinx-tabs docutils container">
       <div class="ui top attached tabular menu sphinx-menu docutils container">
         <div class="active item sphinx-data-tab-2-0 docutils container">
@@ -156,20 +164,34 @@
       <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-2-0 active docutils container">
         <div class="highlight-cpp notranslate">
           <div class="highlight">
-            <pre><span></span><span class="k">void</span> <span class="nc">triport</span><span class="o">::</span><span class="n">installed</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></pre>
+            <pre><span></span><span class="k">void</span> <span class="n">digital_out</span><span class="o">::</span><span class="n">set</span><span class="p">(</span> <span class="k">bool</span> <span class="n">value</span> <span class="p">)</span><span class="p">;</span></pre>
           </div>
         </div>
       </div>
       <div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-2-1 docutils container">
         <div class="highlight-cpp notranslate">
           <div class="highlight">
-            <pre><span></span><span class="c1">// No example provided in official VEXcode API.</span></pre>
+            <pre><span></span><span class="c1">// Set the Digital Output to true.</span>
+<span class="n">digout</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="k">true</span><span class="p">)</span><span class="p">;</span></pre>
           </div>
         </div>
       </div>
     </div>
-    
-    <p><strong>Returns:</strong> <code>true</code> if a 3-Wire Port device is installed in the port. <code>false</code> if one is not.</p>
+    <table border="1" class="docutils">
+  <colgroup>
+    <col width="22%" />
+    <col width="78%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr class="row-odd"><th class="head">Parameters</th><th class="head">&#160;</th></tr>
+  </thead>
+  <tbody valign="top">
+<tr class="row-even"><td>value</td>
+<td>The value to set for the digital output: <code>true</code> or <code>false</code>.</td>
+</tr>
+  </tbody>
+</table>
+    <p><strong>Returns:</strong> None.</p>
   </div>
   <hr class="docutils" /></div>
                 </div>

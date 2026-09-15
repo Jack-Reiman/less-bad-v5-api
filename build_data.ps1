@@ -14,7 +14,6 @@ $categories = @(
             @{ title = "Motor (11W)"; source = "Motor.html"; dest = "api/cpp/motor.html"; className = "vex::motor"; port = "Smart Port 1-21"; summary = "V5 11W Smart Motor with integrated encoder and current, torque, temperature telemetry." }
             @{ title = "Motor 5.5W"; source = "Motor55.html"; dest = "api/cpp/motor55.html"; className = "vex::motor"; port = "Smart Port 1-21"; summary = "V5 5.5W Smart Motor designed for lightweight mechanisms and compact designs." }
             @{ title = "Motor Group"; source = "MotorGroup.html"; dest = "api/cpp/motorgroup.html"; className = "vex::motor_group"; port = "Multiple Smart Ports"; summary = "Synchronized multi-motor control group for lifts, intakes, and drivetrains." }
-            @{ title = "Pneumatics"; source = "Pneumatics.html"; dest = "api/cpp/pneumatics.html"; className = "vex::pneumatics"; port = "Smart Port / 3-Wire"; summary = "V5 Pneumatic control for single-acting and double-acting solenoid valves." }
         )
     },
     @{
@@ -51,15 +50,20 @@ $categories = @(
         )
     },
     @{
-        name = "3-Wire (ADI) Sensors"
+        name = "3-Wire (ADI) Devices"
         pages = @(
-            @{ title = "TriPort (ADI)"; source = "Triport.html"; dest = "api/cpp/triport.html"; className = "vex::triport"; port = "3-Wire Ports A-H"; summary = "TriPort expander and built-in 3-wire ports for competition-legal 3-wire sensors." }
+            @{ title = "TriPort (ADI)"; source = "Triport.html"; dest = "api/cpp/triport.html"; className = "vex::triport"; port = "3-Wire Ports A-H"; summary = "TriPort expander and built-in 3-wire ports for competition-legal 3-wire sensors and actuators." }
+            @{ title = "Pneumatics"; source = "Pneumatics.html"; dest = "api/cpp/pneumatics.html"; className = "vex::pneumatics"; port = "3-Wire Port A-H"; summary = "V5 Pneumatics cylinder solenoid control (extend, retract, open, close, set, toggle, value) via 3-wire ADI ports." }
+            @{ title = "Digital Out"; source = "DigitalOut.html"; dest = "api/cpp/digital_out.html"; className = "vex::digital_out"; port = "3-Wire Port A-H"; summary = "3-Wire digital output control for pneumatic solenoids, relays, and custom electronics." }
+            @{ title = "Digital In"; source = "DigitalIn.html"; dest = "api/cpp/digital_in.html"; className = "vex::digital_in"; port = "3-Wire Port A-H"; summary = "3-Wire digital input line with high/low state change event callbacks." }
             @{ title = "Bumper Switch"; source = "Bumper.html"; dest = "api/cpp/bumper.html"; className = "vex::bumper"; port = "3-Wire Port A-H"; summary = "Physical mechanical bumper switch detecting contact and presses." }
             @{ title = "Limit Switch"; source = "Limit.html"; dest = "api/cpp/limit.html"; className = "vex::limit"; port = "3-Wire Port A-H"; summary = "Physical micro-switch limit sensor for mechanical stops." }
             @{ title = "Line Tracker"; source = "Line.html"; dest = "api/cpp/line.html"; className = "vex::line"; port = "3-Wire Port A-H"; summary = "Infrared reflectance sensor detecting field line tape and contrast." }
             @{ title = "Encoder"; source = "Encoder.html"; dest = "api/cpp/encoder.html"; className = "vex::encoder"; port = "3-Wire Ports (Pairs)"; summary = "Optical quadrature shaft encoder using two digital ports for rotation tracking." }
             @{ title = "Potentiometer"; source = "Potentiometer.html"; dest = "api/cpp/potentiometer.html"; className = "vex::potentiometer"; port = "3-Wire Port A-H"; summary = "Analog rotary potentiometer measuring up to 250 degrees of shaft position." }
             @{ title = "Potentiometer V2"; source = "PotentiometerV2.html"; dest = "api/cpp/potentiometer_v2.html"; className = "vex::potentiometerV2"; port = "3-Wire Port A-H"; summary = "V2 330-degree rotary potentiometer with enhanced linearity." }
+            @{ title = "Analog In"; source = "AnalogIn.html"; dest = "api/cpp/analog_in.html"; className = "vex::analog_in"; port = "3-Wire Port A-H"; summary = "General-purpose analog sensor input with voltage reading and changed callbacks." }
+            @{ title = "LED Indicator"; source = "LED.html"; dest = "api/cpp/led.html"; className = "vex::led"; port = "3-Wire Port A-H"; summary = "3-Wire colored LED status indicator with on, off, and toggle methods." }
         )
     },
     @{
